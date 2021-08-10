@@ -1,0 +1,21 @@
+= Exercise: Testing
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Background
+
+In the previous exercise, you developed a script that calculates the cost of an order of magnets using a bulk pricing scheme. Now you will develop a Pytest test script to test your earlier script.
+
+== Instructions
+
+Write a test script with at least four "happy path" test cases and at least four edge cases. Make it clear which test cases fall into which categories (for example, you might split them into separate functions, or you might include comments marking the start of each type of test case).
+
+You should create your test script in the same directory as your bulk pricing script. Have your test script import your `get_cost()` function. Run your test script using Pytest. If any tests fail, determine whether the failure is due to mistakes in the original script or the test script.
+
+Submit your test script on ELMS as a .py file.

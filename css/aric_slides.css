@@ -1,0 +1,220 @@
+.reveal .slides {
+    text-align: left;
+}
+
+.reveal ul ul {
+    list-style-type: '⁃  ';
+}
+
+.title h1, .title h2 {
+    text-shadow: 2px 2px 5px #333333;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+}
+
+p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+    color: #b300ff;
+    font-size: 85%;
+}
+
+.slot {
+    color: yellow;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.emph {
+    color: darkorange;
+    font-weight: bold;
+}
+
+.emph .slot {
+    color: darkorange;
+    font-weight: bold;
+}
+
+.filelisting {
+    color: cornflowerblue;
+}
+
+li li {
+    font-size: 85%;
+}
+
+.nobullet ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.nosubbullet li li {
+    list-style-type: none;
+    color: gray;
+    padding-left: 0;
+}
+
+.nosubbullet_white li li {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.nosubsubbullet li li li {
+    list-style-type: none;
+    color: gray;
+    padding-left: 0;
+}
+
+.leftalign p {
+    text-align: left;
+}
+
+.rightborder {
+    border-right: 1em solid transparent;
+}
+
+.columns .slide-content > .column {
+    padding: 0 3rem 0 0;
+}
+
+.output {
+    color: lightskyblue;
+    padding-bottom: 0.1ex;
+}
+
+.bigcode pre code {
+    max-height: 660px;
+    font-size: 80%;
+    line-height: 120%;
+}
+
+.thumbsdown {
+    list-style: "👎 " !important;
+}
+
+.thumbsup {
+    list-style: "👍 " !important;
+}
+
+.fullwidth pre {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.noborder img {
+    border: 0 !important;
+}
+
+.background img {
+    background-color: white !important;
+}
+
+.lefttable {
+    margin: 0 !important;
+}
+
+.lefttable td {
+    padding-left: 0 !important;
+    padding-right: 2em !important;
+}
+
+.twocoltable {
+    margin: 0 !important;
+}
+
+.twocoltable td {
+    padding-left: 0 !important;
+    padding-right: 1em !important;
+}
+
+.twocoltable td:last-child {
+    padding-left: 1em !important;
+    padding-right: 0 !important;
+}
+
+.notopmargin li:first-child p {
+    margin: 0 !important;
+}
+
+.lefttable pre {
+    margin: 0;
+    width: 100%;
+}
+
+.smallspace pre {
+    padding-top: 1em;
+}
+
+.smalltext {
+    font-size: 67%;
+}
+
+.tinytext {
+    font-size: 50%;
+}
+
+.tinytext p.tableblock {
+    margin: 0 !important;
+}
+
+.tinytext td {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.tighttext {
+    font-size: 67%;
+}
+
+.tighttext p.tableblock {
+    margin: .125em !important;
+}
+
+.tighttext td {
+    padding-left: .25em !important;
+    padding-right: .25em !important;
+}
+
+.prettytinytext {
+    font-size: 52%;
+}
+
+.prettytinytext p.tableblock {
+    margin: 0 !important;
+}
+
+.prettytinytext th {
+    padding: .2em .2em .2em .2em !important;
+}
+
+.prettytinytext td {
+    padding-left: .2em !important;
+    padding-right: .2em !important;
+}
+
+.reveal table.grid-none table.grid-rows th, .reveal table.grid-none table.grid-rows td {
+    border-bottom: 1px !important;
+}
+
+.reveal .slides section[data-vertical-align-top] {
+    top: 0 !important;
+}
+
+.lessspace li li p {
+    margin: 10px 0;
+    line-height: 1;
+}
+
+.lessspace li p {
+    margin: 10px 0;
+    line-height: 1;
+}
+
+.columns .slide-content > .column:last-of-type {
+    padding: 0;
+}
+
+::selection {
+    background: #007070;
+}

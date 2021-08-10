@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cp /autograder/submission/car.py /autograder/source/car.py
+
+cd /autograder/source
+
+python3 run_tests.py

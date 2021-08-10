@@ -1,0 +1,330 @@
+= Inheritance, part 2
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 810
+:revealjs_history: true
+:title-slide-background-image: images/colorful-containers.jpg
+:stem:
+
+== Motivation for inheritance
+
+[.nosubbullet]
+[%step]
+* Inheritance is useful when we need two kinds of things with similar behavior and a similar interface
+* We've seen an example of this with the `Counter` class from the `collections` module
+[%step]
+** `Counter` inherits from `dict` and does (almost all) the things a `dict` does, plus some more
+* By default, a subclass inherits (reuses) all the methods of its parent class
+* A subclass can override methods of the parent class
+* An instance of a subclass is also an instance of the parent class
+
+[.columns]
+=== Liskov Substitution Principle
+
+[.fragment]
+[.column]
+--
+image:barbara_liskov.jpg[]
+
+[%hardbreaks]
+Barbara Liskov
+MIT Computer Science Professor
+first woman from U.S. to receive a Ph.D in computer science
+--
+
+[.column]
+--
+[.nosubbullet]
+[%step]
+* If S is a subclass of C, then instances of C may be replaced with instances of S without breaking the program
+* Instances of a subclass should behave like instances of the parent class
+** Remember, instances of a subclass are also considered instances of the parent class
+--
+
+=== The simplest subclass
+
+[.noborder.lefttable]
+[cols="2*",frame=none,grid=none]
+|===
+| Parent class
+| Subclass
+
+a|
+[.fragment]
+[source, python]
+----
+class Person:
+    def __init__(self, name):
+        self.name = name
+        self.connections = set()
+    
+    def connect(self, other):
+        if other not in self.connections:
+            self.connections.add(other)
+            other.connect(self)
+----
+a|
+[.fragment]
+[source, python]
+----
+class SharingPerson(Person):
+    pass
+----
+
+[%step]
+* You would never really do this; it's not useful
+* The point is that without any meaningful content, `SharingPerson` inherits from `Person`
+
+|===
+
+[.notes]
+--
+Throughout this video, we'll be using as an example the Person class from the simple social network code we wrote in the Git videos. We're going to create a subclass of this class called SharingPerson that does everything a Person does, but also announces to the world every time they make a new connection.
+--
+
+[.columns]
+=== `type()` vs. `isinstance()`
+
+[.column]
+--
+[.nosubbullet]
+[%step]
+* `type()` tells you what class an object belongs to
+* `isinstance()` tells you whether an object is an instance of a particular class
+** Remember, instances of a subclass are also considered instances of the parent class
+--
+
+[.column.fragment]
+--
+[source, python]
+----
+>>> s = SharingPerson("Siobhan")
+>>> type(s) == Person
+False
+>>> isinstance(s, Person)
+True
+----
+--
+
+[.notes]
+--
+type() tells us exactly what kind of thing an object is; isinstance() tells us whether a thing has the interface (in other words, the methods and attributes) we are looking for.
+--
+
+== Overriding methods
+
+* Sometimes we need a subclass to have a method whose inner workings are slightly different from those of the parent class
+* We can override the parent method by defining a method in the child class with the same name as the parent method
+
+=== Overriding methods: a first attempt
+
+[.noborder.lefttable]
+[cols="2*",frame=none,grid=none]
+|===
+| Parent class
+| Subclass
+
+a|
+[source, python]
+----
+class Person:
+    def __init__(self, name):
+        self.name = name
+        self.connections = set()
+    
+    def connect(self, other):
+        if other not in self.connections:
+            self.connections.add(other)
+            other.connect(self)
+----
+a|
+[source, python]
+----
+class SharingPerson(Person):
+
+    # NB: inheriting __init__() from Person
+
+    def connect(self, other):
+        if other not in self.connections:
+            self.connections.add(other)
+            other.connect(self)
+            print(f"{self.name} connected"
+                  f" with {other.name}!")
+----
+|===
+
+[.notes]
+--
+Not ideal since it re-implements all the code from Person.connect().
+--
+
+=== Invoking parent methods within a subclass
+
+[%step]
+* It would be nice if we could define subclass methods in terms of parent methods
+* In other words, it would be nice if a subclass method could call the corresponding parent method
+* The problem is that by defining a method in the subclass with the same name as the method in the parent class, we can no longer use that name in the subclass to refer to the parent method
+
+[.columns]
+=== Tangent: instances are shortcuts to classes
+
+[.column.fragment]
+--
+Consider this code:
+
+[source, python]
+----
+class Greeter:
+    def __init__(self, name):
+        self.name = name
+    
+    def greet(self):
+        print(f"Hi, I'm {self.name}!")
+
+g = Greeter("Gretchen")
+----
+--
+
+[.column]
+--
+[.nosubbullet]
+[%step]
+* The usual way to use the `greet()` method of `g` is
+** `g.greet()`
+* But you can also do this:
+** `Greeter.greet(g)`
+* Most of the time, we should use the first approach above, not the second one. But when trying to call a method we are overriding, the first approach won't work, but the second one will.
+--
+
+[.notes]
+--
+When we do `Greeter.greet(g)`, we are passing in `g` as the value of `self`. Normally, Python takes care of that for us.
+--
+
+=== Overriding methods: a second attempt
+
+[.noborder.lefttable]
+[cols="2*",frame=none,grid=none]
+|===
+| Parent class
+| Subclass
+
+a|
+[source, python]
+----
+class Person:
+    def __init__(self, name):
+        self.name = name
+        self.connections = set()
+    
+    def connect(self, other):
+        if other not in self.connections:
+            self.connections.add(other)
+            other.connect(self)
+----
+a|
+[source, python]
+----
+class SharingPerson(Person):
+
+    # NB: inheriting __init__() from Person
+
+    def connect(self, other):
+        if other not in self.connections:
+            print(f"{self.name} connected"
+                  f" with {other.name}!")
+        Person.connect(self, other)
+----
+|===
+
+[.notes]
+--
+Still have to check whether other is in self.connections, but this is better than before.
+--
+
+[.columns]
+== `super()`
+
+[.column]
+--
+[.nosubbullet]
+[%step]
+* Calling the parent class works, but is kind of clunky
+[%step]
+** You have to know what the parent class is
+** You have to explicitly pass in a value for `self` (not cool!)
+* If we decide later that we need to inherit from a different parent class, we would have to replace all our calls to the old parent class
+--
+
+[.column]
+--
+[%step]
+* `super()` evaluates to "a proxy object that delegates method calls to a parent or sibling class"
+* So, `super()` lets us call parent methods without calling the parent class directly and without having to specify a value for `self`.
+--
+
+=== Overriding methods: the finished product
+
+[.noborder.lefttable]
+[cols="2*",frame=none,grid=none]
+|===
+| Parent class
+| Subclass
+
+a|
+[source, python]
+----
+class Person:
+    def __init__(self, name):
+        self.name = name
+        self.connections = set()
+    
+    def connect(self, other):
+        if other not in self.connections:
+            self.connections.add(other)
+            other.connect(self)
+----
+a|
+[source, python]
+----
+class SharingPerson(Person):
+
+    # NB: inheriting __init__() from Person
+
+    def connect(self, other):
+        if other not in self.connections:
+            print(f"{self.name} connected"
+                  f" with {other.name}!")
+        super().connect(other)
+----
+|===
+
+[.notes]
+--
+super() lets us use the parent class's connect() method without having to specify the class name or the value of self.
+--
+
+[.columns]
+== Abstract base classes
+
+[.column]
+[%step]
+* Sometimes we need several classes to have the same interface even though they have important internal differences
+* We can write a parent class that has the method names we need, but where some of them don't actually do anything useful
+* Then we can inherit from this class and flesh out the methods in the subclasses
+
+[.column]
+[%step]
+* Example: a tic tac toe game that can have human players or computer players
+* We can make an abstract `Player` base class with concrete subclasses `HumanPlayer` and `ComputerPlayer`; then `HumanPlayer` and `ComputerPlayer` are considered instances of `Player`
+
+=== Summary
+
+* Python classes can inherit (reuse) methods from a parent class
+* A subclass can override parent methods
+* `super()` allows us to invoke a parent method within an overriden method
+* One way to make several related classes with a shared interface is to create an abstract base class and define the concrete classes as subclasses of the base class

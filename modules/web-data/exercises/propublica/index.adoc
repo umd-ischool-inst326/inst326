@@ -1,0 +1,20 @@
+= Exercise: Web APIs
+:includedir: ../../../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Interacting with a Web API
+
+In this exercise we will use the Python link:http://docs.python-requests.org/[requests] library to interact with the
+link:https://www.propublica.org/datastore/api/propublica-congress-api[ProPublica Congress API]. Web APIs are specialized websites that make data
+available for many purposes, often for use in mobile applications, and
+business-to-business data workflows. 
+
+1. Install the link:http://docs.python-requests.org/[requests] Python library with pip.
+2. Obtain the ProPublica Congress API key (from ELMS or register for your own)
+3. Write a program that uses the link:https://projects.propublica.org/api-docs/congress-api/members/#get-current-members-by-statedistrict[Get Current Members by State/District] to get the members of the House of Representatives for the state of Maryland.
+4. For each representative use the link:https://projects.propublica.org/api-docs/congress-api/bills/#get-recent-bills-by-a-specific-member[Get Recent Bills by a Specific Member] to get the bills they have introduced.
+5. List only the bills from the current Congress (117) that they have introduced. 

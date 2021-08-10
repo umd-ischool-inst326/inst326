@@ -1,0 +1,41 @@
+= Exercise: Extracting Names and Birthdays
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+*This exercise is extra credit.*
+
+== Background
+
+Sometimes real-world data is messy. The website link:https://clickhole.com/100-celebrity-birthdays-1825121615/[] gives a list of 100 celebrity birthdays (provided for you as `birthdays.txt`). However, the format in which the names and birthdays are listed varies from line to line. Below are some sample lines from the file:
+
+----
+1. Birdman: February 15th
+2. Sharon Osbourne: 10/9
+3. Cuba Gooding Jr.: Jan. 2
+4. Amanda Bynes' birthday is on April 3rd
+...
+40. Kesha: March first
+...
+90. Julia Roberts' big day is on October 28th
+...
+97. Joe Jonas was born on 8/15
+----
+
+For this exercise you will use regular expressions to extract the celebrity's name and birthdate.
+
+Some hints:
+
+* Use regex101.com to develop your regular expression(s).
+* All relevant lines start with a line number followed by a literal period (`\.`) and a space.
+* Only a handful of strings appear at the right edge of the names. If you can match the thing to the right of the names, then everything between the line number and the "right edge string" is a name.
+* The pipe character `|` is your friend; parentheses are your friends. `(January|February|...)`
+* If you want to write separate regular expressions to tackle the names and the dates, that's okay.
+* If a regular expression doesn't match anything, the `search()` method returns `None`. Similarly, if a regular expression matches but a capturing group in that expression doesn't match anything, the capturing group will have a value of `None`.
+
+== Instructions
+
+Using the provided template, write a function called `get_birthdays()` that takes one argument, a path to a file containing birthday data. (Do not hard-code the path to the file in your code.)
+
+Your function should read lines from the specified file and use regular expressions to attempt to extract names and birthdays from that file. It should convert the birthdays into two integers (a month and a day). It should return a list with one tuple for each birthday extracted. Each tuple should contain three values: the name of the celebrity, the month of the celebrity's birthday as an integer, and the day of the month of the birthday as an integer. For example: `("Birdman", 2, 15)`. The template contains three helper functions to help you parse birthdays: `parse_date1()`, `parse_date2()`, and `parse_date3()`. See the docstrings for more information about these functions.

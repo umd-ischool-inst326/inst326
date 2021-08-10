@@ -1,0 +1,23 @@
+antenna_test.jpg: from https://commons.wikimedia.org/wiki/File:A_maritime_antenna_is_tested_with_compact_range_equipment_in_the_specialized_antenna_anechoic_chamber_at_the_new_Surface_Sensors_and_Combat_Systems_Facility_at_Naval_Surface_Warfare.jpg
+DAHLGREN, Va. (May 11, 2010) The Link-16, AS-4127A maritime antenna is tested with compact range equipment in the specialized antenna anechoic chamber at the new Surface Sensors and Combat Systems Facility at Naval Surface Warfare Center (NSWC) Dahlgren. (U.S. Navy photo/Released)
+
+
+math_error.png: from http://www.chem.ucla.edu/dept/Faculty/dxn/teaching_resources/20A_DN.pdf
+Originally from the LA Times, October 1, 1991, page A1
+
+knight.png: from http://tpetricek.github.io/Talks/2016/living-with-errors/#/7/3
+
+knight_capital_AP.png: screenshot of https://go-gale-com.proxy-um.researchport.umd.edu/ps/retrieve.do?tabID=News&resultListType=RESULT_LIST&searchResultsType=SingleTab&hitCount=59&searchType=AdvancedSearchForm&currentPosition=10&docId=GALE%7CA298408390&docType=Article&sort=Relevance&contentSegment=ZXAY-MOD1&prodId=OVIC&pageNum=1&contentSet=GALE%7CA298408390&searchId=R3&userGroupName=umd_um&inPS=true
+Gogoi, Pallavi, and Christina Rexrode. "Cost of glitch for Knight Capital: $440 million." AP Online, 2 Aug. 2012. Gale In Context: Opposing Viewpoints, https://link-gale-com.proxy-um.researchport.umd.edu/apps/doc/A298408390/OVIC?u=umd_um&sid=OVIC&xid=6804f520. Accessed 21 Aug. 2020.
+
+
+warehouse_hit_by_scud.jpg: from https://nara.getarchive.net/media/a-view-of-the-remains-of-a-warehouse-hit-by-an-iraqi-scud-missile-feb-25-1991-39c053
+
+annual_permit_fees.png: screenshot of a table from https://transportation.umd.edu/parking/faculty-staff
+taken 2020-08-27
+
+surprise.png: created by me using Inkscape, Aug. 29, 2020.
+
+Git-Logo-White.svg: based on Git-Logo-White.eps from https://git-scm.com/downloads/logos, created by Jason Long and licensed under a Creative Commons Attribution 3.0 Unported License. Added attribution to image.
+
+git_commands.svg: created by me using Inkscape, Fall 2019, based on similar images online.

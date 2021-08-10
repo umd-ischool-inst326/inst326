@@ -1,0 +1,16 @@
+= Exercise: Pizza
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Composition
+
+When you model things using classes in Object Oriented Programming you often find yourself discovering your classes contain multiple types of things that can also be modeled as classes. When your objects contain other objects you use the pattern of _composition_ to define your classes.
+
+Download link:files/pizza.py[_pizza.py_]. The Pizza class is being used by a restaurant that doesn’t like to put more than 7 toppings on pizzas. Update the _add_topping()_ method to print out a warning when a user tries to add more than 7 toppings. Your method should not only print an error message but should also disallow the adding of the requested topping to the toppings list, so that in effect no pizza can ever have more than 7 topings.
+

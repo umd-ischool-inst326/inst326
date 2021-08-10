@@ -1,0 +1,252 @@
+= Command-line arguments
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 810
+:revealjs_history: true
+:revealjs_center: false
+:title-slide-background-image: arguments.jpg
+:stem:
+
+== Command line? Command-line arguments?
+
+[%step]
+[.nobullet.nosubbullet]
+* The [emph]#command line# is the place in the terminal where you type commands
+[%step]
+** "Command line" is synonymous with "command prompt"
+* [emph]#Command-line arguments# are strings you type after a command on the command prompt
+* Command-line arguments are passed to the program by your [emph]#shell#
+** (bash, zsh, PowerShell)
+* Separated by [emph]#spaces#; sometimes you need to put them in [emph]#quotes#
+
+[.notes]
+--
+Show some examples of mandatory arguments, optional arguments 
+--
+
+[.columns]
+=== A typology of command-line arguments
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* (Vanilla) argument
+** `cd [emph]#some_directory#`
+** `mv [emph]#filename# [emph]#new`
+* Option name / flag
+** `head [emph]#-n# 5 myfile.txt`
+** `head [emph]#--lines# 5 myfile.txt`
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Option value
+** `head -n [emph]#5# myfile.txt`
+* Switch
+** `ls [emph]#-l#`
+** `ls [emph]#-a#`
+** `ls [emph]#--all#`
+--
+
+== The `sys` module
+
+[%step]
+[.nobullet.nosubbullet]
+* Allows access to certain elements of the [emph]#system# your program is running on
+* Some examples
+[%step]
+** Standard streams: `sys.stdin`, `sys.stdout`, `sys.stderr`
+** `sys.exit()`: end the program; optionally supply an error message
+** `sys.path`: tells Python where to look for modules
+** `sys.platform`: what operating system is the program running on?
+
+=== `sys.argv`
+
+[%step]
+[.nobullet.nosubbullet]
+* Command-line arguments as a [emph]#list# of [emph]#strings#
+* `sys.argv[0]` is the [emph]#script name#
+* Usually, we are more interested in the [emph]#other arguments# (`sys.argv[1:]`)
+
+[.columns]
+== The `argparse.ArgumentParser` class
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet_white]
+* Allows us to specify
+[%step]
+** all [emph]#arguments# the program accepts
+** [emph]#data types# for each argument
+** whether the argument is [emph]#required#
+** [emph]#short# and [emph]#long flags# for optional arguments
+** [emph]#default values# for optional arguments
+** [emph]#descriptions# of each argument
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Checks [emph]#arguments received#
+* Performs data type [emph]#conversions#
+* Handles [emph]#variation#
+[%step]
+[.lessspace]
+** Short vs. long flags
+** Space vs. `=`
+** Grouped vs. separate switches
+* Generates [emph]#help message# upon request
+--
+
+=== Using `argparse` in a nutshell
+
+[%step]
+[.nosubbullet]
+. Import the `ArgumentParser` class
+. Create an instance of `ArgumentParser`
+. Call the `add_argument()` method for each argument you want to define
+. Call the `parse_args()` method
+. Get values out of the namespace returned by `parse_args()`
+
+=== Importing + instantiating `ArgumentParser`
+
+[%step]
+[source, python]
+----
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+----
+
+=== Defining a required argument
+
+[%step]
+[.nobullet.nosubbullet]
+* If argument is a string:
+** [slot]#parser#``.add_argument(``[slot]#argname#``,`` ``help=``[slot]#description#`)`
+
+[%step]
+[source, python]
+----
+parser.add_argument("filepath", help="path to CSV file")
+----
+
+[%step]
+[.nobullet.nosubbullet]
+* For other data types:
+** [slot]#parser#``.add_argument(``[slot]#argname#``,`` `type=`[slot]#type#`,` ``help=``[slot]#description#`)`
+
+[%step]
+[source, python]
+----
+parser.add_argument("frequency", type=float, help="frequency to analyze")
+----
+
+=== Defining an optional argument
+
+[%step]
+[.nobullet.nosubbullet]
+* [slot]#parser#``.add_argument(``[slot]#short_flag#``,`` [slot]#long_flag#`,` ``help=``[slot]#description#`)`
+[%step]
+** [slot]#short_flag# should start with a single [emph]#hyphen#
+** [slot]#long_flag# should start with [emph]#two hyphens#
+** You can also specify a data type using `type=`[slot]#type#
+** You can also specify a default value using `default=`[slot]#value#
+[%step]
+*** If unspecified, the default default value is `None`
+
+[%step]
+[source, python]
+----
+parser.add_argument("-o", "--output", help="output file")
+parser.add_argument("-c", "--count", type=int, default=10,
+                    help="number of results to return")
+----
+
+=== Defining a switch
+
+[%step]
+[.nobullet.nosubbullet]
+* Same as optional arguments, but add ``action="store_true"`` or ``action="store_false"``
+[%step]
+** [emph]#Type# is automatically `bool`
+** [emph]#Default# is automatically `True` or `False` (opposite of specified action)
+
+[%step]
+[source, python]
+----
+parser.add_argument("-v", "--verbose", action="store_true",
+                    help="print verbose output")
+----
+
+=== Calling `parse_args()` method
+
+[%step]
+[.nobullet.nosubbullet_white.nosubsubbullet]
+* The `parse_args()` method
+[%step]
+** takes a [emph]#list of strings# as an argument
+** returns a [emph]#namespace# with one attribute per defined argument
+
+[%step]
+[source, python]
+----
+args = parser.parse_args(arglist)
+----
+
+[%step]
+[.nobullet.nosubbullet_white.nosubsubbullet]
+* Please don't
+[%step]
+** invoke `parse_args()` without an argument
+** use `sys.argv[1:]` directly with `parse_args()`
+*** see example on next slide
+
+=== Getting values out of the namespace returned by `parse_args()`
+
+The namespace returned by `parse_args()` will contain one attribute for each argument you defined in your `ArgumentParser` object.
+
+[%step]
+[.nosubbullet]
+* For required arguments, the attribute has the same name as the [emph]#argument#
+* For optional arguments, the attribute has the same name as
+[%step]
+** the [emph]#long flag# (if defined), minus the hyphens
+** otherwise, the [emph]#short flag#, minus the hyphen
+
+=== Example
+
+[.bigcode]
+[source, python]
+----
+from argparse import ArgumentParser
+import sys
+
+
+def main(filename, count=5, include_blanks=False):
+    # ...
+
+
+def parse_args(arglist):
+    parser = ArgumentParser()
+    parser.add_argument("filename", help="file to read")
+    parser.add_argument("-c", "--count", type=int, default=5,
+                        help="number of results to return")
+    parser.add_argument("-i", "--include_blanks", action="store_true",
+                        help="include blank lines in results")
+    return parser.parse_args(arglist)
+
+
+if __name__ == "__main__":
+    args = parse_args(sys.argv[1:])
+    main(args.filename, count=args.count, include_blanks=args.include_blanks)
+----

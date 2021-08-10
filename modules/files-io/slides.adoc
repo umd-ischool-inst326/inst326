@@ -1,0 +1,293 @@
+= Serialization and File I/O
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 800
+:title-slide-background-image: files.jpg
+
+== Introduction
+
+
+[%notitle]
+=== Watergate Filing Cabinet
+
+image::cabinet.jpg[background]
+
+[.notes]
+--
+The filing cabinet that government agents broke into to steal the medical
+records of Daniel Ellsberg, who was responsible for leaking the
+Pentagon Papers, which helped bring an end to the Vietnam War, and later
+the Nixon Presidency. The filing cabinet is in the Smithsonian American History
+Museum.
+--
+
+
+[%notitle]
+=== Watergate Filing Cabinet Source
+
+image::cabinet.jpg[background]
+
+[%step]
+Image Source: https://www.smithsonianmag.com/history/the-worlds-most-famous-filing-cabinet-36568830[ Smithsonian American History Museum]
+
+
+[%notitle]
+=== Filing Cabinet Patent
+
+image::patent.png[canvas, size=contain]
+
+[.notes]
+--
+Patent filed in 1902 for the Expansible filing system by The Library Bureau
+that become Remington Rand (famous for its type writers) and later invented
+one of the first computers, the UNIVAC, for the US Census. Source: href="https://patents.google.com/patent/US722709
+--
+
+
+[%notitle]
+=== Files on Computer
+
+image::files-osx.png[canvas, size=contain]
+
+[.notes]
+--
+The metaphor of the "file system" lives on in our computers.
+--
+
+
+=== File Paths
+
+File and folder "containment" is represented by filesystem "paths":
+
+* Absolute
+```
+/Users/edsu/inst326/slides.pdf
+```
+
+* Relative
+```
+inst326/slides.pdf
+```
+
+[%notitle]
+=== Image showing different formats
+
+image::formats.jpg[canvas, size=contain]
+
+
+=== File Formats
+
+* In addition to a path, every file has a particular "format"
+* The format determines how the data is written to the file
+* The simplest is plain text
+* We will also look at CSV and JSON
+
+
+== Plain Text
+
+=== What are Text Files?
+
+link:exercises/speech.txt[speech.txt] is an example of a text file. Here are a few things to notice about text files:
+
+* text files often have a **.txt** file extension
+* text files have lines separated by **newline** characters
+* text files have an **encoding**, usually https://en.wikipedia.org/wiki/Unicode[Unicode]
+
+
+=== Read a Text File
+
+Use the https://docs.python.org/3.7/library/functions.html#open[open] function
+to open a file using the file's **path** as a parameter. Use the file object's
+**read** method to read the contents of the file into a variable.
+
+[source, python, linenums]
+fh = open('speech.txt')
+text = fh.read()
+print(text)
+
+
+=== Writing a Text File
+
+You can also use the **open** function to open a file for **writing** by passing
+in **w** as a second argument to open. This then allows you to write data to a
+file.
+
+[source, python, linenums]
+----
+fh = open('sonnet.txt', 'w')
+
+fh.write('So long as men can breathe, or eyes can see,\n')
+fh.write('So long lives this, and this gives life to thee.\n')
+
+fh.close()
+----
+
+=== Iterating
+
+You can use a **for loop** to iterate through the lines in a file object.
+
+Why might it be important to be able to read a file line by line instead of all at
+once?
+
+[source, python, linenums]
+for line in open('speech.txt'):
+    print(line)
+
+
+== CSV
+
+[%notitle]
+=== Spreadsheets
+
+image::spreadsheet.png[canvas, size=contain]
+
+[.notes]
+--
+There are lots of different spreadsheet programs that have different file
+formats. To make it easier to publish data so that it can be used in different
+tools the CSV format was created.
+--
+
+
+[%notitle]
+=== What is a CSV File?
+
+image::csv.png[canvas, size=contain]
+
+[.notes]
+--
+CSV stands for **Comma Separated Values**
+--
+
+=== Read a CSV File
+
+While it would be possible to read a CSV file as a text file, Python's https://docs.python.org/3/library/csv.html[csv
+module] helps you do it.
+
+[source, python, linenums]
+----
+import csv
+
+fh = open('energy.csv')
+spreadsheet = csv.reader(fh)
+
+for row in spreadsheet:
+    print(row)
+----
+
+
+=== Read a CSV File
+
+The https://docs.python.org/3/library/csv.html#csv.DictReader[csv.DictReader] class uses the column headers in your CSV file to create a dictionary for each row.
+
+[source, python, linenums]
+----
+import csv
+
+fh = open('energy.csv')
+spreadsheet = csv.DictReader(fh)
+
+for row in spreadsheet:
+    print(row['State'], row['Solar'])
+----
+
+
+=== Write a CSV File
+
+You can also use the https://docs.python.org/3/library/csv.html#csv.writer[csv.writer] class to write a CSV file row by row.
+
+[source, python, linenums]
+----
+import csv
+
+fh = open('salaries.csv', 'w')
+spreadsheet = csv.writer(fh)
+
+spreadsheet.writerow(['Name', 'Age', 'Department'])
+spreadsheet.writerow(['Val', 19, 'Physics'])
+spreadsheet.writerow(['Rick', 22, 'English'])
+spreadsheet.writerow(['Hope', 20, 'Information Studies'])
+
+spreadsheet.close()
+----
+
+
+=== Limitations of CSV
+
+* Unfortunately, not all data fits neatly into tables. What makes this
+example hard to represent as a table?
+
+[source, python, linenums]
+----
+people = [
+  {
+    "name": "Val",
+    "interests": ["astronomy", "hockey"]
+  },
+  {
+    "name": "Rick",
+    "interests": ["karaoke"]
+  }
+]
+----
+
+[%step]
+* The interests can have one to many values.
+
+== JSON
+
+[%notitle]
+=== Different APIs
+
+image::apis.png[canvas, size=contain]
+
+
+=== Reading a JSON File
+
+Python comes with a link:https://docs.python.org/3.7/library/json.html[json module]
+which makes it easy to read JSON using the link:https://docs.python.org/3.7/library/json.html#json.load[json.load] function. We'll use it to load this JSON file of tweet data: link:exercises/aoc.json[aoc.json].
+
+
+[source, python, linenums]
+import json
+fh = open('aoc.json')
+tweets = json.load(fh)
+for tweet in tweets:
+    print(tweet['hashtags'])
+
+
+=== Write a JSON File
+
+You can also use the link:https://docs.python.org/3.7/library/json.html#json.dump[json.dump] function to save a data structure to a file.
+
+
+[source, python, linenums]
+----
+import json
+
+people = [
+  {"name": "Val", "interests": ["astronomy", "hockey"]},
+  {"name": "Rick", "interests": ["karaoke"]}
+]
+
+fh = open('data.json', 'w')
+
+json.dump(people, fh)
+----
+
+
+== Conclusion
+
+=== Summary
+
+We covered a lot of territory learning about input and output operations:
+
+* **Files** and **Paths**
+* read & write **Text** files
+* read & write **CSV** files
+* read & write **JSON** files
+

@@ -1,0 +1,52 @@
+= INST 326 Module 10: Data Analysis
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+The purpose of this module is to introduce students to performing data analysis using Python. Currently there are many different modules for working with data in Python. We are going to examine some of the most widely used open source modules. Pandas, seaborn, scipy and statsmodels. All of these modules are used to perform different tasks, from data wrangling to creating linear regression models to visualizing data trends. This module aims to introduce these concepts and contains examples of how we can apply this functionality with real world data. 
+
+=== Links (these are the navigational links within the module)
+
+* link:slides.html[Slides]
+* link:exercises/index.html[Exercises]
+
+## Learning Outcomes
+
+After completing this module, students should:
+
+* Have an understanding of what the pandas, seaborn, scipy and statsmodels modules are used for
+* Have an understanding of how to read the documentation for each of these modules
+* know how to create pandas dataframes and perform data manipulation including:
+    ** creating columns based on values found in other columns
+    ** inspecting and analyzing dataframes
+    ** subsetting dataframes
+* know how to create data visualizations using the seaborn module
+* know how to apply scipy in order to perform statistical analysis and tests including:
+    ** Correlation
+    ** Z tests
+    ** T tests
+    ** ANOVA tests
+* know how to use the statsmodels module in order to create linear regression models
+
+== Supplementary Files
+* link:files/cars.csv[Cars Dataset]
+* link:files/movies.csv[Movies Dataset]
+* link:files/production_companies_action.csv[Production Companies Action Dataset]
+
+== Readings
+
+* https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf[Pandas Cheat Sheet]
+* https://seaborn.pydata.org/introduction.html[An Introduction to Seaborn]
+* https://docs.scipy.org/doc/scipy/reference/tutorial/general.html[SciPy Introduction]
+
+== Additional Readings (optional, as needed)
+
+* Kopf, _Quartz_, https://qz.com/1126615/the-story-of-the-most-important-tool-in-data-science/[Meet the man behind the most important tool in data science]
+

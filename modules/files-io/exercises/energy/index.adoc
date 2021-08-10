@@ -1,0 +1,21 @@
+= Exercise: Energy Data
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Download the link:energy.csv[energy.csv] dataset and try reading the file using the csv.DictReader method.  
+
+== Tasks
+
+Then use that data to do the following:
+
+* Nuclear Power in the Mid-Atlantic: Print the values for "Abbreviation" and "Nuclear" for each state where the "Region" has a value of "Mid Atlantic".  What was the total amount of Nuclear power generated in the Mid-Atlantic region (Mwh)?
+* Which state produces the most coal power?
+* Make a function that takes in a state name and power source and displays a desired power measurement (i.e entering "arizona" and "wind") would give Arizona's wind power. Write an interface that lets the user enter state and power source as command-line arguments.

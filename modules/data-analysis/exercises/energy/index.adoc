@@ -1,0 +1,103 @@
+= Exercise: Energy Sources
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+== Background
+
+For this exercise you will develop a class that will create an in-memory sqlite database and read in data from a CSV file (`energy.csv`). The file contains data on how much electricity was produced in each state in the US by year and by energy source. It contains four columns: Year, State, Energy Source, and Megawatthours. The first few rows of the file are shown below.
+
+----
+Year,State,Energy Source,Megawatthours
+1990,AK,Coal,510573.0
+1990,AK,Hydroelectric Conventional,974521.0
+1990,AK,Natural Gas,3466261.0
+1990,AK,Petroleum,497116.0
+1990,AK,Wind,0.0
+1990,AK,Wood and Wood Derived Fuels,151035.0
+----
+
+Your class will have a method to calculate the total energy production by source and year. You will use this method to determine how much electricity was generated from solar and wind energy in 2017.
+
+== Instructions
+
+Using the supplied template (`energy.py`), define a class called `EnergyDB` that satisfies the following requirements.
+
+=== `+++__init__()+++`
+
+Define an `+++__init__()+++` method with two parameters, `self` and `filename`. `filename` will be a string containing path to a file such as `energy.csv`.
+
+Create an attribute `conn` which should be a connection to an in-memory sqlite database. Call the `read()` method of `self` (see below) to read in your file. You will pass in `filename` to the `read()` method.
+
+=== `+++__del___()+++`
+
+Define a `+++__del__()+++` method using the following code:
+
+----
+    def __del__(self):
+        """ Clean up the database connection. """
+        try:
+            self.conn.close()
+        except:
+            pass
+----
+
+Make sure the indentation of this method is consistent with the other methods in your class.
+
+The purpose of this method is to close the database connection when an `EnergyDB` object is destroyed (for example, when your program ends).
+
+=== `read()`
+
+Define a `read()` method with two parameters, `self` and `filename`. `filename` will be a string containing path to a file such as `energy.csv`.
+
+Create a `Cursor` object to your database connection. Use this object to create a new table called `production`, using the following SQL statement:
+
+----
+CREATE TABLE production
+(year integer, state text, source text, mwh real)
+----
+
+Open `filename` for reading. Read and ignore the first line in the file, which contains column headers. Read the other lines in the file; for each of those lines, convert the year to an integer and the megawatt-hours into a float. Insert the data from the file into your database, using the following SQL statement:
+
+----
+INSERT INTO production VALUES (?,?,?,?)
+----
+
+At the end of your method, commit your changes to the database.
+
+=== `production_by_source()`
+
+Define a `production_by_source()` method with three parameters, `self`, `source`, and `year`. `source` is a string from the Source column of `energy.csv`, for example, `"Wind"`. `year` is an integer representing a year from `energy.csv` (1990&ndash;2017).
+
+Create a `Cursor` object to your database connection. Use the following SQL statement to get the value of the `mwh` column for each row that matches the specified source and year:
+
+----
+SELECT mwh FROM production WHERE source=? AND year=?
+----
+
+"Fetch" all the values returned by this statement, add them together, and return the total.
+
+=== Docstrings
+
+Write a docstring for your class. The docstring should document the purpose of the class as well as the purpose and data type of each attribute of the class.
+
+Write docstrings for each method. Each docstring should document the purpose of the method, the purpose and data type of each parameter of the method, the purpose and data type of the return value (if any), and the side effects of the method (if any).
+
+=== Running the program
+
+The program requires one command-line argument, a path to a CSV file such as `energy.csv`. Assuming that
+
+* your program is called `energy.py`
+* your program is in the same directory as `energy.csv`
+* your working directory is the directory where your program resides
+
+you can run your program by typing the following at the command prompt (Windows users, replace `python3` with `python`):
+
+----
+python3 energy.py energy.csv
+----
+
+== Credits
+
+This exercise was adapted from materials developed by Joshua Westgard.

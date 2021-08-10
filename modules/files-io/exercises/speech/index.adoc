@@ -1,0 +1,14 @@
+= Exercise: Speech
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Warm Up (Plain Text)
+
+* Download link:speech.txt[speech.txt] and practice reading the text from the file. If you completed the grouped-frequency word counter exercise, see if you can apply it to the data in this file.
+

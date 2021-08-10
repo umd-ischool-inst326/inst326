@@ -1,0 +1,66 @@
+= Exercise: Parsing Addresses
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+
+== Background
+
+For this assignment you will use regular expressions to parse US street addresses from a text file. Each address will consist of a house number, a street name, a city, a state, and a zip code. Here's an example of an address:
+
+5173B 63rd Ave NE, Lake Forest Park WA 98155
+
+You can make the following assumptions:
+
+* The parts of the address (house number, street name, etc.) always occur in the same order
+* The house number will never contain a space, but it could contain other characters besides numbers
+* There is always a comma after the street name; the only other punctuation in an address is spaces in between words
+* The state always consists of two capital letters
+* The zip code always consists of five digits
+
+A sample file, `addresses.txt`, is provided for testing purposes. This file is slightly modified from this file: https://gist.github.com/HeroicEric/1102788#file-gistfile1-txt.
+
+The main goal of today's exercise is to practice writing regular expressions.
+
+== Instructions
+
+Add two functions to the provided template script: `parse_address()` and `parse_addresses()`. For this exercise you will not write any classes.
+
+=== `parse_address()` function
+
+`parse_address()` will take a single line of text as an argument and return a dictionary containing the parts of the address.
+
+Use a regular expression to match the address, with separate capturing groups for the house number, the street name, the city, the state, and the zip code. If your regular expression was successful, return a dictionary with the following keys:
+
+* `"house_number"`
+* `"street"`
+* `"city"`
+* `"state"`
+* `"zip"`
+
+The values associated with these keys will be the strings from your capturing groups.
+
+If your regular expression was unsuccessful, return None. (Hint: the `search()` method of a regular expression returns a match object if it is successful and `None` otherwise). All of the lines in the sample file should be parseable as addresses.
+
+You may find it useful to develop your regular expression using link:regex101.com[]. Once you have an expression that parses all the addresses in `addresses.txt`, you can paste the expression into your code as a raw string.
+
+=== `parse_addresses()` function
+
+`parse_addresses()` will take one argument, a path to a file containing one address per line. It will open the file, convert each address to dictionary using `parse_address()`, and return a list with one dictionary per line in the file.
+
+Use a `with` statement to open the file for reading (make sure you use the parameter to the function instead of a hard-coded path). Use a list comprehension to build the list of dictionaries.
+
+=== Docstrings
+
+Write docstrings for each of your functions. The docstrings should explain the purpose of the function, the data type and purpose of each argument, and the data type and purpose of the return value.
+
+== Using your script
+
+The template script is meant to take one command-line argument, the path to a file of addresses. Assuming your script is called `parse_addresses.py` and that `addresses.txt` is in the same directory, here is how you could run the script (Windows users, replace `python3` with `python`):
+
+----
+python3 parse_addresses.py addresses.txt
+----
+
+The script should print a dictionary for each address in the file.

@@ -1,0 +1,87 @@
+= Exercise: Regular Expressions Tutorial
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Walk through this tutorial to practice using regular expressions. Submit your solutions to the questions at the end through ELMS. link:files/cheatsheet.pdf[This cheatsheet] may be helful in practicing the regex syntax.
+
+== Module import
+
+The re (regular expressions) module is part of the standard library, but must be imported to be available in your program.
+
+[source, python, linenums]
+----
+import re
+----
+
+== Pattern Declaration
+
+Regular expression patterns are declared as strings.  Python has a special type of string (an r-string) that has been designed for use in regexes.  The advantage of r-strings is that you do not have to escape all the characters that would otherwise need to be escaped in a regular string.
+
+The following pattern matches 'Sherlock' exactly.
+
+[source, python, linenums]
+----
+pattern = r'Sherlock'
+----
+
+== Applying the Pattern
+
+In order to apply this expression you need to do two additional things:
+
+1. locate some text to search
+2. choose a function with which to apply the pattern
+
+For this exercise download a copy of the link:files/holmes.txt[Adventures of Sherlock Holmes]. Save the file in the folder with the python file you are using for this tutorial.
+
+Next, in your program you'll need to read the contents of the file into a variable in order to search it.
+
+[source, python, linenums]
+----
+import re
+pattern = r'Sherlock'
+
+with open('holmes.txt') as handle:
+    text = handle.read()
+----
+
+Now you can apply your pattern to the text. The re.search() function is good for many use-cases. Search() takes two arguments, the pattern and the text to search.
+
+[source, python, linenums]
+----
+import re
+
+pattern = r'Sherlock'
+
+with open('holmes.txt') as handle:
+    text = handle.read() 
+
+hit = re.search(pattern, text)
+print(hit)
+----
+
+Search() is good for finding a match within a block of text, and the match object returns, in addition to the text of the match, its position in the source text (both beginning and ending by offset).  If you want to find multiple occurances of the match, it is often easier to use either findall() or finditer().
+
+=== re.findall()
+
+The syntax of findall() is the same as search() but this function returns the text of *all matches* as a list.  This is useful for counting matches. Can you use this to count the number of occurances of "Sherlock Holmes" in our sample text?
+
+=== re.finditer()
+
+Finditer() is particularly useful if you need to find all matches of a pattern, and also need to perform some processing on the matches. It returns an iterable set of match objects which you can process one-by-one.  Can you use re.finditer() to find all numbers in our source text, convert them to integers, and calculate their sum?
+
+== Questions
+
+Use regex to answer the following questions by analyzing _The Adventures of Sherlock Holmes_.
+
+1. How many times does the word "Holmes" appear in the text?
+2. What is the name of the lodge that appears in one of the stories?  Hint: One way to find this is to search for words that come before the word "Lodge".
+3. What is the longest adverb in the text?  For the purpose of this question, an adverb is any word ending in "ly". The answer is the word itself, not the number of characters.
+4. How many times does Holmes use the phrase "Elementary, my dear Watson"?

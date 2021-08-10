@@ -1,0 +1,202 @@
+= Collaboration and Modules
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 800
+:title-slide-background-image: siyuan-aUmHgK9OtXY-unsplash.jpg
+
+== Github Desktop
+
+=== Interface
+    * Cross platform interface for interacting with Github repositories. 
+    * Makes using commands easy. 
+        ** Of course, this is a matter of preference.
+
+=== Download
+    * link:https://desktop.github.com/[Github Desktop Download]
+
+
+== Namespaces
+
+=== Names
+    * We use names in python to identify objects
+        ** These names are also known as identifiers
+        ** Remember, we cannot use keywords as identifiers.
+
+=== Keywords
+
+[source, python]
+----
+#end	 -A logical operator
+
+#as	 -To create an alias
+
+#assert	-For debugging
+
+#break	-To break out of a loop
+
+#class	-To define a class
+
+#continue	-To continue to the next iteration of a loop
+
+#def  -To define a function
+
+#del  -To delete an object
+
+#elif     -Used in conditional statements, same as else if
+
+#else	 -Used in conditional statements
+
+#except	 -Used with exceptions, what to do when an exception occurs
+
+#False	 -Boolean value, result of comparison operations
+
+#finally	 -Used with exceptions, a block of code that will be executed 
+#no matter if there is an exception or not
+
+#for	 -To create a for loop
+
+#from	 -To import specific parts of a module
+
+#global	 -To declare a global variable
+
+#if	 -To make a conditional statement
+
+#import	 -To import a module
+
+#in	 -To check if a value is present in a list, tuple, etc.
+
+#is	 -To test if two variables are equal
+
+#lambda	 -To create an anonymous function
+
+#None	 -Represents a null value
+
+#nonlocal	 -To declare a non-local variable
+
+#not	 -A logical operator
+
+#or	 -A logical operator
+
+#pass	 -A null statement, a statement that will do nothing
+
+#raise	 -To raise an exception
+
+#return	 -To exit a function and return a value
+
+#True	 -Boolean value, result of comparison operations
+
+#try	 -To make a try...except statement
+
+#while	 -To create a while loop
+
+#with	 -Used to simplify exception handling
+
+#yield	 -To end a function, returns a generator
+----
+
+=== What is a namespace?
+    * Previously we have talked about scope.
+    * *namespace* = context in which names can exist. 
+        ** Think of namespaces like "rooms" or "spaces" or "scopes"
+        ** In any given namespace, a name can refer to at most one thing
+        ** *Cannot* have two object in the same namespace that have the same name
+        ** *Can* have two objects in different namespaces that have the same name
+
+=== Namespace Visual
+image::namespaces.png[namespace, 600,600]
+
+=== Namespace Visual Explained
+    * B = Built-In Namespace
+        ** Contains all built in names , initiated when the python interpreter starts.
+    * G = Global Namespace
+        ** Each module has its own global namespace, contains functions and global variables
+    * E = Enclosed Namespace
+        ** Namespace referring to classes/functions that are enclosed within other classes/functions.
+    * L = Local Namespace
+        ** Names within functions
+        ** Created when the function is called/when a class object is created.
+
+
+== Modules and Packages
+
+=== Definitions
+    * *Modules* = A library of functions, classes, and predefined values (constants)
+        ** Provide a handy way of packaging and organizing code.
+    * *Packages* = Collection of multiple packages and modules.
+        ** Treated as its own namespace.
+        ** Way to organize growing collections of modules.
+
+=== Creating Packages
+    * Top level package name is a folder containing all of the sub-packages/modules within it.
+    * Each package/sub-package must contain an "\__init__.py" file.
+        ** Indicates to python that the folder is a package. 
+
+[.none]
+=== Example
+image::package.png[package, 900, 600]
+
+=== Where do modules/packages come from?
+    * Questions that python asks:
+        .. Is the module/package being imported a built in module?
+        .. Is the module/package being imported in the same directory as the currently running script?
+        .. Has this module been installed on the machine at all?
+            *** Meaning, it will search sys.path 
+
+=== So why should we care?
+    * We can use modules/packages that we write ourselves in other scripts in their own namespaces.
+    * We can do so with a lot of flexibility.
+    * Which is why we should thoroughly understand...
+
+
+== Importing
+
+=== Importing Examples
+
+[source, python]
+----
+import sound.effects.echo
+----
+
+[source, python]
+----
+import my_module
+----
+
+[source, python]
+----
+from my_module import fun1, fun2
+----
+
+=== Importing with Aliasing Examples
+
+[source, python]
+----
+import sound.effects.echo as echo
+----
+
+[source, python]
+----
+import my_module as mod1
+----
+
+[source, python]
+----
+from my_module import fun1 as my_cool_function
+----
+
+=== One other thing you can do...
+* But you should not do this:
+
+[source, python]
+----
+from my_module import *
+----
+
+* Why?
+    ** Bad practice
+    ** Can import names that you might not want.
+    ** Creates code that is less readable.

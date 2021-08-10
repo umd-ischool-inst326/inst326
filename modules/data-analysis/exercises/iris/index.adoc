@@ -1,0 +1,27 @@
+= Exercise: Iris
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Background
+
+The iris dataset is a very well known dataset frequently referenced in computational pattern recognition studies. It contains data for 150 observations of 4 features of 3 different types of the iris plant. This dataset is frequently used for teaching machine learning algorithms. You can find this dataset link:../files/iris.csv[here].
+
+== Instructions
+
+Download the iris dataset and use pandas to load in the dataset into a pandas dataframe. Write a function that will take an argument, species, which is the species of the iris plant. It will use this species name to filter the dataframe so that it will contain only observations pertaining to the species passed in. It should then use the describe method of dataframes to determine the descriptive statistics of each column. Your function should print this value to the terminal but it should also write the output to a text file. Name this file **output.txt**.
+
+Your script should also take in user output via command line arguments. The first argument will be the path to your file. The second argument should be the species. You might run your script like this for example: 
+
+---
+
+python3 exercise13.py iris.csv "Iris-setosa"
+
+---
+
+Running your script as in the example should create a file named output.txt in the current working directory that may not have been there already. This file will contain the descriptive statistics for the observations of "Iris-setosa". 

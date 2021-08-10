@@ -1,0 +1,158 @@
+= Web Scraping
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 800
+
+
+== What is Web Scraping?
+When you don't have structured data (XML, JSON, etc), you are not doomed!
+
+With web scraping, you rely on consistent formatting on a web page (or site) and write code to extract the data you want.
+
+== Web Pages
+
+Web pages are written in HTML, the Hyper Text Markup Language. HTML is based on XML, so it has tags. 
+
+HTML tags divide the content on the page into sections and adjust how it appears on the screen. 
+
+For example, consider this HTML code:
+----
+<html>
+<body>
+<a href=http://example.com>Visit example.com!</a>
+<img src=myPic.jpg />
+</body></html>
+----
+The `html` tag is the root of this XML tree. The `body` is a nested section that has everything that will appear on the page. The `a` tag (called an `anchor` tag), is code for a clickable link. The text between the `<a>` and `</a>` tags is what's clickable. The `img` tag puts an image on the page.
+
+== Extracting Information
+Say you wanted to get all the links out of this page. How would you do it? Using what we know already, you could fetch the page and use some `string` operations
+
+----
+import requests
+
+page = requests.get("https://example.com/page.html")
+result = page.text.find("<a ")
+print ("link found at index", result)
+----
+
+From there, you would need to do additional parsing to find the URL. It's possible, but difficult*.
+
+*For a little side challenge, try doing this! Hint: use regular expressions
+
+== Parsing HTML with `beautifulsoup`
+Fortunately, python has a module called `beautifulsoup` that can help you parse HTML much more easily. We do the request the same way as above:
+----
+import requests
+
+page = requests.get("https://example.com/page.html")
+----
+
+Next, we add in the BeautifulSoup module and let it do its work! Basically, we just give it the name of the tag we care about, and it will extract all instances.
+
+----
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get("https://example.com/page.html")
+soup = BeautifulSoup(page.text, "html.parser")
+links =  soup.findAll("a")
+print(links)
+
+----
+
+Substitute in any working URL for our example, and you will see this work.
+
+== Web Scraping at Work: Extract URLs
+When pulling data from the web, it's common that you will encounter a page with lots of links to the pages with the actual data. 
+
+In this case, we can use the code from above, and then process the links. We have to extract the URL from the `href` part of the tag and then handle it.
+----
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get("https://example.com/page.html")
+soup = BeautifulSoup(page.text, "html.parser")
+links =  soup.findAll("a")
+i=0
+while i < len(links)
+    currentLink = links[i]["href"]
+    #process URLs here
+    i=i+1
+
+----
+
+
+
+== Web Scraping at Work: Tables 1
+A lot of times, data is in table format. Here's an HTML table.
+----
+
+<TR VALIGN=TOP>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><A HREF=157/S157408.html>5/31/20 16:37</A></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>Portland</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>OR</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>MADAR Node 66</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>7/9/20</TD>
+
+</TR>
+
+<TR VALIGN=TOP>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><A HREF=157/S157409.html>5/31/20 14:21</A></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>Garrettsville</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>OH</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>MADAR Node 64</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>7/9/20</TD>
+
+</TR>
+----
+
+== Web Scraping at Work: Tables 2
+We have 7 columns in this table. How do we scrape this?
+
+First, we can see that each row is in a `<TR>` tag. Then, there are columns in the `<TD>` tags in each row.
+
+So we can begin by extracting the `<TR>` tags:
+----
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get("http://example.com/page2.html")
+soup = BeautifulSoup(page.text, "html.parser")
+rows =  soup.findAll("tr")
+i=0
+while i < len(rows):
+        print (rows[i])
+        i=i+1
+
+----
+
+== Web Scraping at Work: Tables 3
+
+From here, we can go into each row and extract the cells with the `td` tag. In this example, we will just print the contents of each cell.
+----
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get("http://example.com/page2.html")
+soup = BeautifulSoup(page.text, "html.parser")
+rows =  soup.findAll("tr")
+i=0
+while i < len(rows):
+        cols = rows[i].findAll("td")
+        j=0
+        while j<len(cols):
+                print("col ",cols[j].text)
+                j=j+1
+        i=i+1
+
+----
+

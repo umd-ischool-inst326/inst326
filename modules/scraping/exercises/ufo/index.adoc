@@ -1,0 +1,66 @@
+= Exercise: UFOs
+:includedir: ../../../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercise
+
+http://www.nuforc.org/webreports.html[The National UFO
+Reporting Database] has an index of UFO sightings.  Your
+task is to create a python script that extracts the location
+for each sighting in the database and creates a tally of sightings by
+city.
+
+
+
+
+We don't want to abuse the UFO Databases's servers, so we have a local version of some of the data that you should
+use for this assignment. Here is a page you can access as often as you want. This
+mimics the Events by Date listing:
+
+http://www.cs.umd.edu/\~golbeck/INST326/ndxLocOut.html[http://www.cs.umd.edu/~golbeck/INST326/ndxLocOut.html]
+
+
+And it links to two months worth of data
+
+
+http://www.cs.umd.edu/\~golbeck/INST326/ndxe201903.html[http://www.cs.umd.edu/~golbeck/INST326/ndxe201903.html]
+
+
+http://www.cs.umd.edu/\~golbeck/INST326/ndxe201902.html[http://www.cs.umd.edu/~golbeck/INST326/ndxe201902.html]
+
+
+The format of those sample pages is the same as on the database website.
+
+
+
+Many cities will appear multiple times. You do not want to list the
+cities over and over. Instead, store them in an object. You should
+create a class UFO that has variables for at least city, state, and
+number of reports. As you read in records, keep track of how many
+reports there are for each city. You will likely need a data structure
+to connect city and state names to your objects. When you get a new
+report for a city/state, increment the variable that tracks the number
+of reports.
+
+
+At the end of this step, you should have a bunch of objects with cities
+and states (or city,province or city,country if you use international
+locations) where there were sightings and a count of each time that city
+appeared. Create an output file that has that data. Use a tab to
+separate the city and the count. Your output file should look like this:
+
+
+----
+Chicago,IL	5 
+Washington,DC	7
+----
+
+Deliverable: A python script that outputs a file the processes the sample data 
+linked above. The output file should contain
+one city/state (or city,province or city,country if you
+use international locations) with the corresponding count on each line.
+

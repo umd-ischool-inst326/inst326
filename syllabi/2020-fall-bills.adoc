@@ -1,0 +1,526 @@
+= INST326 Syllabus
+Aric Bills <abills@umd.edu>
+v1.1, 4 Sep 2020
+:toc: left
+:sectlinks:
+
+
+[%hardbreaks]
+INST326: Object-Oriented Programming for Information Science
+Fall 2020
+
+[%hardbreaks]
+*Section 101*: MW 9:30&ndash;10:45 AM
+*Section 103*: TuTh 9:30&ndash;10:45 AM
+
+== Instructional team
+
+[%hardbreaks]
+*Instructor*: Aric Bills &bull; abills@umd.edu
+*Grader*: Shenghan (Han) Gao
+// &bull; sgao12@terpmail.umd.edu
+
+[%hardbreaks]
+*UTAs*:
+Saamia Bashir &bull; saamia.bashir@gmail.com
+Colin Bradley &bull; colin.bradley68@gmail.com
+Josh Hershberger &bull; joshuahershberger47@gmail.com
+Sarah Patrick &bull; sep890@umd.edu
+Yazeed Sobahi &bull; ysobahi@terpmail.umd.edu
+Abraham White &bull; arwhite598@gmail.com
+
+[%hardbreaks]
+*AMPs*:
+Ben Cohn &bull; bcohn13@terpmail.umd.edu 
+Kamran Djourshari &bull; kdjour@gmail.com
+Joel Inoa Reyes &bull; joel.inoa@yahoo.com
+Erin Lance &bull; erinlance19@gmail.com
+Amber Owens &bull; aowens14@terpmail.umd.edu
+
+== Office hours (subject to change)
+
+// An office hour schedule will be finalized by the second week of class. In the meantime, if you need help, please contact the instructor to schedule an appointment.
+"Walk-in" office hours are outlined in the table below. Please note that this schedule may change over the course of the semester. Please consult the syllabus for the most up-to-date schedule. Office hours will not be held on Sep. 6&ndash;7 or Nov. 25&ndash;29. A reduced office hour schedule may apply Dec. 15-22.
+
+To attend office hours, please post a brief note in the Discord #help channel explaining what you need help with, and a member of the instructional team will help you. You are also welcome to post to the #help channel outside of regular office hours, and someone will respond to you as soon as possible.
+
+If you need to meet with me specifically and cannot do so during the times posted below, send me an email explaining what you want to meet about and we'll schedule an appointment. 
+
+.Virtual walk-in office hour schedule
+
+[caption=]
+[%autowidth]
+[frame="topbot"]
+[cols="3*", options=header, grid=none]
+|===
+| Day | Time | Team member
+| Su | 12pm&ndash;1:30pm | Yazeed
+| M  | 11:30am&ndash;1pm | Saamia
+|    | 1pm&ndash;2pm | Joel
+|    | 3pm&ndash;4:30pm | Sarah
+|    | 4:30pm&ndash;6pm | Colin
+|    | 6pm&ndash;7:30pm | Josh
+|    | 7:30pm&ndash;9pm | Ben
+| Tu | 1pm&ndash;2:30pm | Yazeed
+|    | 2:30pm&ndash;4pm | Colin
+|    | 4pm&ndash;5pm | Amber
+|    | 5pm&ndash;6pm | Aric
+|    | 6pm&ndash;7:30pm | Josh
+|    | 7:30pm&ndash;8:30pm | Aric
+| W  | 11:30am&dash;1pm | Saamia
+|    | 1pm&ndash;2pm | Joel
+|    | 2pm&ndash;3pm | Kamran
+|    | 3pm&ndash;4:30pm | Sarah
+|    | 7pm&ndash;9pm | Ben
+| Th | 12pm&ndash;1pm | Erin
+|    | 3:30pm&ndash;5pm | Abraham
+| F  | 11:30am&ndash;1pm | Abraham
+|    | 2:30pm&ndash;3:30pm | Kamran
+|===
+// .Virtual walk-in office hour schedule
+// [caption=]
+// [frame="topbot"]
+// [cols="1,3,3", options=header, grid=none]
+// |===
+// | Day | Time | Team member
+// | M | 11am&ndash;12:30pm | Charlie
+// |   | 2&ndash;4pm | Josh H.
+// |   | 2&ndash;3:15pm | Juan
+// | Tu | 12:30&ndash;2pm | Josh M.
+// |    | 1&ndash;3pm | Saamia
+// |    | 2&ndash;3:15pm | Julia
+// |    | 5:15&ndash;7pm | Aric
+// | W | 10am&ndash;12pm | Brant
+// |   | 11am&ndash;12:30pm | Charlie
+// |   | 2&ndash;4pm | Ian
+// |   | 2&ndash;3pm | Josh H.
+// |   | 3&ndash;4pm | Jennifer
+// | Th | 12:30&ndash;3pm | Josh M.
+// |    | 5&ndash;7pm | Ian
+// | F | 10am&ndash;12pm | Brant
+// |===
+
+////
+[%hardbreaks]
+*On a walk-in basis in Hornbake 4114:*
+Tu: 5:15&ndash;6:15 PM
+Th: 11:00 AM&ndash;12:00 PM
+////
+
+////
+[%hardbreaks]
+*On a walk-in basis at SORC (in the Stamp Student Union), with Kevin:*
+W 11:00 AM&ndash;1:00 PM
+////
+
+== Catalog Description
+
+This course is an introduction to programming, emphasizing understanding and implementation of applications using object-oriented techniques. Topics to be covered include program design and testing as well as implementation of programs. _Prerequisite: Minimum grade of C- in INST126._
+
+== Extended Course Description
+
+This course introduces object-oriented design and programming concepts and methods using the Python programming language. Object-oriented programs are built as collections of “objects”, which are software representations of real-world entities and concepts. Objects combine data (attributes) with functionality (methods), and work through communicating with each other as the code is executed. By encapsulating code complexity within objects, OOP allows use and reuse of existing code in a relatively simple and easy manner. Advanced OOP concepts such as inheritance facilitate development of complex code without sacrificing robustness and possibility of code reuse. We apply computational thinking approaches such as abstraction, decomposition, algorithmic design, generalization, evaluation, and debugging.
+
+This course also provides opportunities to develop an understanding of how programming is situated in and reflects broader social structures, constructs and issues, e.g. race, class or gender. Programming is often viewed as a value-neutral technical skill. However, the social and cultural impacts of information and technology are central concepts in our field, and the growing awareness of issues like algorithmic bias, ethical/unethical uses of algorithms and disparities in opportunties in tech jobs require that any informed professional needs to understand the larger context of programming. This is important to be ethical professionals and to be successful in the workplace. Through readings, discussion and writing, we will critically examine issues of racism, sexism and other forms of power and oppression that are pervasive in programming and related technical activities, and discuss what companies and individuals are doing to improve programming practices and professional work environments.
+
+== Student Learning Outcomes
+
+After finishing this course, students will be able to:
+
+. Explain OOP concepts, principles, and methods;
+. Design, program, and debug Python applications to solve non-trivial problems;
+. Test and assess the quality of object-oriented code;
+. Write clear and effective documentation;
+. Explain how programming is situated in and reflects social issues (e.g., racism, classism, or sexism) and describe actions that individuals or organizations are taking to counteract disparities or inequities.
+
+== Teaching Notes
+
+This course builds on a basic understanding of procedural programming, so you have to understand data types, variables, loops, conditionals, etc. and how to use them to write and debug a program. You should already be familiar with the basics of Python as introduced in INST 126. We will review these concepts briefly as we build on them. If your understanding of Python basics is not as good as you would like, please get help early on.
+
+This is an online class built using the "flipped classroom" model. Please prepare for live sessions by watching assigned videos and/or reading assigned readings, completing any exercises, homework assignments, and/or quizzes that are due.
+
+During class, we will do hands-on programming activities or other review activities to help you apply and master the course content in an environment where you can ask questions. Live sessions are an integral part of the course. Please do your best to attend and to participate. Live sessions will not be recorded. Barring some unusual circumstances, I expect you to turn your video on and to unmute yourself when participating. Members of the instructional team will do the same.
+
+There will be weekly assignments to help you practice, reflect, and extend your understanding. *All homework assignments are to be completed on your own unless otherwise stated in the assignment.*
+
+Here is my suggested general strategy for working on assignments:
+
+. Start early–don't wait. That will give you time to work through the problems and get help as needed.
+. When you run into a problem, spend 5-10 minutes trying to solve it on your own.
+. Then take a break. Sometimes this will allow you to come back and see something you missed. Letting your subconscious work on it for a while (unsupervised, so to speak) will often lead to useful ideas.
+. If you've spent 20-30 minutes and are still stuck, post your question on ELMS. We are here to help each other, so don't beat your head against a brick wall–ask for help! When you post, provide as much information as you can. When helping your fellow students, please do not do their work for them. Help them understand underlying principles and programming techniques and let them arrive at solutions to homework problems on their own.
+. I will be monitoring and will respond as soon as I am able, usually within a day (longer during weekends, travel, etc.).
+. If you see a question on the discussion board that you can answer, or if you have an idea, please respond. Don't wait for me. You will be helping your colleagues.
+
+We will also examine selected broader issues of programming and coding&mdash;the social and organizational context, issues related to gender, race, disability, etc. This will help you prepare for situations that you are likely to encounter in your professional work. You will write an essay (denoted in the schedule as "critical reflection") in which you explore some of these issues in depth.
+
+== Textbooks and Readings
+
+Our readings will come from a variety of free online sources; the main ones are:
+
+* *Python for Everybody: Exploring Data Using Python 3*
++
+--
+[%hardbreaks]
+Charles R. Severance
+https://www.py4e.com/book
+Download: http://do1.dr-chuck.com/pythonlearn/EN_us/pythonlearn.pdf
+--
+* *Object-Oriented Programming in Python*
++
+--
+[%hardbreaks]
+University of Cape Town
+http://python-textbok.readthedocs.io/en/1.0/ (Links to an external site.)
+Download: https://media.readthedocs.org/pdf/python-textbok/1.0/python-textbok.pdf
+--
+* *The Python Tutorial*
++
+--
+[%hardbreaks]
+Guido van Rossum and the Python Software Foundation
+https://docs.python.org/3/tutorial/ (Links to an external site.)
+Download: https://docs.python.org/3/download.html (Links to an external site.) (as part of the official Python documentation)
+--
+
+Note that all of these sources can be downloaded for offline access. Please take a moment and download copies now, so that you're prepared in the event of internet issues during the semester.
+
+== Required Technology
+
+* Laptop: we will do live programming exercises during most classes, so bring your laptop and be prepared to write code. Any reasonably current operating system can be used. If you don't have access to a laptop, contact me before the first class.
+* Python: Python programming language (3.8). Python is freely available from https://www.python.org/downloads/. We will download additional free Python modules throughout the semester.
+** *Windows users:* when installing Python, please check the box that says "Add Python 3.8 to PATH" -- you want this!
+* Editor: Please install Visual Studio Code, which is freely available from https://code.visualstudio.com/. Please also install the following extensions (see https://code.visualstudio.com/docs/editor/extension-gallery[this page] for instructions on how to install extensions):
+** https://marketplace.visualstudio.com/items?itemName=ms-python.python[Python]
+** https://marketplace.visualstudio.com/items?itemName=KevinRose.vsc-python-indent[Python Indent]
+** https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils[File Utils]
+* Git: Please make sure you have Git installed. See https://git-scm.com/book/en/v2/Getting-Started-Installing-Git for instructions.
+
+== Topics
+
+Topics to be covered include:
+
+* Computational thinking
+* Programming patterns
+* Variables, expressions, statements
+* Conditionals
+* Functions
+* Iteration
+* Strings
+* Lists
+* Dictionaries
+* Tuples
+* Classes, objects, methods
+* Critical reflections on programming, which may include:
+** Sociotechnical systems
+** Limitations of computational thinking
+** Coding and gender
+** Search engine bias, algorithmic bias
+
+== Grading
+
+Every graded element of the course (assignment, test, quiz, etc.) is assigned to one of the following weighted categories:
+
+[cols=2*, options=header]
+[%autowidth]
+|===
+| Category
+| Weight
+
+| Homework (9)
+| 30%
+
+| In-class exercises (complete on your own)
+| 30%
+
+| Comprehension activities
+| 20%
+
+| Final project
+| 15%
+
+| Critical reflection
+| 5%
+|===
+
+Your grade will be calculated as follows:
+
+* for each category, the sum of your scores is divided by the sum of possible points within the category; this is the proportion of points you have earned for that category
+* the proportion of points in each category is multiplied by the category's weight; this is the weighted score for the category
+* the sum of the weighted scores is your total score
+* your total score is converted into a letter grade according to the table below:
+
+[cols=8*,grid=rows]
+[%autowidth]
+|===
+|A+
+|>= 97.00%
+|&nbsp;
+|A
+|96.99&ndash;93.00%
+|&nbsp;
+|A-
+|92.99&ndash;90.00%
+
+|B+
+|89.99&ndash;87.00%
+|&nbsp;
+|B
+|86.99&ndash;83.00%
+|&nbsp;
+|B-
+|82.99&ndash;80.00%
+
+|C+
+|79.99&ndash;77.00%
+|&nbsp;
+|C
+|76.99&ndash;73.00%
+|&nbsp;
+|C-
+|72.99&ndash;70.00%
+
+|D+
+|69.99&ndash;67.00%
+|&nbsp;
+|D
+|66.99&ndash;63.00%
+|&nbsp;
+|D-
+|62.99&ndash;60.00%
+
+|F
+|\<= 59.99%
+|&nbsp;
+|
+|
+|&nbsp;
+|
+|
+
+|===
+
+Please note that cutoffs are specified to the hundredth of a percent. I do not round grades at the end of the semester.
+
+== Assignment Submission
+
+It is the student's responsibility to ensure that all work is submitted correctly and successfully. I expect you to verify that you have uploaded the correct versions of the correct files and that the files were successfully uploaded. If you are unable to upload a file after multiple attempts, I expect you to email me a copy of your file prior to the deadline.
+
+=== Late Work
+
+I do not accept late work unless I have approved it by prior arrangement. If you have to miss a deadline, you should inform me as soon as possible, indicating the reason and when you propose to submit your work. If you have a legitimate reason, such as a major medical or family emergency, I may agree to an extension or make-up work, which I will grade by the end of the semester.
+
+=== COVID considerations
+
+COVID-19 is altering everyone's life right now. If you believe you require special accommodations due to the way the pandemic has impacted your particular life situation, please let me know as soon as possible so that we can discuss how best to meet your particular needs.
+
+In the unfortunate event that you experience COVID-like symptoms that prevent you from participating in the course, I expect you to let me know as soon as possible. After you have recovered, I will work with you on a plan to complete the work you missed.
+
+== University Course Policies
+
+The essential purpose of the university’s undergraduate course policies is to enable all of us to fully participate in an equitable, accessible and safe academic environment so that we each can be challenged to learn and contribute most effectively. They address issues such as academic integrity, codes of conduct, discrimination, accessibility, learning accommodations, etc. We are all responsible for following the policies at http://www.ugst.umd.edu/courserelatedpolicies.html (Links to an external site.). You must read them and send me any questions by the first week of classes.
+
+== Academic Integrity and Ethical Use of Other People's Work
+
+In academia and in computer programming, building on the work of others is often acceptable and encouraged. In this class, there will be some situations in which it may be appropriate to build on other people's work. For example:
+
+* you may get help from a fellow student to understand a particular concept
+* you may pair program with a student on an assignment that has been designated as a pair assignment
+* you may want to use a function or an algorithm from a website or a book
+* you may be writing a paper and may wish to share ideas you read in a published scholarly work
+
+In this class, the following principles govern the ethical use of other people's work:
+
+* You have an obligation to produce your own original work to satisfy the learning objectives of each assignment. Other people's work should complement, not replace, your own work.
+* You should always give credit to individuals whose work you use. In a written document such as a critical reflections essay, this means providing a complete, accurate entry in your bibliography as well as an in-text citation. In code, you should provide a comment including the following details:
+** the source of the code (URL if online or bibliographic citation if in print)
+** as much authorship information as is available
+** the date you accessed it
+** if applicable, the version number and title of the code
+
+You are expected to complete all course work (homework, quizzes, midterms, reflections, etc.) on your own unless my written instructions on a particular task indicate otherwise. You may not discuss exams or midterms with anyone other than the instructor until the deadline for submitting the exam or midterm has passed for all participants in the discussion (remember, due to personal circumstances, some students may have a different deadline than you). You may work on exercises with one partner unless otherwise specified; both partners must be engaged in the coding process. You may discuss homework with other students; this includes explaining underlying concepts, assisting a fellow student in debugging (without supplying your own code to that student), and discussing algorithms. If you collaborated with one or more fellow students in one of the ways described above, your code must include a comment describing the collaboration and citing all collaborators. *Please note: under no circumstances are you allowed to copy/paste, retype, or work off of, or possess a partial or complete copy of someone else's solution to an assignment unless the assignment instructions include explicit written instructions to the contrary.*
+
+UMD students are required to abide by the student honor pledge: *I pledge on my honor that I have not given or received any unauthorized assistance on this assignment/examination.* You will be asked to complete the honor pledge as part of each assignment, quiz, and test in this class.
+
+Suspected cases of cheating, plagiarism, or other academic integrity violations will be referred to the Honor Council.
+
+== Course Schedule (subject to change)
+
+For specific due dates, please see ELMS.
+
+[cols=6*,grid=none]
+[%autowidth]
+|===
+|M |08/31
+|Tu |09/01
+|Introduction
+|
+
+|W |09/02
+|Th |09/03
+|Python fundamentals
+|Homework 1
+
+|_M_ |_09/07_
+| |
+|_Labor day_
+|
+
+|Tu |09/08
+|W |09/09
+|Python fundamentals
+|
+
+|Th |09/10
+|M  |09/14
+|Testing
+|
+
+|Tu |09/15
+|W  |09/16
+|Testing
+|Homework 2
+
+|Th |09/17
+|M  |09/21
+|Data structures
+|
+
+|Tu |09/22
+|W  |09/23
+|Data structures
+|Homework 3
+
+|Th |09/24
+|M  |09/28
+|Basics of OOP
+|
+
+|Tu |09/29
+|W  |09/30
+|Basics of OOP
+|Homework 4
+
+|Th |10/01
+|M  |10/05
+|Advanced data structures
+|
+
+|Tu |10/06
+|W  |10/07
+|Advanced data structures
+|Homework 5
+
+|Th |10/08
+|M  |10/12
+|Serialization and file I/O
+|
+
+|Tu |10/13
+|W  |10/14
+|Serialization and file I/O
+|Homework 6
+
+|Th |10/15
+|M  |10/19
+|Regular expressions
+|
+
+|Tu |10/20
+|W  |10/21
+|Regular expressions
+|Homework 7
+
+|Th |10/22
+|M  |10/26
+|Remote collaboration
+|
+
+|Tu |10/27
+|W  |10/28
+|Remote collaboration
+|Final project proposal
+
+|Th |10/29
+|M  |11/02
+|Group project meetings
+|
+
+|Tu |11/03
+|W  |11/04
+|Advanced OOP
+|Homework 8
+
+|Th |11/05
+|M  |11/09
+|Advanced OOP
+|
+
+|Tu |11/10
+|W  |11/11
+|Databases and SQL
+|Final project check-in
+
+|Th |11/12
+|M  |11/16
+|Databases and SQL
+|
+
+|Tu |11/17
+|W  |11/18
+|Data on the web
+|Critical reflection
+
+|Th |11/19
+|M  |11/23
+|Data on the web
+|
+
+|Tu |11/24
+|   |
+|Web scraping
+|Final project check-in
+
+|_W_ |_11/25_
+|_Th_|_11/26_
+|_Thanksgiving break_
+|
+
+|   |
+|M  |11/30
+|Web scraping
+|
+
+|Tu |12/01
+|W  |12/02
+|Web scraping
+|Homework 9
+
+|Th |12/03
+|M  |12/07
+|Data analysis
+|
+
+|Tu |12/08
+|W  |12/09
+|Data analysis
+|Final project presentation
+
+|Th |12/10
+|M  |12/14
+|Data analysis
+|
+
+|===
+
+== Version history
+
+=== 1.1 (2020/9/4)
+
+* Added email addresses for all UTAs and AMPs.
+* Added office hour schedule and explanation.
+* Fixed version number, date, and semester.
+
+=== 1.0 (2020/8/29)
+
+* Original version

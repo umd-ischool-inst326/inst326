@@ -1,0 +1,284 @@
+\documentclass[11pt]{article}
+
+\usepackage{amssymb}
+\usepackage{acro}
+\usepackage{enumitem}
+\usepackage[margin=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage[parfill]{parskip}
+\usepackage{tabulary}
+\usepackage[compact]{titlesec}
+\usepackage[table]{xcolor}
+\usepackage{url}
+
+% Custom Formatting
+\geometry{letterpaper} 
+\titlespacing{\section}{0pt}{*3}{*0}
+
+
+% Course/Section Details
+\newcommand{\coursename}{
+INST326: Object-Oriented Programming
+} \newcommand{\doctitle}{
+Course Syllabus
+} \newcommand{\semester}{
+Spring 2019
+} \newcommand{\coursesection}{
+Section 101
+} \newcommand{\location}{
+Susquehanna Hall (SQH) 1117
+} \newcommand{\classtimes}{
+MWF 1-1:50
+} 
+
+% Instructor Details
+\newcommand{\instructorname}{
+Joshua A. Westgard, PhD
+} \newcommand{\instructoremail}{
+\href{mailto:westgard@umd.edu}{westgard@umd.edu}
+} \newcommand{\instructorphone}{
+301-405-9136 (office)
+} \newcommand{\instructoroffice}{
+B0225 McKeldin Library
+} \newcommand{\instructorofficehours}{
+M 11-12, W 3-4, and by appointment
+}
+
+% Generate Syllabus Headings for the Title/Author Sections
+\title{\coursename \\ \doctitle \vspace{-1ex}}
+\author{
+	{\semester} -- {\coursesection} -- {\location} -- {\classtimes}
+}
+\date{}
+
+% Main Document
+\begin{document}
+\maketitle
+\rule{\textwidth}{.4pt}
+
+\section{Instructor}
+\begin{tabular}{rl} 
+	Name: & {\instructorname} \\
+	Email: & {\instructoremail} \\
+	Phone: & {\instructorphone} \\
+	Office: & {\instructoroffice} \\
+	Office Hours: & {\instructorofficehours}
+\end{tabular}
+
+\section{Catalog Description}
+This course is an introduction to programming, emphasizing understanding and implementation of applications using object-oriented techniques. Topics to be covered include program design and testing as well as implementation of programs. Prerequisite: (must have completed or be concurrently enrolled in INST201; or INST301); and (INST126; or CMSC106; or CMSC122). Or permission of instructor. Credit only granted for: INST326 or CMSC131.
+
+\section{Extended Course Description}
+This course covers (1) the core features of the Python programming language, (2) using programs to collect, process, and analyze data, and (3) object-oriented programming. Object-oriented programs are built as collections of “objects”, which are software representations of real-world entities and concepts. Objects combine data (attributes) with functionality (methods), and work through communicating with each other as the code is executed. By encapsulating code complexity within objects, OOP allows use and reuse of existing code in a relatively simple and easy manner. Advanced OOP concepts such as inheritance facilitate development of complex code without sacrificing robustness and possibility of code reuse. We apply computational thinking approaches such as abstraction, decomposition, algorithmic design, generalization, evaluation, and debugging.
+
+This course also provides opportunities to develop an understanding of how programming is situated in and reflects broader social structures, constructs and issues, e.g. race, class or gender. Programming is often viewed as a value-neutral technical skill. However, the social and cultural impacts of information and technology are central concepts in our field, and the growing awareness of issues like algorithmic bias, ethical/unethical uses of algorithms and disparities in opportunities in tech jobs require that  any informed professional needs to understand the larger context of programming. This is important to be ethical professionals and to be successful in the workplace. Through readings, discussion and writing, we will critically examine issues of racism, sexism and other forms of power and oppression that are pervasive in programming and related technical activities, and discuss what companies and individuals are doing to improve programming practices and professional work environments.
+
+\section{Student Learning Outcomes}
+After finishing this course, students will be able to:
+\begin{enumerate}
+	\item Design, program, and debug Python applications to solve non-trivial problems;
+	\item Write scripts to collect, process, and/or analyze data;
+	\item Explain OOP concepts, principles, design patterns and methods;
+	\item Test and assess code quality;
+	\item Write clear and effective documentation;
+	\item Explain how programming is situated in and reflects social issues (e.g. racism, classism, ableism, or sexism) and describe actions that individuals or organizations are taking to counteract disparities and inequities.
+\end{enumerate}
+
+\section{Teaching Notes}
+This course assumes a basic understanding of procedural programming, and begins with a comprehensive review of Python fundamentals---including data types, variables, loops, and conditionals---that is designed to deepen your mastery of these concepts. The first part of the course will thus be an opportunity to consolidate and extend what was covered in INST126. Alternatively, if you have worked with a language such as JavaScript, Java, C\#, or Visual Basic, you should be able to apply that knowledge to learning Python. The later parts of the course will cover certain topics in program design and programming best practices (documentation, testing, etc.) that are a necessary part of producing complex, reliable, and maintainable applications. 
+
+If you have a strong foundation in Python programming already, and are interested in being challenged, I invite you to talk to me about leading a session (it’s really true that you learn more by teaching), identifying more challenging exercises, or developing a more ambitious project. I want you to learn as much as you can from this course.
+
+The course is divided into weekly modules, and will typically follow this pattern, with some exceptions:
+
+\begin{itemize}
+	\item Before class (preparation):
+	\begin{itemize}
+		\item Do assigned readings and/or watch assigned videos; 
+		\item Complete any online worksheets, exercises, or quizzes that are due.
+	\end{itemize}
+	\item In class:
+	\begin{itemize}
+		\item On the first day of each module (usually Monday), we will have a lecture to introduce the topic of the module;
+		\item On the second day (usually Wednesday), we will have a mix of lecture, group whiteboarding, and hands-on activities;
+		\item On the third day (usually Friday), we will have a lab activity designed to help you apply what you have learned independently;
+		\item Quizzes may be administered online in class;
+		\item Each midterm exam will include both an in-class and take-home section.
+	\end{itemize}
+	\item After class (programming homework):
+	\begin{itemize}
+		\item There will be five homework assignments to help you apply, reflect and extend your understanding by working on a practical task;
+		\item	All homework assignments are to be completed on your own unless otherwise stated on the assignment hand-out.
+	\end{itemize}
+\end{itemize}
+
+Over the course of the semester, we will also examine selected broader issues of programming and coding–--the social and organizational context, issues related to gender, race, disability, etc. This will help you prepare for situations that you are likely to encounter in your professional work. These are noted in the schedule as “Critical Reflections.”
+
+Here is my suggested general strategy for working on assignments:
+\begin{enumerate}
+	\item Start early---don't wait. That will give you time to work through the problems and get help as needed.
+	\item When you run into a problem, spend 5-10 minutes trying to solve it on your own.
+	\item Then take a break. Sometimes this will allow you to come back and see something you missed. Letting your subconscious work on it for a while (unsupervised, so to speak) will often lead to useful ideas.
+	\item If you’ve spent 20-30 minutes and still are stuck, post your question on ELMS. We are here to help each other, so don’t beat your head against a brick wall---ask for help! When you post, provide as much information as you can. Often it helps to post a screenshot with the problem.
+	\item I will respond as soon as I am able, usually within a day.
+	\item If you see a question on the discussion board that you can answer, or if you have an idea, please respond. Don’t wait for me. You will be helping your colleagues.
+\end{enumerate}
+
+\section{Textbooks \& Readings}
+There is no book required for this course. Instead, we will make use of the following freely available websites/tutorials:
+\begin{itemize}
+	\item Charles R. Severance, \textit{Python for Everybody: Exploring Data Using Python 3} ISBN-13: 978-1530051120 \url{http://py4e.com}
+	\item \textit{The Python Tutorial}, v3.7.2, Python Software Foundation \url{https://docs.python.org/3/tutorial/index.html}
+	\item \textit{Object-Oriented Programming in Python}, University of Cape Town \url{https://www.cs.uct.ac.za/mit_notes/python/}
+\end{itemize}
+
+Other readings (generally available online, or through Library subscriptions) may be assigned as needed.
+
+\section{Required Technology}
+\begin{itemize}
+	\item Laptop: We will do programming in class, so bring your laptop and be prepared to write code. Any current OS can be used. If you do not have access to a laptop, contact me immediately.
+	\item Python:  The Python interpreter (version 3). This programming platform is freely available from \href{https://www.python.org/downloads}{https://www.python.org/downloads}.*
+	\item Code Editor: An advanced text editor (such as Sublime Text, Notepad++, or BBEdit) and/or an integrated development environment (such as NetBeans, Eclipse, or PyCharm).*
+
+*Please note that we will install all necessary environments together in class during the first week.
+\end{itemize}
+
+\section{Grading}
+Your final grade for the course is computed as the sum of your scores on the individual elements below (100 possible points total), converted to a letter grade:
+
+\hspace*{.5in}
+\begin{tabular}{ccccc}
+    \begin{tabular}{ll}
+        A+ & 97-100 \\
+        A & 93-96.99 \\
+        A- & 90-92.99
+    \end{tabular} 
+    \begin{tabular}{ll}
+        B+ & 87-89.99 \\
+        B & 83-86.99 \\
+        B- & 80-82.99
+    \end{tabular} 
+    \begin{tabular}{ll}
+        C+ & 77-79.99 \\
+        C & 73-76.99 \\
+        C- & 70-72.99
+    \end{tabular} 
+    \begin{tabular}{ll}
+        D+ & 67-69.99 \\
+        D & 63-66.99 \\
+        D- & 60-62.99
+    \end{tabular} 
+    \begin{tabular}{ll}
+        F & 0-59.99
+    \end{tabular}
+\end{tabular}
+
+Final grades will be calculated based on the following components:
+
+\hspace*{.5in}
+\begin{tabular}{lr}
+	Module Exercises/Quizzes (10) & 20 points \\
+	Homework (5) & 25 points \\
+	Midterms (2) & 20 points \\
+	Final Project & 15 points \\
+	Reflections (3) & 10 points \\
+	Participation & 10 points \\
+	\hline
+	TOTAL & 100 points \\
+\end{tabular}
+
+\section{University Course Policies}
+The essential purpose of the university’s undergraduate course policies is to enable all of us to fully participate in an equitable, accessible and safe academic environment so that we each can be challenged to learn and contribute most effectively. They address issues such as academic integrity, codes of conduct, discrimination, accessibility, learning accommodations, etc. We are all responsible for following the policies at \href{http://www.ugst.umd.edu/courserelatedpolicies.html}{http://www.ugst.umd.edu/courserelatedpolicies.html}. You must read them and send me any questions by the first week of classes.
+
+\section{Late Work}
+Precise submission instructions are provided on individual assignments, but as a general rule the on-time submission window will close in ELMS at the beginning of class on the date due.  If you have to miss a deadline, you should inform me as soon as possible, indicating the reason and when you propose to submit your work. If you have a legitimate reason, such as a major medical or family emergency, I may agree to an extension or makeup work, which I will grade before the end of the semester. Documentation of the emergency (e.g. a doctor's letter) may be required.
+
+\section{Syllabus Revision Policy}
+This syllabus is a guide for the course and is subject to change with advance notice. Changes will be posted in ELMS. The ELMS course site is the definitive location for all course work, and communication, including class schedules, assignments and deadlines.
+
+\section{Course Schedule}
+The following table shows the most current version of the planned schedule. The course content can be roughly divided into three interrelated units:
+
+\begin{itemize}
+	\item Unit 1: Procedural Programming Review using Python ($\sim$weeks 1-4)
+	\item Unit 2: Object-Oriented Programming using Python ($\sim$weeks 5-9)
+	\item Unit 3: Data Analysis using Python ($\sim$weeks 10-14)
+\end{itemize}
+
+%\rowcolors{1}{gray!25}{}
+\begin{tabular}{| r | c | c | c |}
+	\hline
+	\cellcolor{gray!40} \colorbox{gray!40}{\makecell{Week}} &
+	\cellcolor{gray!40} \colorbox{gray!40}{\makecell{Monday}} &
+	\cellcolor{gray!40} \colorbox{gray!40}{\makecell{Wednesday}} &
+	\cellcolor{gray!40} \colorbox{gray!40}{\makecell{Friday}} \\
+	%\thead{Week} & \thead{Monday} & \thead{Wednesday} & \thead{Friday} \\
+	\hline 1 & 
+	\makecell{01/28 Introduction: \\Syllabus \& Overview} & 
+	\makecell{01/30 Module 1: \\Fundamentals} & 
+	\makecell{02/01 Module 1: \\Fundamentals} \\
+	\hline 2 & 
+	\makecell{02/04 Module 2: \\Functions \& Iteration} & 
+	\makecell{02/06 Module 2: \\Functions \& Iteration} & 
+	\makecell{02/08 Module 2: \\Functions \& Iteration} \\
+	\hline 3 & 
+	\makecell{02/11 Module 3: \\Data Types \textbf{HW1}} & 
+	\makecell{02/13 Module 3: \\Data Types} & 
+	\makecell{02/15 Module 3: \\Data Types} \\
+	\hline 4 & 
+	\makecell{02/18 Module 4: \\Serialization \& File I/O} & 
+	\makecell{02/20 Module 4: \\Serialization \& File I/O} &
+	\makecell{02/22 Module 4: \\Serialization \& File I/O} \\
+	\hline 5 &
+	\makecell{02/25 Module 5: \\OOP Fundamentals \textbf{HW2}} &
+	\makecell{02/27 Module 5: \\OOP Fundamentals} &
+	\makecell{03/01 Module 5: \\OOP Fundamentals} \\
+	\hline 6 &
+	\makecell{03/04 \\ \textbf{Critical Reflection \#1}} &
+	\makecell{03/06 \\ Catch up \& Review} &
+	\makecell{03/08 \\ \textbf{Midterm \#1}} \\
+	\hline 7 &
+	\makecell{03/11 Module 6: \\Inheritance \& OOP Patterns} &
+	\makecell{03/13 Module 6: \\Inheritance \& OOP Patterns} &
+	\makecell{03/15 Module 6: \\Inheritance \& OOP Patterns \textbf{HW3}} \\
+	\hline 8 &
+	\cellcolor{gray!20} \colorbox{gray!20}{\makecell{03/18 \\ SPRING BREAK}} &
+	\cellcolor{gray!20} \colorbox{gray!20}{\makecell{03/20 \\ SPRING BREAK}} &
+	\cellcolor{gray!20} \colorbox{gray!20}{\makecell{03/22 \\ SPRING BREAK}} \\
+	\hline 9 &
+	\makecell{03/25 Module 7: \\Exceptions \& Logging} &
+	\makecell{03/27 Module 7: \\Exceptions \& Logging} &
+	\makecell{03/29 Module 7: \\Exceptions \& Logging} \\
+	\hline 10 &
+	\makecell{04/01 Module 8: \\Databases and SQL} &
+	\makecell{04/03 Module 8: \\Databases and SQL} &
+	\makecell{04/05 Module 8: \\Databases and SQL} \\
+	\hline 11 &
+	\makecell{04/08 \\ \textbf{Critical Reflection \#2}} &
+	\makecell{04/10 \\ Catch up \& Review} &
+	\makecell{04/12 \\ \textbf{Midterm \#2}} \\
+	\hline 12 &
+	\makecell{04/15 Module 9: \\Testing \textbf{HW4}} &
+	\makecell{04/17 Module 9: \\Testing} &
+	\makecell{04/19 Module 9: \\Testing} \\
+	\hline 13 &
+	\makecell{04/22 Module 10: \\Data on the Web} & 
+	\makecell{04/24 Module 10: \\Data on the Web} &
+	\makecell{04/26 Module 10: \\Data on the Web} \\
+	\hline 14 &
+	\makecell{04/29 Module 11: \\Data Analysis \textbf{HW5}} &
+	\makecell{05/01 Module 11: \\Data Analysis} &
+	\makecell{05/03 Module 11: \\Data Analysis} \\
+	\hline 15 &
+	\makecell{05/06 \\ \textbf{Critical Reflection \#3}} &
+	\makecell{05/08 \\Final Presentations} &
+	\makecell{05/10 \\Final Presentations} \\
+	\hline 16 &
+	\makecell{05/13 \\Final Presentations} & & \\
+	\hline
+\end{tabular}
+\end{document}
+

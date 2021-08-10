@@ -1,0 +1,59 @@
+= INST 326 Module 3: Testing
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Module 3 is the final module in the "fundamentals" unit of the course. Unlike
+the topics of the previous two modules, this week's topic, software testing, is
+probably new to many of you.  Though testing may seem advanced, the reason we
+are introducing it at this early stage is because testing is very useful for
+improving the quality of your code, and hence can be a valuable tool as you are
+learning to program.
+
+=== Links
+
+* link:slides.html[Slides]
+* link:exercises/index.html[Exercises]
+
+== Learning Outcomes
+
+This module introduces the concept of software testing. After completing this module, you should understand
+
+* Why software testing is important
+* How to organize code for testing
+* What assert statements do and how to write them
+* What a module is
+* What a namespace is and why they are useful
+* How to import a module, or specific objects from a module
+* How to structure a program as a module
+* What if `__name__ == "__main__"`: does and why it is used
+* What Pytest is and how to write Pytest test scripts
+ 
+You may find it helpful to refer to the following resources:
+
+* Resources on modules,  if `__name__ == "__main__"`:
+  ** van Rossum, The Python Tutorial: https://docs.python.org/3/tutorial/modules.html[Section 6: Modules] (covers importing and if `__name__ == "__main__"`:, among other things)
+  ** Official `__main__` link:++https://docs.python.org/3/library/__main__.html++[documentation]
+  ** bogotobogo.com provides https://realpython.com/pytest-python-testing/[a nice tutorial] explaining `if __name__ == "__main__":`
+* Resources on testing
+  ** Official `abs()` https://docs.python.org/3/library/functions.html#abs[documentation]
+  ** Official `math.isclose()` https://docs.python.org/3/library/math.html#math.isclose[documentation]
+  ** `pytest.approx()` https://docs.pytest.org/en/stable/reference.html#pytest-approx[documentation] (solves the same problem as math.isclose(), but in a different, elegant way)
+  ** https://docs.pytest.org/en/stable/contents.html[Pytest documentation]
+  ** realpython.com: https://realpython.com/pytest-python-testing/[Effective Python Testing With Pytest]
+
+If you have not already installed Pytest, please take a moment and do so by
+typing the following in your VSCode terminal window (if `pip3` is not found try
+`pip` instead):
+
+    pip3 install pytest
+
+
+:bogotobogo: https://www.bogotobogo.com/python/python_if__name__equals__main__.php[

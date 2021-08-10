@@ -1,0 +1,39 @@
+= INST 326 Module 13: Web Scraping
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+This module introduces the core concepts of web scraping, i.e. extracting data from unstructured or semi-structured data sources online. We learn to use the BeautifulSoup module and experiment with a number of examples
+
+=== Lecture Videos
+- https://youtu.be/Aj8ejVQMvps[Video Lecture: Web Scraping with Python]
+- https://www.youtube.com/watch?v=IqSi1XWM08M[Video Lecture: Hands on HTML Analysis for Web Scraping]
+- https://youtu.be/dc5Rfko4e2g[Video Lecture: Coding Python for Web Scraping]
+
+=== Links
+
+- link:slides.html[Slides]
+- link:files/html2.py[Example Code from lecture video]
+
+=== Exercise
+- link:exercise.html[UFO Data Exercise]
+
+== Learning Outcomes
+
+.After completing this module, students should be able to:
+* Analyze HTML pages to identify repeating structural elements that support web scraping
+* Use the BeautifulSoup module
+* Extract data from web pages with web scraping techniques
+
+== Additional Readings
+
+* https://towardsdatascience.com/how-to-web-scrape-with-python-in-4-minutes-bc49186a8460[How to Web Scrape with Python in 4 Minutes]
+* https://www.crummy.com/software/BeautifulSoup/bs4/doc/[BeautifulSoup Documentation]
+

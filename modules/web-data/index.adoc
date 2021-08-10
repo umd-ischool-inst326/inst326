@@ -1,0 +1,47 @@
+= INST 326 Module 12: Data on the Web
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+This module focuses on two of the basic building blocks of web applications: The HTTP protocol and the Python requests library.  HTTP defines the fundamental rules for communication on the World Wide Web. Python's requests library provides a means of creating and receiving HTTP messages within Python programs.
+
+=== Links
+
+* link:slides.html[Slides]
+* link:exercises[Exercises]
+
+
+== Learning Outcomes
+
+After completing this module, students should understand:
+
+* The basics of HTTP
+* How to install Requests and use it to send messages via HTTP
+* How to work with the Responses coming back from a web server
+* How to use an API
+
+== Readings
+
+* Severance, _Python for Everybody_:
+    ** link:https://www.py4e.com/html3/12-network[Chapter 12, "Networked Programs"]
+    ** link:https://www.py4e.com/html3/13-web[Chapter 13, "Using Web Services"]
+* link:http://docs.python-requests.org/en/master[The documentation for the Requests library]
+
+You may also wish to watch the videos and/or read the slide decks provided on the link:https://py4e.com[Py4e website].
+
+[**Note**: Unlike most of the other modules we have been using in this course, requests is not part of the standard library and may need to be installed. If you receive an error message when importing requests, please refer to the documentation for installation instructions.]
+
+=== Additional Resources
+
+As a member of the University community you have free access to LinkedIn Learning courses and videos. The following courses are some examples of content that is directly relevant to what we are covering in this module:
+
+* link:https://www.linkedin.com/learning-login/share?forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fhttp-essential-training%3Ftrk%3Dshare_ent_url&account=41910388[HTTP Essential Training]
+* link:https://www.linkedin.com/learning-login/share?forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Flearning-rest-apis%3Ftrk%3Dshare_ent_url&account=41910388[Learning REST APIs]
+* link:https://www.linkedin.com/learning-login/share?forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fpython-xml-json-and-the-web%3Ftrk%3Dshare_ent_url&account=41910388[Python: XML, JSON, and the Web]

@@ -1,0 +1,44 @@
+= Exercise: COVID
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Background
+
+Back in modules 5 and 6 you analyzed a dataset of vaccinations by county that
+was published by the state of Maryland. You may remember that we found that this
+dataset contained anomalous vaccination data for dates that were well before the
+first release of vaccines on December 11, 2020. Because some vaccines like
+Johnson and Johnson's only require a single shot we also questioned how
+that data would be recorded since there were columns for first and second dose.
+
+It turns out that the Maryland Department of Health no longer publish this
+dataset on the web. The previous link that we used is now a 404 error. It
+appears that this dataset has been removed from the website in the last few
+weeks. They are now publishing
+https://coronavirus.maryland.gov/datasets/md-covid19-totalvaccinationscountyfirstandsecondsingledose[a new dataset] that includes first and second vaccinations by county which has an
+additional column for single does vaccines. In this assignment you are going to
+use Pandas to read in and analyze this dataset.
+
+== Instructions
+
+1. Download the https://coronavirus.maryland.gov/datasets/md-covid19-totalvaccinationscountyfirstandsecondsingledose[Vaccination dataset] as CSV.
+2. Use pip to install https://pandas.pydata.org/[Pandas] and
+https://jupyter.org/install[Jupyter] in your Python environment.
+3. Create a Jupyter notebook in VSCode called `md_vaccinations.ipynb`.
+4. Create a markdown cell in your notebook describing this assignment.
+5. Read the CSV data into a Pandas dataframe using the `read_csv()` method while
+parsing the dates in the `VACCINATION_DATE` column.
+6. To make the data easier to use make the column headers consistent (capitalization and names) using the `rename()` method.
+7. Create a new column for total cumulative vaccinations that is the sum of the
+cumulative second dose and cumulative single dose values.
+8. Create a subset of the data for data about Prince George's County as a new
+dataframe.
+9. Generate a line chart of the total cumulative vaccinations by time where the
+x axis is the vaccination date and the y axis is the total cumulative
+vaccinations.

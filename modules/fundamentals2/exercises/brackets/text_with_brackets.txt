@@ -1,0 +1,9 @@
+this line is balanced because there are no brackets
+(simple balanced input)
+(this line {has [balanced [brackets]]})
+(this [line {doesn't have balanced brackets)
+[balance[balance(balance)]]
+}these aren't balanced{
+this is also bad)
+[not balanced)
+{no balance here}}}

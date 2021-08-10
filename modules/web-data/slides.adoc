@@ -1,0 +1,355 @@
+= Data on the Web
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 800
+:title-slide-background-image: olivier-darbonville-44x-fCnX2Ws-unsplash.jpg
+
+
+== Introduction
+
+[%notitle]
+=== The Metaphor of the Cloud
+
+image::cloud.jpg[align=center, width=70%, link="https://www.flickr.com/photos/inkdroid/15898721715/", label="Fluffy white clouds in a blue sky."]
+
+[.notes]
+--
+What does the metaphor of the cloud mean?
+--
+
+[%notitle]
+=== The Network as a Cloud
+
+image::internet.png[align=center, width=80%, link="http://as2914.net/#/galaxy/ipv4?cx=-39&cy=-70&cz=10475&lx=0.0324&ly=-0.0390&lz=0.0019&lw=0.9987&ml=1000&s=1.75&l=1&v=2016-09-03", label="Visualization of the internet as a network graph"]
+
+[.notes]
+--
+The metaphor of the cloud comes from visualizations like this that show the
+many connections between computers on the Internet. This is a view of routers
+on the Internet. Each dot in this visualization is a computer on the
+Internet. The web is a layer over the Internet, where each of the dots is a
+web server.
+
+Optionally click on image and show how you can zoom in and search for UMD.
+--
+
+[%notitle]
+=== But there is no "Cloud"
+
+There is no cloud. It's just someone else's computer.
+
+
+[.columns]
+== The World Wide Web
+
+[.column]
+image::otlet.jpg[align=left, width=90%, link="https://artsandculture.google.com/exhibit/mapping-knowledge/QQ_clnh7", label="Paul Otlet"]
+
+[.column]
+image::moad.png[align=center, width=90%, link="https://en.wikipedia.org/wiki/The_Mother_of_All_Demos", label="Mother of All Demos"]
+
+[.column]
+image::berners-lee.jpg[align=right, width=90%, link="https://en.wikipedia.org/wiki/World_Wide_Web", label="Tim Berners-Lee"]
+
+[.notes]
+--
+* Mundaneum: started by Paul Otlet in 1895. A index of millions of cards about newspapers 
+* Mother of All Demos: Doug Engelbart in 1968 at Stanford, demonstrating graphics, hypertext, mouse, networking.
+* Tim Berners-Lee: created the web at CERN in 1989.
+--
+
+
+=== The Web's Primary Innovations
+
+[%step]
+* **HTTP**: Hypertext Transfer Protocol
+* **URL**: Uniform Resource Locator
+* **HTML**: Hypertext Markup Language
+* **Open Standards**: non-proprietary, IETF, W3C
+* **Browser**: Lynx, Mosaic, Netscape, IE, Chrome, Firefox, Safari
+
+[.notes]
+--
+This week we will be using these things from Python.
+--
+
+
+=== Client-Server Model
+
+image::client-server.png[align=center, width=80%, link="https://en.wikipedia.org/wiki/Client%E2%80%93server_model", label="Client-Server Model"]
+
+[.notes]
+--
+The web follows a basic client/server model, where clients (web browsers running on various kinds of devices) fetch data (HTML, CSS, images, etc) from web servers using URLs and HTTP. This picture is over-simplified because you often fetch data concurrently from multiple web servers when rendering a web page.
+--
+
+
+=== The Browser
+
+image::devtools.png[align=center, width=65%, label="Developer Tools View in a Web Browser"]
+
+[.notes]
+--
+Have you ever wondered how a web browser works? Take a quick look at the developer tools in your browser. See how you can view the HTML, and all the network connections that go on when you view a web page? This week we will be learning about how to do some of those calls from Python.
+--
+
+
+== Web APIs
+
+Application Programming Interface
+
+[.notes]
+--
+Today we are going to focus on something called APIs. Does anyone know what API stands for? APIs allow you to use HTTP to get data (usually JSON) from the web.
+--
+
+[%notitle]
+=== Services with APIs
+
+image::apis.png[align=center, width=70%, label="Icons of various Web services that offer APIs"]
+
+[.notes]
+--
+With the expansion of mobile computing, and "smart" phones in the early 2000s there was an increasing need to make data available to apps that ran on the phone. These are examples of web platforms that you can install apps for on your phone.
+--
+
+=== HTTP Methods
+
+Remember how you can *create*, *read*, *update* and *delete* data in a database? Well you can do the same things with web APIs using HTTP *methods*:
+
+[.step]
+* **HTTP GET**: read
+* **HTTP POST**: create
+* **HTTP PUT**: update
+* **HTTP DELETE**: delete
+* We're only going to be focused on GET.
+
+
+=== Python Requests
+
+image::requests.png[align=center, width=35%, link="http://docs.python-requests.org/", label="Homepage of the Python requests library"]
+
+[.notes]
+--
+To use Web APIs we need to use HTTP. Python has some built in modules to make it easy to work with HTTP. There is also the Python Requests extension which you can install which makes it even easier. That's what we will be using in class
+--
+
+=== pip3 install requests
+
+Run the command above in your terminal to install the requests module.
+
+*pip* is the python packaging utility for installing *open source* software distributed through the link:https://pypi.python.org[Python Package Index].
+
+[.notes]
+--
+You will need to install the requests module first before you can use it, since it is a third party extension to Python that is distributed through the Python Package Index.
+--
+
+
+=== Requesting a Webpage 
+
+[source, python, linenums]
+----
+import requests
+
+resp = requests.get('https://umd.edu')
+print(resp)
+----
+
+<Response [200]>
+
+[.step]
+1. create Python HTTP request object for a GET
+2. send HTTP request to webserver at umd.edu
+3. receive the response from umd.edu
+4. create and return a Python HTTP Response object
+
+[.notes]
+--
+
+--
+
+=== Viewing the Response
+
+We can use the Response object to print out the text of the response that was sent back. In this case we see HTML.
+
+[source, python, linenums]
+----
+import requests
+
+resp = requests.get('https://umd.edu')
+print(resp.text)
+----
+
+[.notes]
+--
+
+--
+
+
+== Hands-On with ProPublica
+
+[.notes]
+--
+
+--
+
+
+[%notitle]
+=== Hands-On 1
+
+image::propublica.png[align=center, width=40%, link="https://www.propublica.org/datastore/api/propublica-congress-api", label="Homepage of ProPublica Congress API"]
+
+[.notes]
+--
+
+--
+
+
+[%notitle]
+=== Hands-On 2
+
+Now let's GET JSON data for the current members of the House of Representatives using the link:https://www.propublica.org/datastore/api/propublica-congress-api[ProPublica Congress API]. Notice that we need a key? You can get your own if you want or you can use the one I've put on ELMS.
+
+
+[source, python, linenums]
+----
+import requests
+
+headers = {"X-API-KEY": "INSERT_VALID_KEY_HERE"}
+url = 'https://api.propublica.org/congress/v1/116/house/members.json'
+
+resp = requests.get(url, headers=headers)
+print(resp.json())
+----
+
+[.notes]
+--
+
+--
+
+[%notitle]
+=== Hands-On 3
+
+Let's use Python's link:https://docs.python.org/3.7/library/json.html[json] module that we've used in the past to pretty-print the data, so that it isn't all on one line, and uses an indent of 2 spaces.
+
+[source, python, linenums]
+----
+import json
+import requests
+
+headers = {"X-API-KEY": "INSERT_VALID_KEY_HERE"}
+url = 'https://api.propublica.org/congress/v1/116/house/members.json'
+
+members = requests.get(url, headers=headers).json()
+print(json.dumps(members, indent=2))
+----
+
+[.notes]
+--
+
+--
+
+[%notitle]
+=== Hands-On 4
+
+So how did I know about the special URL for the current members of the House? Most APIs come with *documentation* that explains how to use the API, which often includes the URLs you can use when talking to the APi, and what kinds of data you can expect to get back.
+
+Let's look a little more closely at the link:https://projects.propublica.org/api-docs/congress-api/[ProPublica API documentation].
+
+[.notes]
+--
+
+--
+
+
+[%notitle]
+=== Hands-On 5
+
+Now let's use the link:https://projects.propublica.org/api-docs/congress-api/members/#get-current-members-by-statedistrict[Get Current Members by State/District] and the link:https://projects.propublica.org/api-docs/congress-api/bills/#get-recent-bills-by-a-specific-member[Get Recent Bills by a Specific Member] API calls together to print out the bills introduced by MD House members.
+
+image::md-districts.png[align=center, width=40%, link="https://en.wikipedia.org/wiki/Maryland%27s_congressional_districts", label="Map of Maryland Congressional Districts"]
+
+
+
+[%notitle]
+=== Hands-On 6
+
+[source, python, linenums]
+----
+import json
+import requests
+
+def get(url):
+    headers = {"X-API-KEY": "INSERT_KEY_HERE"}
+    url = "https://api.propublica.org/congress/v1" + url
+    data = requests.get(url, headers=headers).json()
+    return data['results']
+
+for member in get("/members/house/md/current.json"):
+    print(member['name'], member['id'])
+----
+
+[.notes]
+--
+Since we are going to be making multiple calls to the ProPublica API let's create a little function that will do the HTTP request and get the data back as JSON so we don't have to repeat this.
+--
+
+
+[%notitle]
+=== Hands-On 7
+
+[source, python, linenums]
+----
+import json
+import requests
+
+def get(url):
+    headers = {"X-API-KEY": "INSERT_KEY_HERE"}
+    url = "https://api.propublica.org/congress/v1" + url
+    data = requests.get(url, headers=headers).json()
+    return data['results']
+
+for member in get("/members/house/md/current.json"):
+    print(member['name'])
+    bill_data = get('/members/' + member['id'] + '/bills/introduced')
+    for bill in bill_data[0]['bills']:
+        print(bill['title'])
+        print(bill['congressdotgov_url'])
+    print('')
+----
+
+
+[%notitle]
+=== Hands-On 8
+
+[source, python, linenums]
+----
+import json
+import requests
+
+def get(url):
+    headers = {"X-API-KEY": "INSERT_YOUR_KEY"}
+    url = "https://api.propublica.org/congress/v1" + url
+    data = requests.get(url, headers=headers).json()
+    return data['results']
+
+for member in get("/members/house/md/current.json"):
+    print(member['name'])
+    bill_data = get('/members/' + member['id'] + '/bills/introduced')
+    for bill in bill_data[0]['bills']:
+        if bill['congress'] == "116":
+            print(bill['title'])
+            print(bill['congressdotgov_url'])
+            print('')
+----
+
+[.notes]
+--
+Limit output to bills introduced in the current (117th) congress.
+--
+

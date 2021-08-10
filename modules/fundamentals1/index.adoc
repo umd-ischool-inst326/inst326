@@ -1,0 +1,64 @@
+= INST 326 Module 1: Fundamentals Part 1
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+This module covers several fundamental aspects of Python: statements, expressions, variables, conditionals, loops, functions, and exceptions.
+
+=== Links
+
+* link:slides.html[Slides]
+* link:exercises[Exercises]
+
+== Learning Outcomes
+
+After completing this module, students should understand
+
+* What statements and expressions are and the differences between them
+* The difference between simple and compound statements and the elements of a compound statement
+* Common operators in Python, including the various division-related operators
+* How to declare and modify variables in Python
+* What a boolean context is and how common values are treated in boolean contexts
+* How to write conditional statements and conditional expressions and how they are different
+* How to write while loops and for loops and when to choose one over the other
+* How to alter the normal flow of control in a loop
+* How to call a function
+* The difference between positional arguments and keyword arguments and how to use each of them
+* How to write a function
+* The difference between required parameters and optional parameters and how to declare each of them
+* The difference between `return` and `print()`
+* What function docstrings are and how to write them
+* What an exception is
+* How the Python call stack works and how to read a stack traceback
+* How to raise exceptions
+* How to handle exceptions with try/except statements
+
+== Additional Readings
+
+You may find it helpful to refer to the following resources:
+
+* Severance, _Python for Everybody_
+    ** link:https://www.py4e.com/html3/02-variables[Chapter 2: "Variables, expressions, and statements"]
+    ** link:https://www.py4e.com/html3/03-conditional[Chapter 3: "Conditional execution"]
+    ** link:https://www.py4e.com/html3/04-functions[Chapter 4: "Functions"]
+    ** link:https://www.py4e.com/html3/05-iterations[Chapter 4: "Iteration"]
+* van Rossum, _The Python Tutorial_
+    ** link:https://docs.python.org/3/tutorial/introduction.html[Section 3: "An Informal Introduction to Python"] Touches on statements, expressions, `while` loops
+    ** link:https://docs.python.org/3/tutorial/controlflow.html#if-statements[Section 4.1: "`if` Statements"]
+    ** link:https://docs.python.org/3/tutorial/controlflow.html#for-statements[Section 4.2: "`for` Statements"]
+    ** link:https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops[Section 4.4: "`break` and `continue` Statements, and `else` Clauses on Loops"]
+    ** link:https://docs.python.org/3/tutorial/controlflow.html#defining-functions[Section 4.6: "Defining Functions"]
+    ** link:https://docs.python.org/3/tutorial/controlflow.html#default-argument-values[Section 4.7.1: "Default Argument Values"]
+    ** link:https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments[Section 4.7.2: "Keyword Arguments"]
+    ** link:https://docs.python.org/3/tutorial/controlflow.html#documentation-strings[Section 4.7.7: "Documentation Strings"]
+    ** link:https://docs.python.org/3/tutorial/errors.html[Section 8: "Errors and Exceptions"]
+* Python Documentation, link:https://docs.python.org/3/library/functions.html["Built-in Functions"]
+
+

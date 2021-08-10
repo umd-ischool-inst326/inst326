@@ -1,0 +1,33 @@
+= INST 326 Module 9: Advanced OOP
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+This module introduces the topic of "design patterns" in object-oriented programming with a look at two such patterns, _Inheritance_ and _Composition_, and how they can be implemented using Python classes.
+
+=== Links
+
+* link:slides.html[Slides]
+* link:exercises/index.html[Exercises]
+
+== Learning Outcomes
+
+After completing this module, students should be able to:
+
+* Use the inheritance pattern to share functionality among Python classes.
+* Use method overriding to extend Python classes.
+* Use the composition pattern to create classes that make up other classes.
+* Build interfaces that provide access to component objects from the containing object.
+* Understand the importance of careful consideration of use cases and reusability in designing software.
+
+== Additional Readings
+
+* The Chapter "link:https://python-textbok.readthedocs.io/en/1.0/Object_Oriented_Programming.html[Object-Oriented Programming]" from the open-souce textbook, link:https://python-textbok.readthedocs.io/en/1.0/index.html[_Object-Oriented Programming in Python_] (University of Cape Town, 2013-2014) provides a good overview of this module's content.
+* For students interested in digging deeper into this topic the works of link:https://en.wikipedia.org/wiki/Martin_Fowler_(software_engineer)[Martin Fowler] are a good next step.

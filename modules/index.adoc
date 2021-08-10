@@ -1,0 +1,30 @@
+= INST 326 Modules
+:includedir: ../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Part 1: Fundamentals
+
+- link:fundamentals1/index.html[Module 1: Python Fundamentals 1]
+- link:fundamentals2/index.html[Module 2: Python Fundamentals 2]
+- link:testing/index.html[Module 3: Testing]
+
+== Part 2: Object-Oriented Programming in Python
+
+- link:oop1/index.html[Module 4: Basics of OOP]
+- link:containers1/index.html[Module 5: Container Types 1]
+- link:containers2/index.html[Module 6: Container Types 2]
+- link:oop2/index.html[Module 7: Advanced OOP]
+- link:regex/index.html[Module 8: Regular Expressions]
+- link:collab/index.html[Module 9: Collaborative Programming]
+
+== Part 3: Python for Data Analysis
+
+- link:data-analysis/index.html[Module 10: Data Analysis]
+- link:databases/index.html[Module 11: Databases and SQL]
+- link:web-data/index.html[Module 12: Data on the Web]
+- link:web-scraping/index.html[Module 13: Web Scraping]
+- link:ethics/index.html[Module 14: Ethics in Programming]

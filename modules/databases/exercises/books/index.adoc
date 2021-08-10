@@ -1,0 +1,19 @@
+= Exercise: Books
+:includedir: ../../../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Populating a database programmatically
+
+The data in this CSV file (link:books.csv[]) consists of a list of titles, authors, and dates of important works of fiction. The same dataset was used in the earlier exercises.
+
+The first task is to create a program that can read the data in the attached file and load it into a single-table database.
+
+== Challenge: Design and modeling practice
+
+Consider again the bibliographic database, note that there are multiple titles in the attached file (link:books.csv[]) written by a single author. In order to normalize this data, the author names should be moved into their own table and related to the book data through a relationship.
+
+How can the authors data be related to the book titles? Can you create a program that will manage the normalization process at load time?

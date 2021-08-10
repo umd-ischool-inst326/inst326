@@ -1,0 +1,36 @@
+= INST 326 Module 7: Remote Collaboration
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Remote collaboration tools and concepts, including git and Github, modules and packages, imports and namespaces.
+
+=== Links
+
+* link:slides_git.html[Slides (Git)]
+* link:slides.html[Slides (Collaboration and Modules)]
+* link:exercises/index.html[Exercises]
+
+== Learning Outcomes
+
+After completing this module, students should understand:
+
+* How git repositories work.
+* How to clone a repository locally.
+* How to make, stage, and commit changes locally.
+* How to pull upstream changes to local and push local changes upstream.
+* Merge conflicts and how resolve them (or avoid them before they occur).
+* How to use Github Desktop
+* How Python modules and packages work
+* How to use Python's import system
+
+== Additional Readings
+
+* John Wiegley, "link:https://jwiegley.github.io/git-from-the-bottom-up/[Git from the Bottom Up]"

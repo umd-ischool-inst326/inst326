@@ -1,0 +1,21 @@
+= INST 326 Syllabi
+//:stylesdir: css
+//:stylesheet: page.css
+:includedir: ../includes
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Current Syllabi
+
+- link:inst326_2020fall_bills.html[INST326-101/103 (Bills)]
+- link:inst326_2021spring_westgard.pdf[INST326-104 (Westgard)]
+- link:INST326_Syllabus_Fall2020_Cruz_AUG29.pdf[INST326-ESG1 (Cruz)]
+
+== Previous Syllabi
+
+- link:archive/fa2020-102.pdf[Fall 2020 (Westgard)]
+- link:archive/sp2020-101.pdf[Spring 2020 (Westgard)]
+- link:archive/fa2019-103.pdf[Fall 2019 (Westgard)]
+- link:archive/sp2019-101.pdf[Spring 2019 (Westgard)]

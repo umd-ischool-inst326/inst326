@@ -1,0 +1,526 @@
+= Objects and classes: Introduction to OOP
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 810
+:title-slide-background-image: letterpress_detail.png
+
+== What is an object?
+
+[%step]
+* All values in Python are objects
+* All objects are _instances_ of a data type
+* Objects can have _properties_
+[%step]
+** _Methods_ (functionality)
+** _Attributes_ (data)
+
+=== What is a class?
+
+[%step]
+[.nosubbullet]
+* Classes define data types
+[%step]
+** Classes allow us to combine data and functionality into a single package
+* Classes are used to create (or _instantiate_) objects
+* Classes let us define how operators and other features of Python behave for the objects we create
+
+[.notes]
+--
+Classes are like factories for objects (or class instances).
+
+In this module, we're going to use the terms 'object' and 'class instance' (or just 'instance') interchangeably. Think of the class as a factory and the object/instance as one thing made by the factory.
+--
+
+=== You've used classes before:
+
+* `int`
+* `str`
+* `float`
+* `list`
+* `bool`
+
+=== You've used methods before:
+
+* `mylist.*append("some value")*`
+* `mystring.*upper()*`
+* `myfile.*close()*`
+
+== Example: `pathlib.Path`
+
+The `Path` class from `pathlib` is an excellent example of a good class.
+
+[.fragment]
+We'll look at
+
+[%step]
+* instantiation
+* some attributes
+* some methods
+* interaction with features of Python
+
+=== Creating objects
+
+[%step]
+[.nosubbullet]
+* To create an instance of a class, invoke the class like a function: [slot]#cls#`()`
+* Arguments (if any) go inside the parentheses: [slot]#cls#`(`[slot]#arg1#`,` [slot]#arg2#`,` [slot]#...#`)`
+[%step]
+** When creating a `Path` object, you can specify a path as a string
+
+[source,python]
+[.fragment]
+----
+>>> from pathlib import Path
+>>>
+>>> dir = Path("/home/aric/INST326")
+>>> script = Path("/home/aric/INST326/homework1.py")
+----
+
+=== Attributes
+
+[%step]
+[.nosubbullet]
+* Attributes are accessed like this: [slot]#obj#`.`[slot]#attribute#
+[%step]
+** `Path` object attributes include
+[%step]
+*** `name`: the name of the file, without the directory
+*** `suffix`: the file extension, if any
+*** `parent`: the directory of the file, as a `Path` object
+
+[source, python]
+[.fragment]
+----
+>>> script.name
+'homework1.py'
+>>> script.suffix
+'.py'
+>>> script.parent
+PosixPath('/home/aric/INST326')
+----
+
+[.columns]
+=== Methods
+
+[.column]
+--
+[%step]
+[.nosubbullet]
+* Methods are invoked like this: [slot]#obj#`.`[slot]#method#`()`
+** `Path` object methods include
+[%step]
+*** `exists()`: indicates whether or not the file exists
+*** `read_text()`: open the file as a text file and return the contents
+*** `glob()`: search for files in a directory matching a pattern
+--
+
+[.column]
+--
+[%step]
+* Arguments (if any) go inside the parentheses: [slot]#obj#`.`[slot]#method#`(`[slot]#arg1#`,` [slot]#arg2#`,` [slot]#...#`)`
+
+[source, python]
+[.fragment]
+----
+>>> script.exists()
+True
+>>> script.read_text(encoding="utf-8")
+'print("Hello world!")\n'
+>>> for path in dir.glob("*.py"):
+...     print(path)
+... 
+/home/aric/INST326/exercise1.py
+/home/aric/INST326/homework1.py
+----
+--
+
+=== Interaction with features of Python
+
+[%step]
+* Using `str()` on a `Path` object gives you the path as a string:
+
+[source, python]
+[.fragment]
+----
+>>> str(dir)
+'/home/aric/INST326'
+----
+
+[%step]
+* Using the `/` operator on a `Path` object lets you create child paths:
+
+[source, python]
+[.fragment]
+----
+>>> dir / "homework2.py"
+PosixPath('/home/aric/INST326/homework2.py')
+----
+
+=== Summary
+
+Using `pathlib.Path`, we looked at examples of
+
+[%step]
+* how to instantiate a class
+* how to access attributes of an object
+* how to invoke methods of an object
+* how objects can define how they interact with features of Python
+
+[.columns]
+== Defining classes
+
+[.column.fragment]
+--
+[%step]
+* Classes are defined using a `class` statement
+* By convention, non-built-in class names use CamelCase
+--
+
+[.column.fragment]
+--
+`class` [slot]#ClassName#`:` +
+``    ``[slot]#body#
+--
+
+=== The simplest class we can write
+
+[source, python]
+----
+class Blob:
+    pass
+----
+
+[.notes]
+--
+When we write a class in Python, by default we inherit a lot of machinery from Python itself. We can override parts of that machinery as needed, but in this example, we're just taking advantage of the fact that it's provided for us.
+
+In order to understand what's going on here, we need to go off on a bit of a tangent and discuss the `pass` statement.
+--
+
+=== Tangent: the `pass` statement
+
+[%step]
+[.nosubbullet]
+* `pass` is called a _no-op_: it does nothing
+* `pass` is used when we need a compound statement, but we have nothing meaningful to put in the body
+** Remember, all compound statements need a body
+
+[.columns]
+=== Where not to use a `pass` statement
+
+[.column]
+--
+Instead of this:
+
+[source, python]
+----
+if today == user_birthday:
+    print("Happy birthday!")
+else:
+    pass
+----
+--
+
+[.column]
+--
+Do this:
+
+[source, python]
+----
+if today == user_birthday:
+    print("Happy birthday!")
+----
+--
+
+=== The simplest class we can write, revisited
+
+[source, python]
+[.fragment]
+----
+class Blob:
+    pass
+----
+
+[.fragment]
+--
+Instantiating the class
+
+[source, python]
+----
+myblob = Blob()
+----
+--
+
+[.fragment]
+--
+Setting attributes on our instance
+
+[source, python]
+----
+myblob.name = "Desdemona"
+myblob.color = "purple"
+----
+--
+
+[.fragment]
+--
+Accessing our instance's attributes
+
+[source, python]
+----
+print(myblob.name)
+print(myblob.color)
+----
+--
+
+[.notes]
+--
+Setting and accessing attributes is very similar to setting and accessing variables.
+
+You may have noticed that attributes look a lot like namespace variables. When an object is created, Python creates a namespace for that object. Attributes are basically variables in the object's namespace.
+--
+
+=== Attributes: important points
+
+[%step]
+[.nosubbullet]
+* Attributes let us associate data with an object
+[%step]
+** We can use that data inside the object's methods as well as outside the object
+* Like global variables, attributes persist beyond the lifetime of a method call
+* Unlike global variables, attributes live in a specific object's namespace (so they're less likely to be accidentally modified)
+* When you are tempted to use a global variable, consider writing a class and using an attribute instead
+
+=== Summary
+
+[%step]
+* Classes are declared using `class` statements
+* The simplest class we can write has a `pass` statement for a body and inherits all its functionality from Python
+* To make an instance of a class, we call the class like a function
+* Attributes are variables in the namespace of a class instance
+* Attributes are often a good alternative to global variables
+
+== Methods
+
+[%step]
+[.nosubbullet]
+* Methods are basically functions declared inside of a class
+* Most methods require a special parameter called `self` as their first parameter
+
+[source, python]
+[.fragment]
+----
+class Greeter:
+    def greet(self):
+        print("Hello!")
+----
+
+[source, python]
+[.fragment]
+----
+>>> g = Greeter()
+>>> h = Greeter()
+>>> g.greet()
+Hello!
+>>> h.greet()
+Hello!
+----
+
+=== Tangent: objects can have multiple names
+
+[%step]
+* Names in Python are references to objects
+* It's possible for more than one name to refer to the same object in Python
+
+[source, python]
+[.fragment]
+----
+>>> b = myblob
+>>> b.name
+'Desdemona'
+>>> b.color
+'purple'
+>>> b is myblob
+True
+----
+
+=== `self`
+
+[%step]
+[.nobullet.nosubbullet]
+* `self` is a reference to whichever class instance is running your code at a given point in time
+[%step]
+** If you have a `Greeter` object named `g` and you call `g.greet()`, `self` is a reference to `g`
+
+=== `self` demonstration
+
+[source, python]
+[.fragment]
+----
+>>> class Greeter:
+...     def greet(self):
+...         print(f"Hi, my name is {self.name}!")
+... 
+>>> g = Greeter()
+>>> g.name = "Gabrielle"
+>>> h = Greeter()
+>>> h.name = "Henry"
+----
+
+[source, python]
+[.fragment]
+----
+>>> g.greet()
+Hi, my name is Gabrielle!
+----
+
+[source, python]
+[.fragment]
+----
+>>> h.greet()
+Hi, my name is Henry!
+----
+
+[.fragment]
+`self` is how you access an object's attributes and methods within the object's methods
+
+
+[.notes]
+--
+Note that when you call a method, you don't specify a value for `self`. Python populates it for you.
+--
+
+=== Summary
+
+[%step]
+* Methods are basically functions declared inside a class
+* `self` is a (mostly) required parameter that refers to the object that is running your code
+* `self` gives you access to an object's attributes and methods within the object's methods
+
+== The `+++__init__+++()` method
+
+[%step]
+* We often want to set some initial attributes on new objects
+* Less commonly, we may want new objects to perform some action upon creation
+* We can define a "magic" method called `+++__init__+++()` to initialize a new object
+* If we want a class to take arguments when we instantiate it, `+++__init__+++()` is where we declare these parameters
+
+=== `+++__init__()+++` example
+
+[source, python]
+----
+class Greeter:
+    def __init__(self, name):
+        self.name = name
+    
+    def greet(self):
+        print(f"Hi, my name is {self.name}!")
+----
+
+=== `+++__init__+++()`: important points
+
+[%step]
+* Just because something is a parameter of `+++__init__+++()` doesn't mean we have to make an attribute for it
+* We can create attributes that don't correspond to parameters of `+++__init__+++()`
+
+=== Summary
+
+[%step]
+* `+++__init__+++()` is a "magic" method that lets us set attributes and perform other actions when a new object is created
+* `+++__init__+++()` is where we define parameters that should be specified when the class is instantiated
+[%step]
+** Not all parameters of `+++__init__+++()` have to correspond to attributes
+** Not all attributes have to correspond to parameters of `+++__init__+++()`
+
+[.columns]
+== Revisiting docstrings
+
+[.column]
+--
+[%step]
+* Docstrings give other programmers enough information to use our code
+* Three kinds:
+[%step]
+** Function/method docstrings
+** Class docstrings
+** Module docstrings
+* Docstrings are statements, not comments
+* Docstrings must be the first statement in the body of the thing they are describing
+--
+
+=== Docstrings are special
+
+[source, python]
+[.fragment]
+----
+>>> def myfunction():
+...     """This shows that docstrings are special."""
+...     pass
+... 
+>>> help(myfunction)
+Help on function myfunction in module __main__:
+
+myfunction()
+    This shows that docstrings are special.
+
+>>> myfunction.__doc__
+'This shows that docstrings are special.'
+----
+
+[source, python]
+[.fragment]
+----
+def myfunction():
+...     pass
+...     """This docstring is in the wrong place."""
+... 
+>>> help(myfunction)
+Help on function myfunction in module __main__:
+
+myfunction()
+
+>>> myfunction.__doc__
+>>> 
+----
+
+=== Class docstrings
+
+Class docstrings should
+
+[%step]
+* begin with a brief description of the purpose of the class
+* document the data type and meaning of each attribute
+
+[source, python]
+[.fragment]
+----
+class Greeter:
+    """ An object that gives users a friendly greeting.
+
+    Attributes:
+        name (str): the greeter's name.
+    """
+----
+
+=== Summary
+
+[%step]
+* Docstrings document how to use our code
+* Functions/methods, classes, and modules can have docstrings
+* Improperly located docstrings aren't docstrings
+* Class docstrings explain
+[%step]
+** the purpose of the class
+** the data type and meaning of each attribute
+
+== Example class
+
+[source, python]
+[.bigcode]
+--
+include::memobox.py[]
+--

@@ -1,0 +1,36 @@
+= Exercise 2: Grouped-Frequency Word Counter
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Instructions
+
+Create a function that takes a string as input, splits the string into words, and returns a dictionary representing the frequency counts of the words in the input string. For example:
+
+[source, python]
+----
+text = "to be or not to be"
+frequency(text)
+
+# The function called above should return this dictionary:
+{'to': 2, 
+ 'be': 2,
+ 'or': 1,
+ 'not': 1
+ }
+----
+
+**Note**: the order of the key-value pairs being returned is not significant since dictionary items are not sorted.
+
+== Additional Requirements
+
+Once you have a working function, implement the following additional requirements:
+
+1. Write an interface that prompts the user to enter text and returns the frequency counts.
+2. Write a second function that sorts the frequency counts in order of most frequent.  **HINT**: Converting the key value pairs to a list of tuples with the count first and the key second is one way to accomplish this task.
+3. Add a "stopwords" feature that allows the user to supply a list of words to be ignored in the frequency counts. This concept is commonly used in word clouds to prevent "the" and "a", for example, from being displayed as the most frequent words.

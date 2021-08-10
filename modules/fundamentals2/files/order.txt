@@ -1,0 +1,4 @@
+medium widget,1,5.25
+bevel gear,3,10.90
+titanium axle,4,43.08
+#3 oblong cog,2,0.76

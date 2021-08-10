@@ -1,0 +1,65 @@
+= Exercise: Educational Attainment by County
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+== Background
+
+For this exercise we'll be using data compiled by USDA economists from the US Census Bureau regarding educational attainment by county in the United States from 2014 to 2018. The goal of the exercise is to write a program that can read in this data using Pandas and identify the county in a given state with the highest education level per capita.
+
+=== Important columns in the dataset
+
+We are especially interested in the following columns:
+
+* `State` (has abbreviations for each state)
+* `Area name` (contains the names of each county)
+* `Percent of adults with a bachelor's degree or higher` (speaks for itself)
+
+You may want to open the CSV file in a spreadsheet to get a better idea of what the data looks like.
+
+=== Dataset fine print
+
+The data is a subset of a dataset from link:https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/[], "Educational attainment for adults age 25 and older for the U.S., States, and counties, 1970-2018".
+
+Sources: U.S. Census Bureau, 1970, 1980, 1990, 2000 Censuses of Population, and the 2014-18 American Community Survey 5-yr average county-level estimates.
+
+For definitions of rural classifications, see the USDA, Economic Research Service webpage "Rural Classifications" in the "Rural Economy & Population" topic.
+
+The original data was prepared by USDA, Economic Research Service. Data as of February 5, 2020. Contact: Kathleen Kassel.
+
+== Instructions
+
+=== Import statements
+
+Import argparse (or the `ArgumentParser` class from argparse), pandas, and sys.
+
+=== `most_educated()` function
+
+Write a function called `most_educated()` with two parameters, a path to a CSV file (expressed as a string) and a two-letter state abbreviation such as "MD" (also expressed as a string).
+
+In this function, use Pandas to read the CSV file into a DataFrame. Use a boolean series to filter the DataFrame so that it only contains rows pertaining to the state specified by the second parameter of your function. Store the filtered DataFrame in a new variable.
+
+Get the `Percent of adults with a bachelor's degree or higher` column as a series and use the `max()` method of the series to find the highest percentage in this column; store this percentage in a variable.
+
+Use the percentage to filter your state DataFrame so that you only keep the rows with the highest percent of adults with a bachelor's degree or higher. From your filtered DataFrame, grab the "Area name" column as a series and use `iloc[0]` on this series to get the name of the county. Return a tuple consisting of the name of the county and the percent of adults in that county with a bachelor's degree or higher.
+
+=== `parse_args()` function
+
+Write a function called `parse_arg()` with one parameter, a list of command-line arguments (each item in the list is a string). Create an `ArgumentParser` object and add two arguments: a path to a CSV file, and a two-letter state code. Use your ArgumentParser object to parse the command-line arguments that were passed to your function, and return the resulting namespace.
+
+=== `+++if __name__ == "__main__":+++` statement
+
+Write an `+++if __name__ == "__main__":+++` statement that does the following:
+
+* calls your `parse_args()` function to parse command-line arguments
+* calls your `most_educated()` function using the parsed command-line arguments to find the county with the highest educational achievement per capita in the state specified by the user, along with the percentage of adults with a bachelor's degree or higher
+* prints the results in a message like this: "61.4% of adults in Howard County have at least a bachelor's degree"
+
+== Running your script
+
+Your script should require two command-line arguments. Assuming your script is called `education.py` and is in the same directory as `education_by_county.csv`, and assuming this is the working directory of your terminal, here's how you could run your script (Windows users, replace "python3" with "python"):
+
+----
+python3 education.py education_by_county.csv MD
+----

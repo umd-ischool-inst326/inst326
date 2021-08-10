@@ -1,0 +1,26 @@
+= INST 326 Module 14: Ethics in Programming
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Ethics in computer programming.
+
+=== Links
+- Slides (forthcoming)
+- Exercise(s) (forthcoming)
+
+== Learning Outcomes
+
+Forthcoming
+
+== Additional Readings
+
+Forthcoming
+

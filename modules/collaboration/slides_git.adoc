@@ -1,0 +1,74 @@
+= Remote Collaboration: Version Control with Git
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 810
+:title-slide-background-image: lance-grandahl-nShLC-WruxQ-unsplash.jpg
+
+== Overview of Git
+
+[%step]
+* Git is a version control tool
+* Allows us to track and undo changes to files on a project
+* Allows us to easily share code with others
+* Allows us to make local edits without affecting collaborators
+
+=== Git "places"
+
+[%step,role="nosubbullet"]
+* Remote repository
+** "Official" copy of files and their edit history; accessible to others
+* Local repository
+** Your personal copy of the files and their edit history
+* Working directory
+** Where you can make changes to files; no edit history here
+* Staging area
+** Where you take snapshots of edits to go into the local repository
+
+[.columns]
+=== Some Git commands
+
+[.column]
+--
+[%step,role="nosubbullet"]
+* `git clone`
+** Make a local repository from a remote repository
+* `git add`
+** Stage a file for commit
+* `git commit`
+** Commit staged changes to the local repository
+--
+
+[.column]
+--
+[%step,role="nosubbullet"]
+* `git push`
+** Send commits from the local repository to the remote repository
+* `git fetch`
+** Pull commits from the remote repository to the local repository
+--
+
+[.column]
+--
+[%step,role="nosubbullet"]
+* `git merge`
+** Reconcile `fetch`{blank}ed changes with the current state of files in your working directory
+* `git pull`
+** Do `fetch` and `merge` in a single step
+--
+
+[%notitle]
+=== Git commands, illustrated
+
+image::git_commands.svg[canvas, size=contain]
+
+== Let's see some Git in action
+
+== Summary
+
+* Git is a version control system
+* Git "places" include the remote repository, the local repository, the working directory, and the staging area
+* Git commands include clone, add, commit, push, fetch, merge, and pull

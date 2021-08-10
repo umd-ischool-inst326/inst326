@@ -1,0 +1,17 @@
+= Exercise: Enron
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Inheritance
+
+Object Oriented Programming provides a way to _reuse_ software. When you reuse _classes_ you often need to adapt it in a particular way by adding or modifying behavior or data. One way of doing this is to create a new class that extends the existing one using the pattern of _inheritance_.
+
+Imagine that you have been using the _Email_ class found in the attached file link:files/enron.py[_enron.py_]. You would like the class to provide access to the _Subject_ of the email (which can be found by searching for the first occurence of "Subject" at the beginning of a line in the text of the email). But you don’t want to change the behavior of the Email class itself because other people are using it already. Write a new class called _ExtendedEmail_ that provides this additional method _get_subject()_.
+
+You can download the link:files/enron-sample.zip[_enron-sample.zip_] as test data for this exercise.  Any of the files contained in that zip archive is an email message that should have a subject line. 

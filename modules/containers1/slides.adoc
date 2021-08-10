@@ -1,0 +1,948 @@
+= Container data types, part 1
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 810
+:revealjs_history: true
+:revealjs_center: false
+:title-slide-background-image: colorful-containers.jpg
+:stem:
+
+== Characterizing different containers
+
+[.nobullet.nosubbullet]
+[%step]
+* [emph]#Ordered# vs. [emph]#unordered#
+* [emph]#Mutable# vs. [emph]#immutable#
+* [emph]#Hashable# vs. [emph]#unhashable#
+* [emph]#Mapping# vs. [emph]#non-mapping#
+* What [emph]#kinds of objects# can the container contain?
+
+=== Ordered vs. unordered
+
+[.noborder]
+[frame=none,grid=none]
+|===
+| image:ordered.svg[width=600px] | image:unordered.svg[width=600px]
+|===
+
+
+=== Mutable vs. immutable
+
+[.nobullet.nosubbullet]
+[%step]
+* The [emph]#value# of a mutable object can [emph]#change#
+[%step]
+** Some operations on mutable objects change the value of the object
+** Examples: `append()` method of lists; setting a key in a dictionary
+* All operations on immutable objects evaluate to [emph]#new objects#
+[%step]
+** Examples: multiplying two numbers; `strip()` method of strings
+* Redefining a variable [emph]#≠# changing the value of an object
+
+[.noborder]
+[cols="2*",frame=none,grid=none]
+|===
+a|
+[.fragment]
+[source, python]
+----
+# This is an example of mutability
+l = ["Hello"]
+l.append("World")
+----
+a|
+[.fragment]
+[source, python]
+----
+# This is not mutability!
+s = "Hello"
+s = s + " World"
+----
+|===
+
+[.notes]
+--
+Mutability is a property of objects. A mutable object is an object whose value can change. In contrast, the value of an immutable object can't change.
+--
+
+=== Hashable vs. unhashable
+
+[.nobullet.nosubbullet]
+[%step]
+* A [emph]#hash function# maps values to numbers
+* In a [emph]#hash table#, those values represent bins where items can be stored
+* Retrieving data from a hash table is [emph]#quick#
+[%step]
+** Compute the hash and look in the corresponding bin
+* Python uses hash tables to implement dictionaries and sets
+* Mutable objects in Python are [emph]#unhashable#
+[%step]
+** Their value could change, so their hash could change
+
+=== Summary
+
+[.nobullet.nosubbullet]
+[%step]
+* In an [emph]#ordered# container, each value has a position in a sequence
+* A [emph]#mutable# object is an object whose value can change
+[%step]
+** Redefining a variable is not the same as changing the value of an object
+* Only immutable objects that don't contain mutable objects are [emph]#hashable# in Python
+
+[.columns]
+== Tuples
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* [emph]#Immutable#, [emph]#ordered# sequences
+* Made with [emph]#commas#
+[%step]
+** Empty tuples are made with parentheses
+
+[%step]
+[source, python]
+----
+number_tuple = 1, 2, 3
+----
+
+[%step]
+[source, python]
+----
+same_thing = 1, 2, 3,
+----
+
+[%step]
+[source, python]
+----
+one_item_tuple = "item",
+----
+
+[%step]
+[source, python]
+----
+empty = ()
+----
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Sometimes, [emph]#parentheses# are needed for disambiguation
+
+[%step]
+[source, python]
+----
+mylist.append(("some", "tuple"))
+nested = (5, 3), (7, 9)
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* Tuples can contain [emph]#any objects#
+* Tuples are [emph]#hashable# if their contents are hashable
+--
+
+=== Tuple interface
+
+[.nobullet.nosubbullet]
+[%step]
+* `tuple()` function converts other containers to tuples
+* Tuples can be [emph]#indexed# and [emph]#sliced#
+
+[%step]
+[source, python]
+----
+tpl = "George", "Washington", 1732, 2, 22
+first_name = tpl[0]
+birthdate = tpl[2:5]
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* Tuples have an `index()` method that returns the index of a specific item
+
+[%step]
+[source, python]
+----
+tpl.index("Washington")
+----
+
+[.columns]
+=== Tuple packing, sequence unpacking
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Returning [emph]#multiple values#
+
+[%step]
+[.fullwidth]
+[source, python]
+----
+def get_position(angle, dist):
+    """ Given an angle in radians
+    and a distance from (0, 0),
+    calculate coordinates. """
+    x = cos(radians(angle)) * dist
+    y = sin(radians(angle)) * dist
+    return x, y
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* [emph]#Unpacking# into separate variables
+
+[%step]
+[.fullwidth]
+[source, python]
+----
+x1, y1 = get_position(60, 12)
+----
+
+{empty}
+
+[%step]
+[.fullwidth]
+[source, python]
+----
+line = "INST 326"
+dept, num = line.split(" ")
+----
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* [emph]#Multiple assignment# (use sparingly)
+
+[%step]
+[.fullwidth]
+[source, python]
+----
+title, salary = "data scientist", 75_000
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* [emph]#Swapping# values
+
+[%step]
+[.fullwidth]
+[source, python]
+----
+a, b = b, a
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* Unpacking in a `for` loop
+
+[%step]
+[.fullwidth]
+[source, python]
+----
+people = ("John", 21), ("Tamika", 19), ("Mei", 20)
+
+for name, age in people:
+    print(f"{name} is {age} years old.")
+----
+--
+
+=== Tuples vs. lists
+
+[.nobullet.nosubbullet]
+[%step]
+* [emph]#Tuples# are useful when
+[%step]
+** the sequence [emph]#won't change#
+** you need to group [emph]#dissimilar# values (e.g., name, age, salary)
+** you need a sequence to be a [emph]#key# in a dictionary or an [emph]#item# in a set
+* [emph]#Lists# are preferable when
+[%step]
+** the sequence needs to be able to [emph]#change#
+** the items in the sequence are all the [emph]#same kind of thing# (e.g., names)
+* [emph]#Lists of tuples# are common and useful
+
+=== Summary
+
+[.nobullet.nosubbullet]
+[%step]
+* Tuples are [emph]#immutable#, [emph]#ordered# sequences that can contain any objects
+* Tuples are made with [emph]#commas#
+[%step]
+** Sometimes [emph]#parentheses# are needed to disambiguate
+* Can be used to return [emph]#multiple values#
+* Useful in conjunction with [emph]#sequence unpacking#
+
+[.columns]
+== Dictionaries
+
+[.nobullet.nosubbullet]
+[%step]
+* Map [emph]#keys# to [emph]#values# for easy lookup
+[%step]
+** ID numbers to names
+** Countries to capital cities
+** Shortened URLs to full URLs
+* [emph]#Mutable#, [emph]#unhashable#
+* Dictionary keys are [emph]#ordered# and can only be [emph]#hashable# objects
+* Dictionary values can be any objects
+
+[.columns]
+=== Basic syntax
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Creating an empty dictionary
+[%step]
+** `{}`
+** `dict()`
+* Creating a dictionary with items
+[%step]
+** `{`[slot]#key#`:` [slot]#value#{empty}+++[+++`,` [slot]#key#`:` [slot]#value#`,` ...+++]+++`}`
+
+[%step]
+[source, python]
+----
+greeting = {"Amharic": "ጤና ይስጥልኝ",
+            "English": "hello",
+            "French": "bonjour",
+            "Korean": "안녕하세요"
+            "Mandarin": "你好",
+            "Spanish": "hola",
+            "Urdu": "السلام علیکم"}
+----
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Accessing an item in a dictionary
+** [slot]#dict#`+++[+++`[slot]#key#`]`
+** [slot]#dict#`.get(`[slot]#key#[, [slot]#default#]`)`
+
+[%step]
+[source, python]
+----
+print(greeting["Spanish"])
+print(greeting.get("Manx", "hello"))
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* Adding or updating a key/value pair
+** [slot]#dict#`+++[+++`[slot]#key#`]` `=` [slot]#value#
+
+[%step]
+[source, python]
+----
+greeting["Samoan"] = "talofa"
+greeting["English"] = "hi"
+----
+--
+
+=== Iterating over dictionaries, part 1
+
+[.nobullet.nosubbullet]
+[%step]
+* As an iterable, a dictionary is treated as a [emph]#sequence of keys#
+
+[%step]
+[source, python]
+----
+for language in greetings:
+    print(f"In {language}, you greet someone by saying {greetings[language]}.")
+----
+
+[%step]
+[source, python]
+----
+languages = list(greetings)
+----
+
+[%step]
+[source, python]
+----
+if "Amharic" in greetings:
+    print("I know an Amharic greeting")
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* There is also a [slot]#dict#`.keys()` method, but it's not really needed
+
+=== Iterating over dictionaries, part 2
+
+[.nobullet.nosubbullet]
+[%step]
+* If you want to iterate over key/value pairs, use the [slot]#dict#`.items()` method
+
+[%step]
+[source, python]
+----
+for language, greeting in greetings.items():
+    print(f"In {language}, you greet someone by saying {greeting}.")
+----
+
+[%step]
+[source, python]
+----
+greetings_contents = list(greetings.items())
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* If you just need the values, use the [slot]#dict#`.values()` method
+
+[%step]
+[source, python]
+----
+for greeting in greetings.values():
+    print(f"{greeting.title()} is a greeting.")
+----
+
+[%step]
+[source, python]
+----
+greetings_list = list(greetings.values())
+----
+
+=== Removing keys from a dictionary
+
+[.nobullet.nosubbullet]
+[%step]
+* `del` [slot]#dict#`+++[+++`[slot]#key#`]`
+
+[%step]
+[source, python]
+----
+del greetings["French"]
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* [slot]#dict#`.pop(`[slot]#key#`)`
+
+[%step]
+[source, python]
+----
+french = greetings.pop("French")
+----
+
+=== Copying a dictionary
+
+[.nobullet.nosubbullet]
+[%step]
+* [slot]#dict#`.copy()`
+
+[%step]
+[source, python]
+----
+greetings_backup = greetings.copy()
+----
+
+=== Basic use of a dictionary
+
+[%step]
+[.bigcode.fullwidth]
+[source, python]
+----
+electricity_prices = {
+    "super off peak": 0.09,
+    "off peak": 0.1,
+    "peak": 0.17
+}
+
+tier = "peak"
+amt = 3.12
+price = electricity_prices[tier] * amt
+----
+
+// === Dictionary examples
+
+// [%step]
+// [.bigcode.fullwidth]
+// [source, python]
+// ----
+// class PersonalBests:
+//     """ Store athletes' personal best times in some event.
+
+//     Attributes:
+//         pbs (dict of str: float): keys are athlete names; values are personal
+//             best times.
+//     """
+//     def __init__(self):
+//         self.pbs = dict()
+    
+//     def new_result(self, athlete, result):
+//         """ Check whether result is a new personal best; if so, update dict.
+        
+//         Args:
+//             athlete (str): name of an athlete.
+//             result (float): a result that may or may not be a personal best.
+        
+//         Side effects:
+//             Writes to stdout.
+//             Updates self.pbs.
+//         """
+//         current = self.pbs.get(athlete, None)
+//         if current is None or result < current:
+//             print("New personal best!")
+//             self.pbs[athlete] = result
+    
+//     def get_pb(self, athlete):
+//         """ Return athlete's personal best.
+
+//         Args:
+//             athlete (str): name of an athlete.
+
+//         Returns:
+//             float or None: if we have a personal best for the athlete, return
+//             it; otherwise, return None.
+//         """
+//         return self.pbs.get(athlete)
+// ----
+
+=== Counting with a dictionary
+
+[%step]
+[.bigcode.fullwidth]
+[source, python]
+----
+words = ['in', 'the', 'end', "it's", 'not', 'the', 'years', 'in', 'your',
+         'life', 'that', 'count', "it's", 'the', 'life', 'in', 'your', 'years',
+         '-abraham', 'lincoln']
+counts = dict()
+for word in words:
+    counts[word] = counts.get(word, 0) + 1
+
+for word in counts():
+    print(f"{word} occurred {word[count]} times")
+----
+
+=== Summary
+
+[.nobullet.nosubbullet]
+[%step]
+* Dictionaries are [emph]#mutable#, [emph]#unhashable mappings# of keys to values
+[%step]
+** Keys are [emph]#ordered# and must be [emph]#hashable# objects
+** Values can be any objects
+* New dictionaries are made with `{}` or `dict()`; keys accessed/set with `[]`
+* As iterables, dictionaries behave as a [emph]#sequence of keys#
+* Useful methods/syntax:
+[%step]
+** [slot]#dict#`.get(`[slot]#key#[`,` [slot]#default#]`)` &nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp; [slot]#dict#`.pop(`[slot]#key#`)` &nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp; `del` [slot]#dict#`+++[+++`[slot]#key#`]`
+** [slot]#dict#`.items()` &nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp; [slot]#dict#`.values()` &nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp; [slot]#dict#`.keys()`
+** [slot]#dict#`.copy()`
+
+== Sets
+
+[.nobullet.nosubbullet]
+[%step]
+* [emph]#Unordered#, [emph]#mutable#, [emph]#unhashable# collections of [emph]#unique# values
+[%step]
+** All about membership: you're either [emph]#in# or you're [emph]#out#
+** No duplicates
+* Come with a rich set of [emph]#operations#
+* Useful for solving a lot of problems
+[%step]
+** Eliminating duplicates / finding unique values
+** Filtering groups of values
+** Handling groups of values irrespective of order
+
+=== Basic syntax
+
+[%step]
+[.nobullet]
+* Creating an empty set: `set()`
+* Creating a non-empty set: `{`[.slot]#value#{blank}[`,` [slot]#value# ...]`}`
+
+[.fragment]
+[source,python]
+----
+pets = {"dog", "cat", "turtle", "pigeon"}
+----
+
+[%step]
+[.nobullet]
+* Converting an existing collection of values to a set: `set(`[.slot]#collection#`)`
+
+[.fragment]
+[source,python]
+----
+pet_list = ["dog", "cat", "turtle", "pigeon"]
+pet_set = set(pet_list)
+----
+
+[.notes]
+--
+Curly braces are used for both sets and dictionaries. Python knows you are creating a set if you provide values instead of key/value pairs separated by colons. You cannot use curly braces to create an empty set; use the set() class instead as shown here.
+--
+
+[.columns]
+=== Set operations that result in sets
+
+[.column.fragment]
+--
+Remember Venn diagrams?
+
+[.background.fragment]
+image:difference2.svg[]
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Two ways to perform set operations:
+[%step]
+** Methods
+** Operators
+* Two kinds of results:
+[%step]
+** "Basic" operations result in new sets
+** "In-place" operations change the value of an existing set
+--
+
+[.notes]
+--
+In this slide and the following slides, we'll use Venn diagrams to illustrate various set operations. As a reminder, overlap between circles represents values that are members of both sets. I'll use red in these diagrams to show which parts of which sets are included in the result of the operation.
+--
+
+[.columns]
+=== Union
+
+[.column.fragment]
+--
+[.background]
+image:union.svg[]
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Basic method: `union()`
+** [slot]#set1#`.union(`[slot]#set2#`)`
+* Basic operator: `|`
+** [slot]#set1#`` | ``[slot]#set2#
+* In-place method: `update()`
+** [slot]#set1#`.update(`[slot]#set2#`)`
+* In-place operator: `|=`
+** [slot]#set1#`` |= ``[slot]#set2#
+--
+
+[.columns]
+=== Intersection
+
+[.column.fragment]
+--
+[.background]
+image:intersection.svg[]
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Basic method: `intersection()`
+** [slot]#set1#`.intersection(`[slot]#set2#`)`
+* Basic operator: `&`
+** [slot]#set1#`` & ``[slot]#set2#
+* In-place method: `intersection_update()`
+** [slot]#set1#`.intersection_update(`[slot]#set2#`)`
+* In-place operator: `&=`
+** [slot]#set1#`` &= ``[slot]#set2#
+--
+
+[.columns]
+=== Difference
+
+[.column.fragment]
+--
+[.background]
+image:difference1.svg[]
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Basic method: `difference()`
+** [slot]#set1#`.difference(`[slot]#set2#`)`
+* Basic operator: `-`
+** [slot]#set1#`` - ``[slot]#set2#
+* In-place method: `difference_update()`
+** [slot]#set1#`.difference_update(`[slot]#set2#`)`
+* In-place operator: `-=`
+** [slot]#set1#`` -= ``[slot]#set2#
+--
+
+[.columns]
+=== Symmetric difference
+
+[.column.fragment]
+--
+[.background]
+image:symmetric_difference.svg[]
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Basic method: `symmetric_difference()`
+** [slot]#set1#`.symmetric_difference(`[slot]#set2#`)`
+* Basic operator: `^`
+** [slot]#set1#`` ^ ``[slot]#set2#
+* In-place method: `symmetric_difference_update()`
+** [slot]#set1#`.symmetric_difference_update(`[slot]#set2#`)`
+* In-place operator: `^=`
+** [slot]#set1#`` ^= ``[slot]#set2#
+--
+
+[.columns]
+=== Subsets and supersets
+
+[.column.fragment]
+--
+[.background]
+image:proper_subset.svg[]
+--
+
+[.column.fragment]
+--
+[.background]
+image:subset.svg[]
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Subsethood
+[%step]
+** [slot]#set1#`.issubset(`[slot]#set2#`)`
+** [slot]#set1#`` <&zwnj;= ``[slot]#set2#
+* Proper subsethood
+[%step]
+** [slot]#set1#`` < ``[slot]#set2#
+* Supersethood
+[%step]
+** [slot]#set1#`.issuperset(`[slot]#set2#`)`
+** [slot]#set1#`` >= ``[slot]#set2#
+* Proper supersethood
+[%step]
+** [slot]#set1#`` > ``[slot]#set2#
+--
+
+[.notes]
+--
+These operations evaluate to boolean values
+--
+
+[.columns]
+=== Disjointness and equality
+
+[.column.fragment]
+--
+Disjoint sets
+
+[.background]
+image:disjoint.svg[]
+
+[.fragment]
+[slot]#set1#`.isdisjoint(`[slot]#set2#`)`
+--
+
+[.column.fragment]
+--
+Equal sets
+
+[.background]
+image:subset.svg[]
+
+[.fragment]
+[slot]#set1#`` == ``[slot]#set2#
+--
+
+[.notes]
+--
+These operations evaluate to boolean values
+--
+
+[.columns]
+=== Other things you can do with sets
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Get the [emph]#size# (cardinality) of the set
+[%step]
+** `len(`[slot]#set#`)`
+* Check for [emph]#membership# or [emph]#non-membership# in the set
+[%step]
+** [slot]#item#`` in ``[slot]#set#
+** [slot]#item#`` not in ``[slot]#set#
+* [emph]#Add# a single item
+[%step]
+** [slot]#set#`.add(`[slot]#item#`)`
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* [emph]#Remove# an item
+[%step]
+** [slot]#set#`.remove(`[slot]#item#`)`
+** [slot]#set#`.discard(`[slot]#item#`)`
+** [slot]#set#`.pop()`
+* [emph]#Remove all# items
+[%step]
+** [slot]#set#`.clear()`
+--
+
+=== Frozensets
+
+[%step]
+[.nobullet.nosubbullet]
+* A frozenset is an [emph]#immutable#, [emph]#hashable# set
+** Can't add or remove values from a frozenset
+* All basic (non-in-place) set [emph]#operations# work on frozensets
+* [emph]#No special syntax# for creating frozensets; just use the `frozenset()` class to convert any collection into a frozenset
+
+[.fragment]
+[source, python]
+----
+pets = frozenset({"dog", "cat", "turtle", "pigeon"})
+----
+
+[%step]
+[.nobullet]
+* Sets and frozensets [emph]#play nice# together
+
+[.fragment]
+[source, python]
+----
+mammals = {"dog", "cat", "horse", "whale", "gorilla"}
+pet_mammals = pets & mammals
+----
+
+[.columns]
+=== Summary
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Sets and frozensets are [emph]#unordered# collections of [emph]#unique# values
+[%step]
+** Sets are [emph]#mutable# and [emph]#unhashable#; made with `{}` or `set()`
+** Frozensets are [emph]#immutable# and [emph]#hashable#; made with `frozenset()`
+* Putting things [emph]#in# a set
+** [slot]#set#`.add()`
+* Taking things [emph]#out# of a set
+[.lessspace]
+** [slot]#set#`.remove()` &nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp; [slot]#set#`.discard()` 
+** [slot]#set#`.pop()` &nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp; [slot]#set#`.clear()`
+--
+
+[.column]
+--
+[.nobullet.nosubbullet]
+[%step]
+* Set [emph]#operations#
+[%step]
+[.lessspace]
+** Union
+** Intersection
+** Difference
+** Symmetric difference
+
+[.nobullet.nosubbullet]
+[%step]
+* Set [emph]#relationships#
+[%step]
+[.lessspace]
+** Subset, proper subset
+** Superset, proper superset
+** Disjoint sets
+** Equal sets
+--
+
+== Applications of sets: getting unique values
+
+[source, python]
+----
+waitlist_101 = ["Jon Rodgers", "Leona Salazar", "Drew Buchanan", "Enrique Santiago"]
+waitlist_102 = ["Ebony Saunders", "Drew Buchanan", "Leona Salazar", "Joy Akinde"]
+waitlist_103 = ["Deondre Jones", "Joy Akinde", "Enrique Santiago"]
+
+waitlisted = set(waitlist_101) | set(waitlist_102) | set(waitlist_103)
+num_unique = len(waitlisted)
+----
+
+=== Applications of sets: finding a subset
+
+[source, python]
+----
+clients = ["Gears, Inc.", "Sprocketworld", "Bevel Warehouse",
+           "ACME Cogs", "Pinion Palace", "Helixity", "Torque LLC"]
+
+appts = {"Sprocketworld": "Oct. 7",
+         "Torque, LLC": "Oct .8",
+         "Gears, Inc.": "Oct. 9",
+         "Pinion Palace": "Oct. 11"}
+
+clients_to_call = set(clients) - set(appts)
+----
+
+=== Applications of sets: handling groups of values irrespective of order
+
+[.lefttable.leftalign]
+[%autowidth%noheader]
+[frame=none,grid=none,cols="2*"]
+|===
+a|
+Snippet of data file:
+----
+Maryland v Texas
+Akron v Penn State
+Nevada v Northwestern
+Michigan v Florida
+Louisville v Purdue
+Arkansas State v Nebraska
+Ohio v Purdue
+Duke v Maryland
+...
+----
+
+a|
+Code: 
+[source, python]
+----
+matches = dict()
+with open(match_file, "r", encoding="utf-8") as f:
+    for line in f:
+        team_list = line.strip().split(" v ")
+        teams = frozenset(team_list)
+        matches[teams] = matches.get(teams, 0) + 1
+
+umd_duke_matches = matches[frozenset({"Maryland", "Duke"})]
+----
+|===

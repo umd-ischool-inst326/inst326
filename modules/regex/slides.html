@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Regular Expressions</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/reset.css">
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/theme/inst326_gabriel.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Regular Expressions</h1>
+</section>
+
+<section id="section" class="slide level1">
+<h1></h1>
+<p><a title="Daderot [Public domain], via Wikimedia Commons" href="https://imgs.xkcd.com/comics/regular_expressions.png"><img width="450" src="images/regex.png"></a></p>
+</section>
+<section id="section-1" class="slide level1">
+<h1></h1>
+<h2 id="intro-to-regular-expressions">Intro to Regular Expressions</h2>
+<ul>
+<li>Strings of text that are used in order to match characters in other bodies of text.</li>
+<li>The ability to use Regular Expressions is built into many text editors and programming languages.</li>
+</ul>
+</section>
+<section id="section-2" class="slide level1">
+<h1></h1>
+<h2 id="here-are-some-examples">Here are Some Examples</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[b-chm-pP]at|ot</td>
+<td>bat, cat, hat, mat, nat, oat, pat, Pat, ot</td>
+</tr>
+<tr class="even">
+<td>\d</td>
+<td>0,1,2,3,4,5,6,7,8,9</td>
+</tr>
+<tr class="odd">
+<td>\d{5}(-\d{4})?</td>
+<td>Matches a US zip code</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-3" class="slide level1">
+<h1></h1>
+<h2 id="regular-expressions-syntax">Regular Expressions Syntax</h2>
+</section>
+<section id="section-4" class="slide level1">
+<h1></h1>
+<h2 id="characters">Characters</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Regular Expression</th>
+<th>Matches</th>
+<th>Example</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“any string”</td>
+<td>The string</td>
+<td>word</td>
+<td>word</td>
+</tr>
+<tr class="even">
+<td>\d</td>
+<td>Any digit from 0-9</td>
+<td>number:\d</td>
+<td>number:5</td>
+</tr>
+<tr class="odd">
+<td>\w</td>
+<td>Any word character</td>
+<td>\w\w</td>
+<td>_Q</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-5" class="slide level1">
+<h1></h1>
+<h2 id="characters-continued">Characters (continued)</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 64%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Regular Expression</th>
+<th>Matches</th>
+<th>Example</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>\s</td>
+<td>Any whitespace character</td>
+<td>\s</td>
+<td>" "</td>
+</tr>
+<tr class="even">
+<td>\t</td>
+<td>Tab</td>
+<td>T\t\w{2}</td>
+<td>T ab</td>
+</tr>
+<tr class="odd">
+<td>\D, \W, \S</td>
+<td>Any character that is not a digit, word character or whitespace character.</td>
+<td>\D\W\S</td>
+<td>s=2</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-6" class="slide level1">
+<h1></h1>
+<h2 id="quantifiers">Quantifiers</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Regular Expression</th>
+<th>Matches</th>
+<th>Example</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>One or more of the item stated before.</td>
+<td>w+</td>
+<td>wwww</td>
+</tr>
+<tr class="even">
+<td>{X}</td>
+<td>Exactly X amount of times.</td>
+<td>w{3}</td>
+<td>www</td>
+</tr>
+<tr class="odd">
+<td>{X,Y}</td>
+<td>Match X to Y amount of times. (greedy)</td>
+<td>w{2,4}</td>
+<td>wwww</td>
+</tr>
+<tr class="even">
+<td>*</td>
+<td>Zero or more times (greedy)</td>
+<td>A*B*C*</td>
+<td>AACCCCCC</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-7" class="slide level1">
+<h1></h1>
+<h2 id="quantifiers-continued">Quantifiers (continued)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Regular Expression</th>
+<th>Matches</th>
+<th>Example</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>One or more times (greedy)</td>
+<td>\d+</td>
+<td>1234555</td>
+</tr>
+<tr class="even">
+<td>?</td>
+<td>Once or none. / Makes quantifiers lazy</td>
+<td>words?</td>
+<td>words, word</td>
+</tr>
+<tr class="odd">
+<td>?</td>
+<td>Once or none. / Makes quantifiers lazy</td>
+<td>\w{2,4}?</td>
+<td>ab in abcd</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-8" class="slide level1">
+<h1></h1>
+<h2 id="more-characters">More Characters</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 47%" />
+<col style="width: 8%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Regular Expression</th>
+<th>Matches</th>
+<th>Example</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>.</td>
+<td>Any character except new line.</td>
+<td>.</td>
+<td>w</td>
+</tr>
+<tr class="even">
+<td>.*</td>
+<td>Any character any amount of times except new line.</td>
+<td>.*</td>
+<td>This is an entire line of text.</td>
+</tr>
+<tr class="odd">
+<td>\</td>
+<td>Escapes special characters for the purpose of matching.</td>
+<td>\.{3}</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-9" class="slide level1">
+<h1></h1>
+<h2 id="logic">Logic</h2>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 28%" />
+<col style="width: 18%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Regular Expression</th>
+<th>Matches</th>
+<th>Example</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>|</td>
+<td>Or/alternating</td>
+<td>1{2}|2{2}</td>
+<td>11221122 or 11 or 22</td>
+</tr>
+<tr class="even">
+<td>(…)</td>
+<td>Capturing groups.</td>
+<td>(\d{3})\s\d{3}-\d{4}</td>
+<td>301 999-2222 (captures 301)</td>
+</tr>
+<tr class="odd">
+<td>[…]</td>
+<td>One of the characters in the brackets.</td>
+<td>T[ao]p</td>
+<td>Tap or Top</td>
+</tr>
+<tr class="even">
+<td>[…-…]</td>
+<td>Indicates range.</td>
+<td>[a-z]</td>
+<td>One lowercase letter.</td>
+</tr>
+<tr class="odd">
+<td>[^x]</td>
+<td>One character that is not x</td>
+<td>[^a-z]{3}</td>
+<td>A1!</td>
+</tr>
+<tr class="even">
+<td>^</td>
+<td>Start of the string or line</td>
+<td>^abc.*</td>
+<td>Abc (assuming that this is the beginning of the string</td>
+</tr>
+<tr class="odd">
+<td>$</td>
+<td>End of string or line</td>
+<td>.*? the end$</td>
+<td>this is the end</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-10" class="slide level1">
+<h1></h1>
+<h2 id="applications-for-regular-expressions">Applications for Regular Expressions</h2>
+<div>
+<ul>
+<li class="fragment">Web Scraping
+<ul>
+<li class="fragment">For finding specific data points that we are interested in within a website
+<ul>
+<li class="fragment">Say for example addresses or complete first and last names within a webpage</li>
+</ul></li>
+</ul></li>
+<li class="fragment">Data Wrangling
+<ul>
+<li class="fragment">For extracting data from large and complex data files (usually unstructured data)</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-11" class="slide level1">
+<h1></h1>
+<h2 id="applications-for-regular-expressions-continued">Applications for Regular Expressions (continued)</h2>
+<div>
+<ul>
+<li class="fragment">Wikipedia
+<ul>
+<li class="fragment">For verifying the names of articles</li>
+<li class="fragment"><a href="https://en.wikipedia.org/wiki/MediaWiki:Titleblacklist">Wikipedia Blacklist</a></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-12" class="slide level1">
+<h1></h1>
+<h2 id="re-module">Re Module</h2>
+<div>
+<ul>
+<li class="fragment">Module that provides regular expression matching operations</li>
+</ul>
+</div>
+</section>
+<section id="section-13" class="slide level1">
+<h1></h1>
+<h2 id="re-module-continued">Re Module (continued)</h2>
+<ul>
+<li>There is a problem, in Python the character “\” (used to escape special character in Regular Expressions) will escape strings in Python
+<ul>
+<li>This causes issues when using the backslash for any reason</li>
+<li>We would constantly need to use double backslashes such as “\”</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-14" class="slide level1">
+<h1></h1>
+<h2 id="re-module-continued-1">Re Module (continued)</h2>
+<ul>
+<li>The solution is to use Python’s raw string notation for regular expression patterns
+<ul>
+<li>backslashes are not handled in any special way in a string literal prefixed with ‘r’.
+<ul>
+<li>r“\n” is a two-character string containing ‘\’ and ‘n’</li>
+<li>“\n” is a one-character string containing a newline</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="section-15" class="slide level1">
+<h1></h1>
+</section>
+    </div>
+  </div>
+
+  <script src="../../lib/reveal.js.4.0.2/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="../../lib/reveal.js.4.0.2/plugin/notes/notes.js"></script>
+  <script src="../../lib/reveal.js.4.0.2/plugin/search/search.js"></script>
+  <script src="../../lib/reveal.js.4.0.2/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+      
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

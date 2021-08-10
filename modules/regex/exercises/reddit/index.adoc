@@ -1,0 +1,31 @@
+= Exercise: Reddit
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Background
+
+https://www.reddit.com/[Reddit] is a social media platform for sharing links to
+web resources and commenting on them. Reddit is organized into thematic groups
+called "subreddits" which allow virtual communities of people to have
+conversations about things that are organized around topics such as
+https://www.reddit.com/r/politics[politics],
+https://www.reddit.com/r/gaming[gaming], https://www.reddit.com/r/music[music],
+etc. You may know this already but there is a subreddit for the
+https://www.reddit.com/r/UMD[University of Maryland].
+
+== Instructions
+
+The last year's posts to the UMD subreddit have been collected from the
+https://pushshift.io/api-parameters/[PushShift API] as
+link:files/reddit.csv[this CSV]. Please use what you have learned about *regular
+expressions* to write a program that will read in the data and find the post
+that has been commented on the most that mentions the Coronavirus. Be sure to
+look for posts that mention either "Coronavirus", "COVID", and "COVID19" in any
+capitalization. The output of your program should include the title, URL
+and number of comments for this post.

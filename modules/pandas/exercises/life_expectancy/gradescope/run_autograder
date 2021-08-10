@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+cp /autograder/submission/expectancy.py /autograder/source/expectancy.py
+cp /autograder/source/files/lexp.csv /autograder/source/lexp.csv
+
+cd /autograder/source
+
+TEMP_REPORT=/autograder/results/pytestout.json
+FINAL_REPORT=/autograder/results/results.json
+
+python3 -m pytest tests/test_*.py -p no:warnings --json-report --json-report-file $TEMP_REPORT
+python3 convert_results.py $TEMP_REPORT $FINAL_REPORT

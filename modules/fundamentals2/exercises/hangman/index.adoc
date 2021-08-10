@@ -1,0 +1,26 @@
+= Exercise: Hangman
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Instructions
+
+The task is to implement a word guessing game on the model of "Hangman". The game starts with a hidden word in which hyphens are displayed in place of letters. The player guesses a letter, and if the letter is in the word, the word display is updated to reveal the letter in place.  If the word does not contain the letter guessed, the player gets one "strike".  
+
+**NOTE**: you do not need to implement the drawing of the hanged man, as in the children's game.  
+
+If the player gets five strikes before all letters are revealed, the player loses.  If the player is able to guess all letters before getting five strikes, the player wins.
+
+== Requirements
+
+Your program should do the following:
+
+1. Include a function that take a word and list of letters guessed and returns a string that displays the letters guessed only, with hyphens in place of letters not guessed.  **HINT**: You can loop over the letters in a word and concatenate a new word from letters and hyphens depending on whether a given letter is present in a list of letters guessed.
+2. Display the letters guessed so far to the user.
+3. Be able to handle user input in either uppercase or lowercase.
+4. Allow the user to quit the game by typing "quit".

@@ -1,0 +1,74 @@
+= Exercise: Sports Results
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+== Background
+
+When there's not a pandemic, many universities have sports teams that complete with teams of other universities. For this exercise, you'll write some code that could be used to analyze results of sporting matches. We'll use the following data file as input to your code; it's Maryland's 2019 Men's Lacrosse results.
+
+.lacrosse.txt
+----
+include::lacrosse.txt[]
+----
+
+This data is divided into five columns, in order:
+
+* date
+* home/away
+* opponent
+* Maryland's score
+* opponent's score
+
+The pipe character (`|`) is used to separate adjacent values.
+
+== Instructions
+
+Write a module with the components listed below.
+
+=== `Match` class
+
+Define a class called `Match` with methods `+++__init__()+++` and `win()`.
+
+==== `+++__init__()+++` method
+Your class should have an `+++__init__()+++` method with the following parameters:
+
+* self
+* date (a string): the date of the match
+* opponent (a string): the other team who participated in the match
+* home (a boolean): if True, Maryland hosted the match; otherwise, Maryland was the guest of opponent
+* md_score (an integer): the number of points scored by Maryland
+* other_score (an integer): the number of points scored by the opponent
+
+==== `win()` method
+
+Your class should have a `win()` method with `self` as a parameter. It should return `True` if Maryland won the match and `False` otherwise. (Maryland won the match if the value of the `md_score` attribute is greater than the value of the `other_score` attribute). _Hint: you can return the result of a boolean expression. You don't need to write an `if` statement._
+
+=== `read_scores()` function
+
+Your module should have a function called `read_scores()`. This function is _not_ a method of `Match`; it should be defined outside of your class.
+
+The function should have one parameter, `filename`, a string containing the name of a file with scores. (In this function, you will read this file and create instances of your `Match` class for each score in the file.)
+
+Define a list in which to store results of each match in the file. Using a `with` statement, open the file for reading. For each line in the file, do the following:
+
+* strip off whitespace using the `strip()` method
+* split the line into separate values using the `split()` method
+* use the separated values to make an instance of your `Match` class (you will need to convert/translate some values to other data types)
+* append your new instance of `Match` to your list of results
+
+When you have read in all the matches, return your list of results.
+
+== Docstrings
+
+Be sure to write docstrings for your class, your methods, and your function.
+
+== Testing
+
+You can use the following script to test your code.
+
+.test_sports.py
+----
+include::test_sports.py[]
+----

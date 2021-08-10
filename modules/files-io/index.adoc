@@ -1,0 +1,36 @@
+= INST 326 Module 6: Serialization and File I/O
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Module 4 introduces some techniques for reading and writing data into files with Python. In addition to plain text files (TXT), we'll also look at two commonly used data serializations: Comma-Separated Values (CSV), and Javascript Object Notation (JSON).
+
+=== Links
+* link:slides.html[Slides]
+* link:exercises/index.html[Exercises]
+
+== Learning Outcomes
+
+After completing this module, students should understand:
+
+* The purpose of file handles and how to create them.
+* How to read and write text to/from files using file handles and file modes.
+* The structure of CSV files and some of their use-cases.
+* The structure of JSON files and some of their use-cases.
+
+== References
+
+The following optional readings provide additional coverage for the topics covered in the lecture videos and slides:
+
+* Severance, _Python for Everybody_, link:https://www.py4e.com/html3/07-files[Chapter 7: Files].
+* Python Documentation:
+    ** link:https://docs.python.org/3.7/library/csv.html[csv]
+    ** link:https://docs.python.org/3.7/library/json.html[json]
+    ** https://docs.python.org/3.7/library/sys.html[sys], especially link:https://docs.python.org/3.7/library/sys.html#sys.argv[sys.argv]

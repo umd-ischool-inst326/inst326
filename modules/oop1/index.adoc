@@ -1,0 +1,43 @@
+= INST 326 Module 4: Object-Oriented Programming
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Basics of object-oriented programming in Python:
+
+* Classes
+* Objects / instantiation
+* Attributes
+* Methods
+* The `self` parameter
+* The `__init__()` method
+* Class docstrings
+
+=== Links
+* link:slides.html[Slides]
+  ** link:files/memobox.py["memobox" example class]
+  ** link:files/memobox_demo.py[Example usage of memobox class]
+* link:exercises/exercise_car.html[Car exercise]
+* link:exercises/exercise_appointment.html[Appointment exercise]
+* link:exercises/exercise_covid.html[COVID testing exercise]
+
+== Learning Outcomes
+
+* Students will be able to describe the relationship between data types, classes, and objects
+* Students will know what methods and attributes are and be able to recognize examples of each
+* Students will understand the purpose of the `+++__init__+++()` method
+* Students will understand what the `self` is and what it is used for
+* Students will be able to write a class with attributes and methods, including `+++__init__+++()`
+* Students will be able to create instances of a class, define and access attributes of instances, and invoke methods of instances
+
+== Additional Readings
+
+* link:https://docs.python.org/3/tutorial/classes.html[Classes section from the official Python tutorial]
+* link:https://python-textbok.readthedocs.io/en/1.0/Classes.html[Classes chapter from _Object-Oriented Programming in Python_, University of Cape Town]

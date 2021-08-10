@@ -1,0 +1,15 @@
+= Exercise 4: Dictionary Traversal
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Instructions
+
+The file link:energy.py[energy.py] contains a dictionary with 2009 figures for renewable energy production, broken down by state. Write a loop that traverses that dictionary and finds the state with the highest wind and solar energy production, printing out the results using link:https://docs.python.org/3/reference/lexical_analysis.html#f-strings[f-strings].
+
+One possible algorithm to solve this problem is to define a variable called "highest_wind" and another called "highest_solar", setting each one to zero at the start. Then, loop through the key-value pairs in the dictionary, checking whether the wind and solar production is greater than the highest seen so far.  If yes, set the current value to the new value of the tracking variable (NOTE: you will also need to track which state had that value, for display at the end).  Once you have looped though the entire dictionary, whatever state and value are still in the tracking variables will be the greatest.

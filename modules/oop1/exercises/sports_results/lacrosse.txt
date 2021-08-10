@@ -1,0 +1,17 @@
+02/02/19|home|Bucknell|11|6
+02/09/19|home|Richmond|10|9
+02/16/19|away|Pennsylvania|13|12
+02/19/19|home|Colgate|11|6
+02/23/19|away|Navy|14|9
+03/03/19|away|Notre Dame|13|14
+03/09/19|away|Albany (NY)|14|9
+03/16/19|home|Villanova|17|7
+03/23/19|home|North Carolina|16|9
+03/31/19|home|Penn State|10|13
+04/06/19|home|Michigan|16|12
+04/14/19|away|Rutgers|16|13
+04/20/19|away|Ohio State|10|9
+04/27/19|home|Johns Hopkins|11|16
+05/02/19|away|Johns Hopkins|7|12
+05/12/19|away|Towson|14|13
+05/18/19|away|Virginia|12|13

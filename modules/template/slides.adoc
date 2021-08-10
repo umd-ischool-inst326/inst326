@@ -1,0 +1,39 @@
+= Slide Deck Topic Here: Subtitle
+// Uncomment the following line if your slide contains images
+// :imagesdir: images
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 800
+// Uncomment the following line to use a background image
+// :title-slide-background-image: some-image.jpg
+
+== !
+// == ! means the slide will not have a title
+
+There is some text on this slide.
+
+[.notes]
+--
+Speaker notes can be added in blocks like this.
+--
+
+== A slide-level heading
+
+Some more text goes here.
+
+[%step]
+- item 1
+- item 2
+- item 3
+
+== This is a code example
+
+[source,python]
+----
+# comment goes here
+pythoncode = "foo bar baz"
+for spam in ham:
+    print(spam)
+----

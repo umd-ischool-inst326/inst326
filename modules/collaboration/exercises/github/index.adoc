@@ -1,0 +1,58 @@
+= Exercise: Git and GitHub
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+== Instructions
+
+=== Preliminaries
+
+You and your partner(s) should create a GitHub account if you don't already have one.
+
+If you have not yet configured your local git configuration variables `user.name`, `user.email`, and `core.editor`, take a moment and set those now. Each partner should do this.
+
+=== Create a repository on GitHub
+
+One of you should create a repository on GitHub and invite your partner(s) as collaborators. If you don't have a partner, invite abills+demo@umd.edu just so you get the experience of inviting collaborators.
+
+=== Clone the repository to your computer
+
+*Note: Windows users should use git bash for all steps involving the terminal.*
+
+All partners should do this step.
+
+On your computer, open a terminal and navigate to a directory where you'd like to clone your repository. Then clone the repository. This will create a new directory in the directory where you performed the clone operation.
+
+As a reminder, here are some terminal commands you may find useful for navigating to a directory:
+
+* `cd`: change directories. Some examples:
+** `cd ~` takes you to your home directory
+** `cd _foo_` takes you to the directory `_foo_` (assuming you are in a directory that has a subdirectory called `_foo_`)
+** `cd _foo/bar_` takes you to the directory `_bar_` in the directory `_foo_` (assuming you are in a directory that has a subdirectory called `_foo_` which has a subdirectory called `_bar_`)
+** `cd ..` takes you to the parent directory of the directory you are in
+** `cd ../..` takes you to the parent directory of the parent directory of the directory you are in
+* `pwd`: print the current working directory (the directory you are currently in).
+* `ls`: list files in the current working directory.
+
+=== Add a Python script to your repository
+
+Only one partner should do this step.
+
+After you clone your GitHub repository, create a Python script in the directory of your repository. Add a simple function to the script (for example, a function that prints `"hello"`).
+
+Add the script to the staging area, then commit the script (don't forget to include a message). Then push your changes to the remote repository.
+
+=== Pull down changes and add some more
+
+Partners who did not do the previous step should do this step. If there are more than two people working on this assignment, take turns doing this step--don't do it simultaneously. If you are working on the assignment alone, do this step by yourself.
+
+Pull down your partner's changes. Open their script and add another simple function (for example, a function that prints `"goodbye"`).
+
+Add the script to the staging area, then commit the script (don't forget to include a message). Then push your changes to the remote repository.
+
+=== Take a screenshot
+
+Don't do this step until all partners have finished the previous step. All partners should do this step; you can do this step simultaneously.
+
+Open github.com and navigate to your repository. Find your script under the tab labeled "<> Code" and click on the script name. Find the button labeled "History" (Ctrl+f or Command+f can help you with this) and press it. Scroll so the entire history fits on your screen, then take a screenshot. Upload your screenshot to ELMS.

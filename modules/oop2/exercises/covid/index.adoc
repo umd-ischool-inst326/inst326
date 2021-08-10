@@ -1,0 +1,46 @@
+= Exercise: COVID 
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Background
+
+Your team members at CRISP have appreciated your work identifying and analyzing
+anomalies in the
+https://coronavirus.maryland.gov/datasets/md-covid19-totalvaccinationsstatewidefirstandseconddose[Vaccination
+Dataset] published by the Maryland Department of Health. One of your colleagues
+has created a program to analyze a similar dataset of
+https://coronavirus.maryland.gov/datasets/md-covid19-totalvaccinationsracefirstandseconddose[Vaccinations
+by Race]. They have asked if you could help by reviewing their code and adding a few things to it.
+
+== Instructions
+
+First download a few things that you'll need:
+
+* link:files/covid.py[covid.py]: your colleague's program
+* link:files/test_covid.py[test-covid.py]: their test program
+* link:files/covid-vaccinations.csv[CSV dataset]: the Total Vaccinations by Race dataset which you can also https://coronavirus.maryland.gov/datasets/md-covid19-totalvaccinationsracefirstandseconddose[download live] from the Maryland Department of Health website.
+
+Now answer the following questions:
+
+1. Examine the classes that are defined in `covid.py`. Please describe what object oriented software pattern is being used and how it works. (2 points)
+
+2. Add docstrings to the classes and methods which describe what they represent or what action they perform and their return values. (2 points)
+
+3. Add a method `total_anomalous_records()` to the Vaccinations class which returns the number of records that have anomalous values. (2 points)
+
+4. Add a method `total_by_race()` which takes a race as an argument and returns the total number of vaccinations (first and second dose) that were recorded for that race (2 points). A race is expressed as a string with any of the following values: 
+
+* American Indian or Alaska Native
+* Asian
+* Black or African American
+* Native Hawaiian or Other Pacific Islander
+* White
+* Other Race
+
+5. Add tests for your two methods to the test file. (2 points) 

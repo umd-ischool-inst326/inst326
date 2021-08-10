@@ -1,0 +1,853 @@
+= Strings, lists, files: Python fundamentals 2
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 810
+:revealjs_center: false
+:revealjs_history: true
+:title-slide-background-image: 1280px-Violin_strings_in_close-up_Unsplash.jpg
+
+[.notes]
+--
+If we want to do data science, we're going to need to be able to read, write, store, and output data. This week's videos are going to cover a basic but important set of concepts that will allow us to start working with interesting data sets. You'll use these concepts throughout the semester and throughout your Python career.
+--
+
+== Strings
+
+[%step]
+[.nobullet.nosubbullet]
+* Strings contain [emph]#text#
+* Strings are a [emph]#container data type#
+** A given string may contain multiple characters (strings of length 1)
+* Strings are [emph]#ordered sequences#
+** The characters in a string have a fixed order
+* Python strings use [emph]#Unicode#
+
+=== String literals
+
+[%step]
+[.nobullet.nosubbullet]
+* A literal is a fixed value in a program
+* Ways to create a string literal in Python:
+[%step]
+** Single quotes: `'this is a string literal'`
+** Double quotes: `"this is a string literal"`
+** Triple single quotes: `'''this is a string literal'''`
+** Triple double quotes: `"""this is a string literal"""`
+* Triple-quoted string literals can contain literal line breaks:
+
+[%step]
+[source,python]
+----
+"""This string
+spans two lines."""
+----
+
+=== String concatenation
+
+[%step]
+The `+` operator concatenates strings
+
+[%step]
+[source, python]
+----
+>>> "Hello" + " " + "world!"
+'Hello world!'
+----
+
+[.columns]
+=== Accessing individual characters
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Each character in a string has an [emph]#index#
+* The index of the first character is `0`
+* We can access individual characters using square brackets `[]` after the string
+** We call this the [emph]#index operator#
+--
+
+[.column]
+--
+[%step]
+[source,python]
+----
+name = "Chelsea"
+initial = name[0]
+----
+
+[%step]
+[.nobullet.nosubbullet]
+* An index can be negative
+** `-1` means the last character
+** `-2` means the next-to-last character, etc.
+
+[%step]
+[source,python]
+----
+name = "Chelsea"
+last_letter = name[-1]
+----
+--
+
+=== Accessing ranges of characters (slices)
+
+[%step]
+[.nobullet.nosubbullet]
+* We can also use the index operator to "slice" strings
+* Two flavors of slice:
+[%step]
+** `str[`[slot]#start#`:`[slot]#stop#`]`
+** `str[`[slot]#start#`:`[slot]#stop#`:`[slot]#step#`]`
+* [slot]#start# is the index of the first character in the slice
+* [slot]#stop# is the index of the character after the last character in the slice
+** (in other words, the slice includes [slot]#start# but excludes [slot]#stop#)
+* [slot]#step# indicates how to get from the start to the stop (default value is 1)
+
+=== Slice examples
+
+[%step]
+[source,python]
+----
+course = "INST 326"
+----
+
+[%step]
+[source,python]
+----
+dept = course[0:4]       # evaluates to "INST"
+# equivalent:
+dept = course[:4]
+----
+
+[%step]
+[source,python]
+----
+num = course[5:8]        # evaluates to "326"
+# equivalent:
+num = course[5:]
+# equivalent:
+num = course[-3:]
+----
+
+[%step]
+[source,python]
+----
+nt3 = course[1:6:2]      # evaluates to "NT3"
+backwards = course[::-1] # evaluates to "632 TSNI"
+copy = course[:]         # evaluates to "INST 326"
+# equivalent:
+copy = course[::]
+----
+
+== Formatted string literals (f-strings)
+
+[%step]
+[.nobullet]
+* A way to plug values into string literals
+
+[%step]
+[source, python]
+----
+>>> name = "Angela"
+>>> job = "pilot"
+>>> f"{name} is a {job}"
+'Angela is a pilot'
+----
+
+[%step]
+[.nobullet]
+* F-strings always start with `f`
+* Expressions in curly braces `{}` are evaluated and converted to strings
+
+[%step]
+[source, python]
+----
+>>> x = 5
+>>> y = 4
+>>> print(f'{x} + {y} = {x + y}')
+5 + 4 = 9
+----
+
+== Some important string methods (1 of 3)
+
+[frame=none,grid=none,cols="30%a,70%a",noheader]
+|===
+|
+--
+[slot]#string#`.find(`[slot]#substring#`)`
+
+[slot]#string#`.index(`[slot]#substring#`)`
+--
+|
+[source, python]
+----
+>>> s = "aardvark"
+>>> s.find("rdv")
+2
+>>> s.index("rdv")
+2
+>>> s.find("xyz")
+-1
+>>> s.index("xyz")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+----
+
+|
+--
+[slot]#string#`.startswith(`[slot]#prefix#`)`
+
+[slot]#string#`.endswith(`[slot]#suffix#`)`
+--
+|
+[source, python]
+----
+>>> s = "corner"
+>>> s.startswith("corn")
+True
+----
+|===
+
+=== Some important string methods (2 of 3)
+
+[frame=none,grid=none,cols="a,~a",noheader]
+|===
+|[slot]#string#`.splitlines()`
+|
+[source, python]
+----
+>>> data = """Line 1
+... Line 2
+... Line 3
+... """
+>>> data.splitlines()
+['Line 1', 'Line 2', 'Line 3']
+----
+
+|[slot]#string#`.split(`[slot]#sep#`)`
+|
+[source, python]
+----
+>>> pet_str = "dog/cat/parakeet/gerbil"
+>>> pet_str.split("/")
+['dog', 'cat', 'parakeet', 'gerbil']
+----
+
+|[slot]#string#`.join(`[slot]#list_of_strings#`)`
+|
+[source, python]
+----
+>>> pets = ["dog", "cat", "parakeet", "gerbil"]
+>>> "/".join(pets)
+'dog/cat/parakeet/gerbil'
+----
+
+|===
+
+=== Some important string methods (3 of 3)
+
+[frame=none,grid=none,cols="~a,~a",noheader]
+|===
+|[slot]#string#`.strip(`{empty}[[slot]#chars#]`)`
+|
+[source, python]
+----
+>>> s = "\thi!\n"
+>>> s.strip()
+'hi!'
+>>> t = "Mississippi"
+>>> t.strip("Mip")
+'ssiss'
+----
+
+|
+--
+[slot]#string#`.lower()`
+
+[slot]#string#`.upper()`
+--
+|
+[source, python]
+----
+>>> s = "MiXed CaSe StRiNg"
+>>> s.lower()
+'mixed case string'
+>>> s.upper()
+'MIXED CASE STRING'
+----
+
+|[slot]#string#`.replace(`[slot]#old#`,` [slot]#new#`)`
+|
+[source, python]
+----
+>>> s = "bassoon"
+>>> s.replace("s", "l")
+'balloon'
+----
+|===
+
+// === Summary
+
+// [%step]
+// [.nobullet]
+// * [slot]#string#`.find(`[slot]#substring#`)` / [slot]#string#`.index(`[slot]#substring#`)`
+// * [slot]#string#`.startswith(`[slot]#prefix#`)` / [slot]#string#`.endswith(`[slot]#suffix#`)`
+// * [slot]#string#`.join(`[slot]#list_of_strings#`)`
+// * [slot]#string#`.split(`[slot]#sep#`)`
+// * [slot]#string#`.splitlines()`
+// * [slot]#string#`.strip(`{empty}[[slot]#chars#]`)`
+// * [slot]#string#`.lower()` / [slot]#string#`.upper()`
+// * [slot]#string#`.replace(`[slot]#old#`,` [slot]#new#`)`
+
+=== Summary
+
+[%step]
+[.nosubbullet]
+* Strings are [emph]#ordered sequences of Unicode characters#
+* String literals are made with [emph]#quotation marks# (single, double, triple)
+* The `+` operator [emph]#concatenates# strings
+* We can access parts of strings by [emph]#index# or [emph]#slice#
+* [emph]#F-strings# let us plug values into string literals
+* Strings have a lot of useful [emph]#methods#
+
+[.columns]
+== Lists
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Lists are a [emph]#container data type#
+[%step]
+** Lists contain [emph]#objects#
+* Lists are [emph]#ordered sequences#
+** The items in a list have a fixed order
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Items in lists can be accessed by [emph]#index#
+** `mylist[0]`
+* [emph]#Slice# notation also works for lists
+** `mylist[1:3]`
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Unlike strings, lists are [emph]#mutable#
+--
+
+[.columns]
+=== Building lists
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Empty list:
+** `list()` or `[]`
+* List with items in it:
+** `+++[+++`[slot]#item#+++[+++`,` [slot]#item#...]`]`
+* Convert another container into a list:
+** `list(`[slot]#container#`)`
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Concatenate two lists:
+** [slot]#list1# `+` [slot]#list2#
+* Add an item to the end:
+** [slot]#list#`.append(`[slot]#item#`)`
+* Add several items to the end:
+** [slot]#list#`.extend(`[slot]#otherlist#`)`
+--
+
+=== Example code: basic list operations
+
+[%step]
+[source, python]
+----
+l1 = list()
+l1.append("pencil")
+l1.extend(["chalk", "marker"])
+l2 = ["crayon", "pen"]
+l3 = l1 + l2
+----
+
+=== Some important list methods/techniques (1 of 3)
+[frame=none,grid=none,cols="~a,~a",noheader]
+|===
+|[slot]#list#`.insert(`[slot]#index#`,` [slot]#item#`)`
+|
+[source, python]
+----
+>>> l = ["hello"]
+>>> l.insert(0, "oh")
+>>> print(l)
+['oh', 'hello']
+----
+
+|[slot]#list#`++[++`[slot]#index#`+++] = +++`[slot]#item#
+|
+[source, python]
+----
+>>> l = ["a", "b", "c"]
+>>> l[1] = "x"
+>>> print(l)
+['a', 'x', 'c']
+----
+
+|[slot]#list#`++[++`[slot]#slice#`+++] = +++`[slot]#list2#
+|
+[source, python]
+----
+>>> l = ["one", "two", "three"]
+>>> l[1:2] = ["eight", "six", "four"]
+>>> print(l)
+['one', 'eight', 'six', 'four', 'three']
+----
+|===
+
+=== Some important list methods/techniques (2 of 3)
+
+[frame=none,grid=none,cols="~a,~a",noheader]
+|===
+|[slot]#list#`.remove(`[slot]#item#`)`
+|
+[source, python]
+----
+>>> l = [1, 3, 5, 7]
+>>> l.remove(3)
+>>> print(l)
+[1, 5, 7]
+----
+
+|`del` [slot]#list#`++[++`[slot]#index#`++]++`
+|
+[source, python]
+----
+>>> l = ["apple", "basket", "chair"]
+>>> del l[1]
+>>> print(l)
+['apple', 'chair']
+----
+
+|[slot]#list#`.pop(`[slot]#index#`)`
+|
+[source, python]
+----
+>>> l = ["Jackson", "Rhonda", "Alfred"]
+>>> l.pop()
+'Alfred'
+>>> print(l)
+['Jackson', 'Rhonda']
+----
+|===
+
+=== Some important list methods/techniques (3 of 3)
+
+[frame=none,grid=none,cols="~a,~a",noheader]
+|===
+|[slot]#list#`.index(`[slot]#item#`)`
+|
+[source, python]
+----
+>>> l = ["red", "blue", "green", "pink"]
+>>> l.index("green")
+2
+>>> l.index("purple")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: 'purple' is not in list
+----
+|===
+
+== Mutability
+
+[%step]
+[.nobullet]
+* Mutable objects can [emph]#change#
+* This [emph]#isn't# mutability:
+
+[%step]
+[source,python]
+----
+x = 5
+x += 1
+----
+
+[%step]
+[.nobullet]
+* But this [emph]#is#:
+
+[%step]
+[source,python]
+----
+l = ["alpha", "beta", "gamma"]
+l.append("delta")
+----
+
+[%step]
+[.nobullet]
+* Mutability is [emph]#useful# but [emph]#dangerous#
+
+[.columns]
+=== Aliasing
+
+[.column]
+--
+[%step]
+[.nobullet]
+* Aliasing occurs when there are [emph]#multiple references# to a single object
+
+[%step]
+[source, python]
+----
+>>> people = ["Linda", "Daryl", "Stacey"]
+>>> persons = people
+----
+
+[%step]
+[source, python]
+----
+>>> persons.append("Amanda")
+>>> print(persons)
+['Linda', 'Daryl', 'Stacey', 'Amanda']
+----
+
+[%step]
+[source, python]
+----
+>>> print(people)
+['Linda', 'Daryl', 'Stacey', 'Amanda']
+----
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Be careful when [emph]#passing# mutable objects to functions
+* If you need two different lists, [emph]#copy# your data:
+[%step]
+** `l2 = l1.copy()`
+** `l2 = l1[:]`
+--
+
+=== Summary
+
+[%step]
+[.nosubbullet]
+* Lists are [emph]#ordered sequences of objects#
+* List literals are surrounded by [emph]#square brackets# `[]`
+* Parts of lists can be accessed by [emph]#index# or [emph]#slice#
+* There are several ways to add and remove elements
+* Lists are [emph]#mutable#
+* Watch out for [emph]#aliasing#; avoid it by making a [emph]#copy# of your list
+
+== `for` loops
+
+[%step]
+[.nobullet.nosubbullet]
+* Useful when you need to perform the same operation on a sequence of values
+
+[%step]
+--
+`for` [slot]#varname# `in` [slot]#iterable#: +
+``    ``[slot]#body#
+--
+
+[%step]
+[source, python]
+----
+>>> polygon_sides = [5, 3, 4, 6, 2]
+>>> perimeter = 0
+>>> for side in polygon_sides:
+...    perimeter += side
+>>> print(f"The perimeter of a polygon with sides {polygon_sides} is {perimeter}")
+----
+
+[%step]
+[source, python]
+----
+The perimeter of a polygon with sides [5, 3, 4, 6, 2] is 20
+----
+
+== Files
+
+[%step]
+[.nobullet.nosubbullet]
+* Files allow us to write data to [emph]#persistent storage# and read that data back in at a later time
+* All files can be put into one of two categories: binary or text
+[%step]
+** We mostly only care about text files
+
+=== Encoding
+
+[%step]
+[.nobullet.nosubbullet]
+* Computers don't understand text, only numbers
+* Today, the standard used to represent text in a computer is called [emph]#Unicode#
+* There are multiple ways to encode Unicode to disk
+[%step]
+** The de facto standard is called UTF-8
+
+[.notes]
+--
+It's easy to forget that computers don't understand writing, but at a fundamental level, in order for a computer to handle text, it has to translate that text into numbers. A lot of different systems have been devised over the years to encode text as numbers. Many early systems were incompatible with each other. None of them could support text in more than one or maybe two writing systems. Computing in non-roman scripts posed serious challenges. In the 1990s, a group of people interested in fixing this problem formed the Unicode consortium. They came up with a standard (called Unicode) for representing text in most of the world's current and historical writing systems.
+
+Even though Unicode is a single standard, there are multiple encoding schemes for storing Unicode data. The de facto standard is called UTF-8; most text files created today follow this standard. When you create text files, you should always use UTF-8. When you read in text files that were created in the last couple of decades, you can usually assume they are UTF-8 unless someone tells you otherwise, but be aware that other encodings exist.
+--
+
+=== Paths
+
+[%step]
+[.nobullet.nosubbullet]
+* Files exist in a [emph]#file system# structured like a tree
+[%step]
+** The [emph]#root# of the tree is "/" on Mac/Unix and a drive name (e.g., "C:/") on Windows
+** Non-terminal nodes are called [emph]#directories#; terminal nodes are called [emph]#files#
+* All files have a [emph]#path#; two kinds of paths
+[%step]
+** Absolute: `/home/aric/INST326/myscript.py`
+** Relative: `myscript.py`, `INST326/myscript.py`
+*** Relative paths are relative to the [emph]#current working directory#
+* Python expects forward slashes (`/`) in paths, even on Windows
+
+== File objects
+
+[%step]
+[.nobullet.nosubbullet]
+* All interactions with files in Python are mediated through [emph]#file objects#
+* File objects are created by the `open()` function
+* File objects follow the [emph]#principle of least privilege#
+* File objects have to be [emph]#closed# when you are done with them
+
+[.fragment]
+[source, python]
+----
+f = open("myfile.txt", "w", encoding="utf-8")
+
+# do things with the file here...
+
+f.close()
+----
+
+=== Writing to files
+
+Option 1: `print()` function
+
+[.fragment]
+[source, python]
+----
+f = open("myfile.txt", "w", encoding="utf-8")
+print("Hello, world!", file=f)
+print("Created by Python", file=f)
+f.close()
+----
+
+[%step]
+* Very similar to how `print()` works with the console; adds newlines to the end of each line
+* (The console is a special file-like object called `sys.stdout`)
+* Specify file object as a keyword argument to `print()`
+
+=== Writing to files
+
+Option 2: `write()` method
+
+[.fragment]
+[source, python]
+----
+f = open("myfile.txt", "w", encoding="utf-8")
+f.write("Hello, world!\n")
+f.write("Created by Python\n")
+f.close()
+----
+
+[.nosubbullet]
+[%step]
+* `write()` is a method of the file object whereas `print()` is a function
+* Doesn't add newlines to the end of lines; you have to do that yourself
+
+=== Reading from files
+
+Option 1: Read the whole file into a single string
+
+[.fragment]
+[source, python]
+----
+f = open("myfile.txt", "r", encoding="utf-8")
+contents = f.read()
+f.close()
+----
+
+=== Reading from files
+
+Option 2: Read one line
+
+[.fragment]
+[source, python]
+----
+f = open("myfile.txt", "r", encoding="utf-8")
+line = f.readline()
+f.close()
+----
+
+=== Reading from files
+
+Option 3: Read all lines, one at a time
+
+[%step]
+* Uses file object as an iterator
+* Very Pythonic
+
+[.fragment]
+[source, python]
+----
+f = open("myfile.txt", "r", encoding="utf-8")
+for line in f:
+    # do something with line here...
+f.close()
+----
+
+=== Working with data read from a text file
+
+[.nobullet.nosubbullet]
+[%step]
+* Lines read from a text file usually end in newline characters (`"\n"`)
+[%step]
+** You can remove these with the `strip()` or `rstrip()` methods of strings
+
+[.fragment]
+[source, python]
+----
+for line in f:
+    line = line.rstrip()
+----
+
+[.nobullet.nosubbullet]
+[%step]
+* Data in text files is often delimited (e.g., `value1,value2,value3`)
+** You can break up delimited strings with the `split()` method of strings
+
+[.fragment]
+[source, python]
+----
+line = "name,age,profession"
+values = line.split(",")
+----
+
+[.columns]
+== `with` statements and context managers
+
+[.column]
+--
+[.nosubbullet.nobullet]
+[%step]
+* `with` statements let you use [emph]#context managers#
+* [emph]#File objects# can be used as context managers
+[%step]
+** File objects used as context managers will close themselves
+--
+
+[.column]
+--
+[.fragment]
+`with` [slot]#context_expr# `as` [slot]#varname#`:` +
+``    ``[slot]#body#
+
+[.fragment.bigcode.fullwidth]
+[source, python]
+----
+with open("myfile.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        # do something with line here...
+# file closes itself at the
+# end of the with statement
+----
+
+[%step]
+[.nobullet]
+* Use `with` statements whenever you open files
+--
+
+[.notes]
+--
+Context managers are special objects that can set up a specific environment when they are created, and safely tear down that environment when they are destroyed. Context managers can be used for safe allocation and deallocation of resources.
+--
+
+=== Two files at once in a `with` statement
+
+[.fragment]
+[source, python]
+----
+with open("myfile.txt", "r", encoding="utf-8") as f_in, \
+    open("myfile2.txt", "w", encoding="utf-8") as f_out:
+    for line in f_in:
+        if " " in line:
+            word1 = line.split(" ")[0]
+            f_out.write(word1)
+----
+
+=== Summary
+
+[%step]
+[.nosubbullet]
+* Two kinds of file: [emph]#text# and [emph]#binary#
+* Two kinds of path: [emph]#absolute# and [emph]#relative#
+* Reading from/writing to a file requires a [emph]#file object#
+** `open()` creates file objects
+* There are several ways to write to and read from a file object
+* When reading text files, `strip()` and `split()` come in handy
+* When used with file objects, `with` statements close files for us
+
+[.columns]
+== Example script
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* You run a store called [emph]#Sprocket Emporium#
+* [emph]#Customer orders# are stored in files where each line contains
+** part name
+** quantity
+** unit price
+--
+
+[%step]
+[.column]
+--
+Example [emph]#data#:
+
+[.filelisting]
+----
+medium widget,1,5.25
+bevel gear,3,10.90
+titanium axle,4,43.08
+#3 oblong cog,2,0.76
+----
+
+[%step]
+[.nobullet]
+* Goal: write a [emph]#function# to calculate the [emph]#total cost# of the order
+--
+
+=== Example script
+[source, python]
+[.bigcode]
+----
+include::files/order_cost.py[]
+----

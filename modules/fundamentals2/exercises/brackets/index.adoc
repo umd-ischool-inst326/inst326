@@ -1,0 +1,92 @@
+= Exercise: Balanced brackets
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+== Background
+
+=== Brackets
+
+In progamming, mathematics, and writing, _brackets_ are pairs of characters that delimit certain information. For this assignment, we are interested in the following bracket characters: () [] {}.
+
+Some important properties of brackets include:
+
+* brackets occur in pairs (any time there's an open bracket, later on there should be a corresponding close bracket of the same type)
+* open brackets always come before their corresponding close brackets
+* brackets can nest (you can have brackets within brackets)
+
+A string whose brackets follow the rules above is said to have _balanced brackets_. The following strings contain balanced brackets:
+
+* `this string has no brackets, so it's balanced`
+* `this string has (balanced) brackets`
+* `the (brackets [in this] {string are {nested}} and) balanced`
+
+The following strings contain unbalanced brackets:
+
+* `this ( parenthesis has no counterpart`
+* `this {curly brace corresponds to a] square bracket`
+* `there are (too) many) close) parentheses here`
+
+=== Stacks
+
+A list in which values are removed in the opposite order from the order in which they were added is called a _stack_. Python lists are easy to use as stacks thanks to their `append()` and `pop()` methods.
+
+A stack can be used to check whether parentheses are balanced. Here is an algorithm for checking for balanced parentheses in a string:
+
+. Build an empty list to use as a stack
+. Iterate over characters in the string
+.. If the current character is an open bracket, append it to the stack
+.. If the current character is a close bracket:
+... If the stack is empty, the brackets are unbalanced (return `False`)
+... Pop the stack; if the character from the stack does not correspond to the current character, the brackets are unbalanced (return `False`)
+. After iterating over all characters, if the stack still has items on it, the brackets are unbalanced (return `False`); otherwise, the brackets are balanced (return `True`)
+
+== Problem statement
+
+Write a program that reads one line at a time from a text file, determines whether the line contains balanced parentheses, and prints "balanced:" or "unbalanced:", followed by the line from the file.
+
+== Instructions
+
+Implement the following functions in the provided template, `brackets.py`. The functions should go after the `import` statements and before the `parse_args()` function.
+
+=== `check_brackets()` function
+
+Write a function named `check_brackets()` that takes one argument, a string that may contain brackets. Use the algorithm outlined in the <<Stacks>> section to determine if the brackets in the string are balanced. Your function should consider the following six bracket characters: `(){}[]`.
+
+Return a boolean value: `True` if the brackets in the string are balanced, `False` otherwise. If the string contains no brackets, return `True`.
+
+=== `main()` function
+
+Write a function named `main()` that takes one argument, a string containing the name of a file to read in. Open the file for reading; for each line in the file, strip off any whitespace and use your `check_brackets()` function to determine if the brackets in the line are balanced. Print `"balanced: "` and the line if the parentheses on the line are balanced, or `"unbalanced: "` and the line if the parentheses are not balanced. See below for an example input file and corresponding output:
+
+.Contents of example input file
+----
+xyz
+(one {two [three] four} five)
+((()}}
+goodbye]
+----
+
+.Example output
+----
+balanced: xyz
+balanced: (one {two [three] four} five)
+unbalanced: ((()}}
+unbalanced: goodbye]
+----
+
+=== Other instructions
+
+* Please write docstrings for each of your functions. Your docstrings should start with a brief statement of the function’s purpose. Include an "Args" section to document any arguments, and a "Returns" section to describe the return value (if any). Your main() function will not need a "Returns" section, but it should include a "Raises" section and a "Side effects" section (because printing is a side effect). Docstrings were covered in the lectures here: https://youtu.be/jHTv83PlQYw?t=1415. There’s an ELMS page about them here: https://umd.instructure.com/courses/1299872/pages/docstrings.
+* Please keep your lines of code to 80 characters or less. If you need help breaking up long lines of code, please see https://umd.instructure.com/courses/1299872/pages/how-to-break-up-long-lines-of-code.
+
+== Testing your code
+
+The template is designed to use command-line arguments. To run your program within the VS Code built-in terminal, first make sure you have opened (in VS Code) the directory where your program is saved. If necessary, you can go to the VS Code File menu and select "Open...​" on macOS or "Open Folder..." on Windows, and navigate to the directory where your program is.
+
+Then, open the VS Code built-in terminal. Type python3 (on macOS) or python (on Windows) followed by a space, the name of your program, another space, and the name of a file containing postfix expressions. Below is an example:
+
+----
+python3 brackets.py text_with_brackets.txt
+----

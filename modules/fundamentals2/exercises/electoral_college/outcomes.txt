@@ -1,0 +1,51 @@
+Alabama	R
+Alaska	R
+Arizona	R
+Arkansas	R
+California	D
+Colorado	D
+Connecticut	D
+Delaware	D
+District of Columbia	D
+Florida	R
+Georgia	R
+Hawaii	D
+Idaho	R
+Illinois	D
+Indiana	R
+Iowa	R
+Kansas	R
+Kentucky	R
+Louisiana	R
+Maine	D
+Maryland	D
+Massachusetts	D
+Michigan	R
+Minnesota	D
+Mississippi	R
+Missouri	R
+Montana	R
+Nebraska	R
+Nevada	D
+New Hampshire	D
+New Jersey	D
+New Mexico	D
+New York	D
+North Carolina	R
+North Dakota	R
+Ohio	R
+Oklahoma	R
+Oregon	D
+Pennsylvania	R
+Rhode Island	D
+South Carolina	R
+South Dakota	R
+Tennessee	R
+Texas	R
+Utah	R
+Vermont	D
+Virginia	D
+Washington	D
+West Virginia	R
+Wisconsin	R
+Wyoming	R

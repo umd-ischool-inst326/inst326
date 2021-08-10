@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1000"
+   height="600"
+   viewBox="0 0 264.58333 158.75"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="call_stack06.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker10267"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="DotS">
+      <path
+         transform="scale(0.2) translate(7.4, 1)"
+         style="fill-rule:evenodd;stroke:#005c94;stroke-width:1pt;stroke-opacity:1;fill:#005c94;fill-opacity:1"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         id="path10265" />
+    </marker>
+    <marker
+       inkscape:stockid="DotS"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker9480"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path9478"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#005c94;stroke-width:1pt;stroke-opacity:1;fill:#005c94;fill-opacity:1"
+         transform="scale(0.2) translate(7.4, 1)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4588"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="DotS"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.2) translate(7.4, 1)"
+         style="fill-rule:evenodd;stroke:#804d00;stroke-width:1pt;stroke-opacity:1;fill:#804d00;fill-opacity:1"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         id="path4586" />
+    </marker>
+    <marker
+       inkscape:stockid="DotS"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker3916"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path3914"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#009100;stroke-width:1pt;stroke-opacity:1;fill:#009100;fill-opacity:1"
+         transform="scale(0.2) translate(7.4, 1)" />
+    </marker>
+    <marker
+       inkscape:stockid="DotS"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="DotS"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path3646"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#005c94;stroke-width:1pt;stroke-opacity:1;fill:#005c94;fill-opacity:1"
+         transform="scale(0.2) translate(7.4, 1)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Send"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1170"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#005c94;stroke-opacity:1;fill:#005c94;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1164"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#0006ff;stroke-opacity:1;fill:#0006ff;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1146"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#0006ff;stroke-width:1pt;stroke-opacity:1;fill:#0006ff;fill-opacity:1"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-3"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1170-4"
+         style="fill:#804d00;fill-opacity:1;fill-rule:evenodd;stroke:#804d00;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-39"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1170-7"
+         style="fill:#009100;fill-opacity:1;fill-rule:evenodd;stroke:#009100;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-5"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1170-8"
+         style="fill:#ba00ff;fill-opacity:1;fill-rule:evenodd;stroke:#ba00ff;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.5156667"
+     inkscape:cx="459.94417"
+     inkscape:cy="297.06745"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="72"
+     inkscape:window-y="1107"
+     inkscape:window-maximized="1"
+     inkscape:snap-text-baseline="true"
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid815"
+       spacingx="2.6458333"
+       spacingy="2.6458333" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid2286"
+       originx="1.3229167"
+       originy="1.3229167"
+       spacingx="2.6458333"
+       spacingy="2.6458333"
+       empspacing="0"
+       dotted="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-138.24998)">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.05806875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3.5999999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1113"
+       width="264.58337"
+       height="158.75"
+       x="0"
+       y="138.24998" />
+    <g
+       id="g1133"
+       transform="translate(2.6458338,-7.9374936)">
+      <text
+         id="text819"
+         y="151.47914"
+         x="13.229166"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="151.47914"
+           x="13.229166"
+           id="tspan817"
+           sodipodi:role="line">def divide(n, d):</tspan><tspan
+           id="tspan831"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="156.77081"
+           x="13.229166"
+           sodipodi:role="line">    &quot;&quot;&quot; Divide one number by another. &quot;&quot;&quot;</tspan><tspan
+           id="tspan821"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="162.06247"
+           x="13.229166"
+           sodipodi:role="line">    return n / d</tspan><tspan
+           id="tspan823"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:none;stroke-width:0.26458332px"
+           y="167.35414"
+           x="13.229166"
+           sodipodi:role="line">yAMO</tspan><tspan
+           id="tspan825"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="172.64581"
+           x="13.229166"
+           sodipodi:role="line">def get_values_and_divide():</tspan><tspan
+           id="tspan833"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="177.93747"
+           x="13.229166"
+           sodipodi:role="line">    &quot;&quot;&quot; Ask the user for two numbers and divide them. &quot;&quot;&quot;</tspan><tspan
+           id="tspan827"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="183.22914"
+           x="13.229166"
+           sodipodi:role="line">    num   = float(input(&quot;Enter the numerator: &quot;))</tspan><tspan
+           id="tspan829"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="188.52081"
+           x="13.229166"
+           sodipodi:role="line">    denom = float(input(&quot;Enter the denominator: &quot;))</tspan><tspan
+           id="tspan841"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="193.81247"
+           x="13.229166"
+           sodipodi:role="line">    return divide(num, denom)</tspan><tspan
+           id="tspan835"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:none;stroke-width:0.26458332px"
+           y="199.10414"
+           x="13.229166"
+           sodipodi:role="line">yAMO</tspan><tspan
+           id="tspan838"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="204.3958"
+           x="13.229166"
+           sodipodi:role="line">def main():</tspan><tspan
+           id="tspan839"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="209.68747"
+           x="13.229166"
+           sodipodi:role="line">    print(&quot;Let's divide some numbers!&quot;)</tspan><tspan
+           id="tspan843"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="214.97914"
+           x="13.229166"
+           sodipodi:role="line">    result = get_values_and_divide()</tspan><tspan
+           id="tspan845"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="220.2708"
+           x="13.229166"
+           sodipodi:role="line">    print(&quot;The result is&quot;, result)</tspan><tspan
+           id="tspan842"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:none;stroke-width:0.26458332px"
+           y="225.56247"
+           x="13.229166"
+           sodipodi:role="line">yAMO</tspan><tspan
+           id="tspan844"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="230.85414"
+           x="13.229166"
+           sodipodi:role="line">main()</tspan><tspan
+           id="tspan847"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px"
+           y="236.03996"
+           x="13.229166"
+           sodipodi:role="line" /></text>
+      <text
+         id="text819-3"
+         y="151.47914"
+         x="10.583333"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan847-6"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="151.47914"
+           x="10.583333"
+           sodipodi:role="line">1</tspan><tspan
+           id="tspan1064"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="156.77081"
+           x="10.583333"
+           sodipodi:role="line">2</tspan><tspan
+           id="tspan1066"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="162.06247"
+           x="10.583333"
+           sodipodi:role="line">3</tspan><tspan
+           id="tspan1068"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="167.35414"
+           x="10.583333"
+           sodipodi:role="line">4</tspan><tspan
+           id="tspan1070"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="172.64581"
+           x="10.583333"
+           sodipodi:role="line">5</tspan><tspan
+           id="tspan1072"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="177.93747"
+           x="10.583333"
+           sodipodi:role="line">6</tspan><tspan
+           id="tspan1074"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="183.22914"
+           x="10.583333"
+           sodipodi:role="line">7</tspan><tspan
+           id="tspan1076"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="188.52081"
+           x="10.583333"
+           sodipodi:role="line">8</tspan><tspan
+           id="tspan1078"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="193.81247"
+           x="10.583333"
+           sodipodi:role="line">9</tspan><tspan
+           id="tspan1080"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="199.10414"
+           x="10.583333"
+           sodipodi:role="line">10</tspan><tspan
+           id="tspan1082"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="204.39581"
+           x="10.583333"
+           sodipodi:role="line">11</tspan><tspan
+           id="tspan1084"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="209.68747"
+           x="10.583333"
+           sodipodi:role="line">12</tspan><tspan
+           id="tspan1086"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="214.97914"
+           x="10.583333"
+           sodipodi:role="line">13</tspan><tspan
+           id="tspan1088"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="220.27081"
+           x="10.583333"
+           sodipodi:role="line">14</tspan><tspan
+           id="tspan1092"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="225.56247"
+           x="10.583333"
+           sodipodi:role="line">15</tspan><tspan
+           id="tspan1096"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:5.29166651px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:end;text-anchor:end;fill:#666666;stroke-width:0.26458332px"
+           y="230.85414"
+           x="10.583333"
+           sodipodi:role="line">16</tspan></text>
+    </g>
+    <path
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#005c94;stroke-width:1.05806874;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Send);marker-start:url(#marker10267)"
+       d="M 2.6458333,221.59373 H 7.9374999"
+       id="path1135"
+       inkscape:connector-curvature="0" />
+    <g
+       transform="translate(-2.2000005e-6,15.874996)"
+       id="g870-3"
+       style="opacity:0">
+      <rect
+         y="148.83331"
+         x="171.97917"
+         height="21.166672"
+         width="89.958328"
+         id="rect1405-6"
+         style="opacity:1;vector-effect:none;fill:#ffce84;fill-opacity:1;stroke:#804d00;stroke-width:1.05799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text1409-7"
+         y="154.12498"
+         x="174.625"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#804d00;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:4.23333311px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Semi-Bold';text-align:start;text-anchor:start;fill:#804d00;stroke-width:0.26458332px"
+           y="154.12498"
+           x="174.625"
+           id="tspan1407-5"
+           sodipodi:role="line"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold';text-align:start;text-anchor:start;fill:#804d00"
+             id="tspan896">main()</tspan></tspan></text>
+    </g>
+    <path
+       style="opacity:0;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#804d00;stroke-width:1.05806875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker9480);marker-end:url(#Arrow2Send-3)"
+       d="M 2.6458333,200.42706 H 7.9374999"
+       id="path1135-4"
+       inkscape:connector-curvature="0" />
+    <path
+       style="opacity:0;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#009100;stroke-width:1.05799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker4588);marker-end:url(#Arrow2Send-39)"
+       d="M 2.6458333,173.96873 H 7.9374999"
+       id="path1135-2"
+       inkscape:connector-curvature="0" />
+    <path
+       style="opacity:0;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ba00ff;stroke-width:1.05806874;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Send-5);marker-start:url(#marker3916)"
+       d="M 2.6458333,152.80206 H 7.9374999"
+       id="path1135-9"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g926"
+       transform="translate(158.75,5.1646484e-6)"
+       style="stroke:none">
+      <rect
+         y="238.79164"
+         x="13.229166"
+         height="55.5625"
+         width="89.958328"
+         id="rect2690"
+         style="opacity:1;vector-effect:none;fill:#2d2d2d;fill-opacity:1;stroke:none;stroke-width:1.05799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text2694"
+         y="246.72914"
+         x="18.520834"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#9ade00;stroke-width:0.26458332px;stroke:none;fill-opacity:0"
+           y="246.72914"
+           x="18.520834"
+           id="tspan2692"
+           sodipodi:role="line">Let's divide some numbers!</tspan><tspan
+           id="tspan1560"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#acde00;stroke-width:0.26458332px;stroke:none;fill-opacity:0"
+           y="251.80914"
+           x="18.520834"
+           sodipodi:role="line">Enter the numerator: 14</tspan><tspan
+           id="tspan1562"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#9ade00;stroke-width:0.26458332px;fill-opacity:0;stroke:none"
+           y="256.88913"
+           x="18.520834"
+           sodipodi:role="line">Enter the denominator: 0</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0;"
+       x="15.875"
+       y="246.72914"
+       id="text899"><tspan
+         sodipodi:role="line"
+         id="tspan897"
+         x="15.875"
+         y="246.72914"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px;">Traceback (most recent call last):</tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="251.80914"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px;"
+         id="tspan901">  <tspan
+   style="fill:#005c94;"
+   id="tspan928">File &quot;test.py&quot;, line 16, in &lt;module&gt;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="256.88913"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#005c94;stroke-width:0.26458332px;"
+         id="tspan903">    main()</tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="261.96915"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px;"
+         id="tspan905">  <tspan
+   style="fill:#804d00;"
+   id="tspan930">File &quot;test.py&quot;, line 13, in main</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="267.04913"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#804d00;stroke-width:0.26458332px;"
+         id="tspan907">    result = get_values_and_divide()</tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="272.12915"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px;"
+         id="tspan909">  <tspan
+   style="fill:#009100;"
+   id="tspan932">File &quot;test.py&quot;, line 9, in get_values_and_divide</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="277.20914"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#009100;stroke-width:0.26458332px;"
+         id="tspan911">    return divide(num, denom)</tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="282.28915"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px;"
+         id="tspan913">  <tspan
+   style="fill:#ba00ff;"
+   id="tspan935">File &quot;test.py&quot;, line 3, in divide</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="287.36914"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#ba00ff;stroke-width:0.26458332px;"
+         id="tspan915">    return n / d</tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="292.44913"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px;"
+         id="tspan917">ZeroDivisionError: float division by zero</tspan><tspan
+         sodipodi:role="line"
+         x="15.875"
+         y="297.52914"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';stroke-width:0.26458332px;"
+         id="tspan919" /></text>
+    <g
+       id="g981">
+      <rect
+         y="140.89581"
+         x="171.97917"
+         height="21.166672"
+         width="89.958328"
+         id="rect1405"
+         style="opacity:1;vector-effect:none;fill:#7dceff;fill-opacity:1;stroke:#005c94;stroke-width:1.05799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text1409"
+         y="146.18748"
+         x="174.625"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#005c94;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:4.23333311px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Ultra-Bold';text-align:start;text-anchor:start;fill:#005c94;stroke-width:0.26458332px"
+           y="146.18748"
+           x="174.625"
+           id="tspan1407"
+           sodipodi:role="line">(Module stack frame)</tspan></text>
+      <text
+         id="text941"
+         y="151.47914"
+         x="174.625"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332px;-inkscape-font-specification:'Fira Mono Medium';font-family:'Fira Mono';font-weight:500;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.88055553px;fill:#005c94"
+           y="151.47914"
+           x="174.625"
+           id="tspan939"
+           sodipodi:role="line">divide()</tspan></text>
+      <text
+         id="text941-3"
+         y="156.77081"
+         x="174.625"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#005c94;stroke-width:0.26458332px"
+           y="156.77081"
+           x="174.625"
+           id="tspan939-6"
+           sodipodi:role="line">get_values_and_divide()</tspan></text>
+      <text
+         id="text941-7"
+         y="151.47914"
+         x="235.47916"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#005c94;stroke-width:0.26458332px"
+           y="151.47914"
+           x="235.47916"
+           id="tspan939-5"
+           sodipodi:role="line">main()</tspan></text>
+    </g>
+    <g
+       id="g1063"
+       style="opacity:0">
+      <rect
+         y="188.52081"
+         x="171.97917"
+         height="21.166672"
+         width="89.958328"
+         id="rect1405-4"
+         style="opacity:1;vector-effect:none;fill:#a0ffa0;fill-opacity:1;stroke:#009100;stroke-width:1.05799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text1409-9"
+         y="193.81248"
+         x="174.625"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#009100;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;line-height:100%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold';text-align:start;text-anchor:start;fill:#009100;stroke-width:0.26458332px"
+           y="193.81248"
+           x="174.625"
+           sodipodi:role="line"
+           id="tspan910">get_values_and_divide()</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#009100;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0"
+         x="174.625"
+         y="199.10414"
+         id="text941-35"><tspan
+           sodipodi:role="line"
+           id="tspan939-62"
+           x="174.625"
+           y="199.10414"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#009100;stroke-width:0.26458332px">num</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#009100;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0"
+         x="174.625"
+         y="204.39581"
+         id="text941-35-9"><tspan
+           sodipodi:role="line"
+           id="tspan939-62-1"
+           x="174.625"
+           y="204.39581"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#009100;stroke-width:0.26458332px">denom</tspan></text>
+    </g>
+    <g
+       id="g1077"
+       style="opacity:0">
+      <rect
+         y="212.33331"
+         x="171.97917"
+         height="21.166672"
+         width="89.958328"
+         id="rect1405-63"
+         style="opacity:1;vector-effect:none;fill:#f0c5ff;fill-opacity:1;stroke:#ba00ff;stroke-width:1.05799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text1409-6"
+         y="217.62498"
+         x="174.625"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ba00ff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:4.23333311px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Semi-Bold';text-align:start;text-anchor:start;fill:#ba00ff;stroke-width:0.26458332px"
+           y="217.62498"
+           x="174.625"
+           id="tspan1407-3"
+           sodipodi:role="line"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold';text-align:start;text-anchor:start;fill:#ba00ff"
+             id="tspan934">divide()</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ba00ff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="174.625"
+         y="222.91664"
+         id="text941-35-2"><tspan
+           sodipodi:role="line"
+           id="tspan939-62-7"
+           x="174.625"
+           y="222.91664"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#ba00ff;stroke-width:0.26458332px">n</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ba00ff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="174.625"
+         y="228.20831"
+         id="text941-35-9-0"><tspan
+           sodipodi:role="line"
+           id="tspan939-62-1-9"
+           x="174.625"
+           y="228.20831"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';fill:#ba00ff;stroke-width:0.26458332px">d</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,934 @@
+= Intro to Pandas
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 810
+:revealjs_history: true
+//:stem:
+
+== Installing and importing Pandas
+
+Installation:
+----
+python3 -m pip install pandas
+----
+
+Importing Pandas:
+
+[source,python]
+----
+import pandas as pd
+----
+
+=== Pandas objects
+
+Three kinds of Pandas objects we care about:
+
+[%step]
+* Index (like keys in a dictionary)
+* Series (one sequence of values + one index)
+* DataFrame (multiple sequences of values + one index)
+
+== Series objects
+
+[%step]
+* Ordered sequence of indexed values
+* Each value has a position
+* Each value has a label (from the index)
+//* The series as a whole has a data type
+
+[.notes]
+--
+A series is like a list because it is a sequence of objects.
+A series is like a dictionary because each item in the sequence has a label.
+--
+
+=== How to make a Series
+
+[source,python]
+----
+# with an implicit index:
+s1 = pd.Series([4, 7, 1, 3, 5])
+
+# with an explicit index:
+s2 = pd.Series([4, 7, 1, 3, 5], index=["A", "B", "C", "D", "E"])
+s3 = pd.Series({"A": 4, "B": 7, "C": 1, "D": 3, "E": 5})
+----
+
+=== Things you can do with a Series
+
+[.nosubbullet]
+[%step]
+* Get a value by its label: `s2.loc["A"]` or `s2["A"]`
+* Get a value by its position in the sequence: `s2.iloc[0]`
+* Get a slice by label (`s2.loc["A":"C"]`) or position (`s2.iloc[0:3]`)
+[%step]
+** Note: when you slice by label, the last label is included in the slice; when you slice by position, the last position is excluded from the slice
+* Convert it to a list: `s2.tolist()` or `list(s2)`
+* See the first few items (`s2.head()`) or the last few items (`s2.tail()`)
+
+=== Methods for descriptive statistics
+
+* `count()`
+* `min()`
+* `max()`
+* `mean()`
+* `median()`
+* `mode()`
+* `std()`
+* `describe()`
+
+[.columns]
+=== Boolean methods/operations
+
+[.column]
+--
+Example:
+
+[.bigcode]
+[source,python]
+----
+>>> s2
+A    4
+B    7
+C    1
+D    3
+E    5
+dtype: int64
+
+>>> s2 > 3
+A     True
+B     True
+C    False
+D    False
+E     True
+dtype: bool
+----
+--
+
+[.column]
+--
+Operators:
+[.nobullet.nosubbullet]
+* `==`
+* `!=`
+* `>`
+* `<`
+* `>=`
+* `+++<=+++`
+--
+
+[.column]
+--
+Methods
+[.nobullet.nosubbullet]
+* `str.contains(`[slot]#substring#`)`
+* `isin(`[slot]#collection#`)`
+
+[.bigcode]
+[source,python]
+----
+s4 = pd.Series(["INST154", "INST326",
+                "JOUR281", "AOSC123"])
+inst = s4.str.contains("INST")
+----
+
+[.bigcode]
+[source,python]
+----
+s5 = pd.Series({"Science" : "A",
+                "Math"    : "C",
+                "English" : "B",
+                "History" : "A"})
+top_grades = s5.isin(["A", "B"])
+----
+--
+
+=== Filtering with boolean Series
+
+If you have a boolean Series with the same index as another Series, you can use the boolean Series to filter the other Series:
+
+[source,python]
+----
+>>> s2[s2 > 3]
+A    4
+B    7
+E    5
+dtype: int64
+----
+
+== DataFrame objects
+
+* Two-dimensional data with an index
+* Columns are Series; each column has a label and a position
+* Each row has a label (from the index) and a position
+
+=== How to make a DataFrame from a CSV file
+
+[%step]
+[.nobullet.nosubbullet]
+* `read_csv(`[slot]#filepath#`)`
+[%step]
+** [slot]#filepath# can be a regular file path or a URL
+
+[.fragment]
+Some important (optional) arguments:
+
+[%step]
+[.nosubbullet]
+* `sep`
+** lets you specify the separator (default is a comma)
+* `index_col`
+** lets you indicate a column to use as the index (default is to generate an index)
+* `encoding`
+** lets you specify the encoding of the CSV file (e.g., "UTF-8")
+
+=== Example: reading a CSV into a DataFrame
+
+[.bigcode.fragment]
+[source,python]
+----
+>>> df = pd.read_csv("states.tsv", sep="\t", index_col="Abbreviation")
+----
+
+[.tighttext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	State	Abbreviation	Capital	Largest city	Population	Total area	Number of reps
+0	Alabama	AL	Montgomery	Birmingham	4903185	52420	7
+1	Alaska	AK	Juneau	Anchorage	731545	665384	1
+2	Arizona	AZ	Phoenix	Phoenix	7278717	113990	9
+3	Arkansas	AR	Little Rock	Little Rock	3017804	53179	4
+4	California	CA	Sacramento	Los Angeles	39512223	163695	53
+|===
+
+=== Getting rows from a DataFrame
+
+[.nosubbullet]
+[%step]
+* By label: `df.loc["MD"]`
+* By its position: `df.iloc[19]`
+* Slice of rows by label: `df.loc["MD":"PA"]`
+* Slice of rows by position: `df.iloc[19:38]`
+
+[.fragment]
+As with Series, slices with `loc` include the "stop" value; +
+slices with `iloc` exclude it
+
+=== Getting columns from a DataFrame
+
+[%step]
+* By label: `df["Population"]` or `df.loc[:,"Population"]`
+* By position: `df.iloc[:,3]`
+* Slice of columns by label: `df.loc[:,"Population":"Total area"]`
+* Slice of columns by position: `df.iloc[:, 3:5]`
+
+=== Getting cells from a DataFrame
+
+[%step]
+* By labels: `df.loc["MD", "Population"]`
+* By positions: `df.iloc[19, 3]`
+* Range of cells by labels: `df.loc["MD":"PA", "Population":"Total area"]`
+* Range of cells by positions: `df.loc[19:38, 3:5]`
+
+=== Extracting columns into a new DataFrame
+
+[.fragment]
+[source, python]
+----
+cols = ["Capital", "Population"]
+df2 = df[cols]
+----
+
+[.fragment.tighttext.lefttable]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Capital	Population
+Abbreviation		
+AL	Montgomery	4903185
+AK	Juneau	731545
+AZ	Phoenix	7278717
+AR	Little Rock	3017804
+CA	Sacramento	39512223
+...     
+|===
+
+[.fragment]
+In a single step:
+
+[.fragment]
+[source, python]
+----
+df2 = df[["Capital", "Population"]]
+----
+
+[.notes]
+--
+If you pass a list of column labels to the index operator of a DataFrame, Pandas gives you a DataFrame containing only those columns.
+
+In the second example, the outer brackets are the index operator; the inner brackets are making a list.
+--
+
+=== Filtering with boolean Series
+
+[.fragment]
+--
+[source,python]
+----
+filter = df["Population"] > 15_000_000
+big_states_df = df[filter]
+cols = ["State", "Population"]
+big_states = big_states_df[cols]
+----
+--
+
+[.fragment]
+--
+In a single step:
+
+[source,python]
+----
+big_states = df[df["Population"] > 15_000_000][["State", "Population"]]
+----
+--
+
+[.fragment.tighttext.lefttable]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	State	Population
+Abbreviation	‌	‌
+CA	California	39512223
+FL	Florida	21477737
+NY	New York	19453561
+TX	Texas	28995881
+|===
+
+== Bitwise operators `|`, `&`, `^`, `~`
+
+[.nobullet]
+[%step]
+* Python defines a number of operations that work on the bits of a number
+* With Pandas boolean Series, these operations are redefined as logical operations on the individual values in the Series:
+
+[.lefttable]
+[cols="a,a", frame="none", grid="none"]
+|===
+|
+[%step]
+[.nobullet.nosubbullet]
+* `s = x \| y`
+** `s[i]` is `True` if either `x[i]` or `y[i]` is `True`
+* `s = x & y`
+** `s[i]` is `True` if both `x[i]` and `y[i]` are `True`
+|
+[%step]
+[.nobullet.nosubbullet]
+* `s = x ^ y`
+** `s[i]` is `True` if only one of `x[i]` or `y[i]` is `True`
+* `s = ~x`
+** `s[i]` is `True` if `x[i]` is `False`
+|===
+
+=== Filtering on multiple criteria
+
+[.tighttext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	State	Abbreviation	Capital	Largest city	Population	Total area	Number of reps
+0	Alabama	AL	Montgomery	Birmingham	4903185	52420	7
+1	Alaska	AK	Juneau	Anchorage	731545	665384	1
+2	Arizona	AZ	Phoenix	Phoenix	7278717	113990	9
+3	Arkansas	AR	Little Rock	Little Rock	3017804	53179	4
+4	California	CA	Sacramento	Los Angeles	39512223	163695	53
+|===
+
+[.fragment]
+[source, python]
+----
+pop_filter = df["Population"] > 10_000_000
+area_filter = df["Total area"] < 55_000
+combined_filter = pop_filter & area_filter
+small_populous_states = df[combined_filter]
+----
+
+=== Filtering on multiple criteria (result)
+
+[.fragment]
+[source, python]
+----
+pop_filter = df["Population"] > 10_000_000
+area_filter = df["Total area"] < 55_000
+combined_filter = pop_filter & area_filter
+small_populous_states = df[combined_filter]
+----
+
+[.tighttext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	State	Abbreviation	Capital	Largest city	Population	Total area	Number of reps
+31	New York	NY	Albany	New York	19453561	54555	27
+32	North Carolina	NC	Raleigh	Charlotte	10488084	53819	13
+34	Ohio	OH	Columbus	Columbus	11689100	44826	16
+37	Pennsylvania	PA	Harrisburg	Philadelphia	12801989	46054	18
+|===
+
+{blank} +
+
+[.fragment]
+As a single statement:
+
+[.fragment]
+[source, python]
+----
+small_populous_states = df[(df["Population"] > 10_000_000) &
+                           (df["Total area"] <     55_000)]
+----
+
+=== Summary
+
+[%step]
+* We can filter DataFrames on multiple criteria using bitwise operators
+* When we apply multiple criteria as a single statement, it's important to put parentheses around each boolean expression
+
+[.columns]
+== Combining similar DataFrames
+
+[.column]
+--
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year
+0	1.0	Enrico FABRIS	ITA	01:45.97	1	2006
+1	2.0	Shani DAVIS	USA	01:46.13	1	2006
+2	3.0	Chad HEDRICK	USA	01:46.22	1	2006
+...						‌
+38	39.0	Aleksey BELYAYEV	KAZ	01:52.20	1	2006
+39	40.0	Changyu LI	CHN	01:53.32	1	2006
+40	NaN	Håvard BØKKO	NOR	NaN	0	2006
+|===
+
+{blank}
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year
+0	1	Mark TUITERT	NED	01:45.57	1	2010
+1	2	Shani DAVIS	USA	01:46.10	1	2010
+2	3	Håvard BØKKO	NOR	01:46.13	1	2010
+...						‌
+34	35	Longjiang SUN	CHN	01:51.30	1	2010
+35	36	Aleksandr LEBEDEV	RUS	01:52.09	1	2010
+36	37	Kyle PARROTT	CAN	01:52.67	1	2010
+|===
+--
+
+[.column]
+--
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year
+0	1	Zbigniew BRODKA	POL	01:45.01	1	2014
+1	2	Koen VERWEIJ	NED	01:45.01	1	2014
+2	3	Denny MORRISON	CAN	01:45.22	1	2014
+...						‌
+37	38	David ANDERSSON	SWE	01:50.29	1	2014
+38	39	Matteo ANESI	ITA	01:50.59	1	2014
+39	40	Ewen FERNANDEZ	FRA	01:52.70	1	2014
+|===
+
+{blank}
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year
+0	1.0	Kjeld NUIS	NED	01:44.01	1	2018
+1	2.0	Patrick ROEST	NED	01:44.86	1	2018
+2	3.0	Min Seok KIM	KOR	01:44.93	1	2018
+...						‌
+32	33.0	Marten LIIV	EST	01:50.23	1	2018
+33	34.0	William TAI	TPE	01:50.63	1	2018
+34	NaN	Allan Dahl JOHANSSON	NOR	NaN	0	2018
+|===
+--
+
+=== `pd.concat()`
+
+[.nosubbullet]
+[%step]
+* `concat()` takes all the rows from a bunch of different DataFrames and makes one big DataFrame containing all the rows
+* `concat()` takes a list of DataFrames as an argument
+[%step]
+** All DataFrames should have the same columns
+
+[.fragment]
+[source, python]
+----
+df_results = pd.concat([df2006, df2010, df2014, df2018])
+----
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year
+0	1.0	Enrico FABRIS	ITA	01:45.97	1	2006
+1	2.0	Shani DAVIS	USA	01:46.13	1	2006
+2	3.0	Chad HEDRICK	USA	01:46.22	1	2006
+...						‌
+32	33.0	Marten LIIV	EST	01:50.23	1	2018
+33	34.0	William TAI	TPE	01:50.63	1	2018
+34	NaN	Allan Dahl JOHANSSON	NOR	NaN	0	2018
+|===
+
+=== [slot]#df#`.reset_index()`
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year
+0	1.0	Enrico FABRIS	ITA	01:45.97	1	2006
+1	2.0	Shani DAVIS	USA	01:46.13	1	2006
+2	3.0	Chad HEDRICK	USA	01:46.22	1	2006
+...						‌
+32	33.0	Marten LIIV	EST	01:50.23	1	2018
+33	34.0	William TAI	TPE	01:50.63	1	2018
+34	NaN	Allan Dahl JOHANSSON	NOR	NaN	0	2018
+|===
+
+[%step]
+* To fix the index, we can use the `reset_index()` method
+* By default, `reset_index()` adds an "index" column to the DataFrame with the old index labels; if we don't want this, we can add the keyword argument `drop=True`
+
+[.fragment]
+[source, python]
+----
+df_results = pd.concat([df2006, df2010, df2014, df2018]).reset_index(drop=True)
+----
+
+=== Summary
+
+[%step]
+* We can combine similar DataFrames with the `concat()` function
+* `concat()` takes a list of DataFrames as an argument
+* All DataFrames should have the same columns
+* After concatenating, we can make the index unique again using the `reset_index()` method
+
+[.columns]
+== Combining dissimilar DataFrames
+
+[.column]
+--
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year
+0	1.0	Enrico FABRIS	ITA	01:45.97	1	2006
+1	2.0	Shani DAVIS	USA	01:46.13	1	2006
+2	3.0	Chad HEDRICK	USA	01:46.22	1	2006
+...						‌
+32	33.0	Marten LIIV	EST	01:50.23	1	2018
+33	34.0	William TAI	TPE	01:50.63	1	2018
+34	NaN	Allan Dahl JOHANSSON	NOR	NaN	0	2018
+|===
+--
+
+[.column]
+--
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Name	Birth year	Height	Weight
+0	Aerchenghazi XIAKAINI	1995	1.85	83
+1	Aleksandr LEBEDEV	1987	1.78	70
+2	Aleksandr ZHIGIN	1986	1.80	80
+...				‌
+103	Justin WARSYLEWICZ	1985	1.75	73
+104	Erben WENNEMARS	1975	1.83	80
+105	Even WETTEN	1982	1.88	88
+|===
+--
+
+=== [slot]#df#`.merge()`
+
+[.nosubbullet]
+[%step]
+* `merge()` combines two DataFrames that have different columns but some information in common
+[%step]
+** In our example data, the results DataFrame contains an "Athlete" column with athlete names; the athlete DataFrame contains a "Name" column with those same names
+* `merge()` performs an equivalent operation to an SQL join
+
+=== [slot]#df#`.merge()`: basic syntax
+
+[.nobullet.nosubbullet]
+[%step]
+* [slot]#df1#`.merge(`[slot]#df2#`, on=`[slot]#colname#`)`
+** Used when both DataFrames have the same column name for the shared information
+* [slot]#df1#`.merge(`[slot]#df2#`, left_on=`[slot]#colname1#`, right_on=`[slot]#colname2#`)`
+** Used when the shared information in the two DataFrames is in columns with different names
+
+[.fragment]
+[source, python]
+----
+df = df_results.merge(df_athletes, left_on="Athlete", right_on="Name")
+----
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year	Name	Birth year	Height	Weight
+0	1.0	Enrico FABRIS	ITA	01:45.97	1	2006	Enrico FABRIS	1981	1.89	80
+1	10.0	Enrico FABRIS	ITA	01:47.02	1	2010	Enrico FABRIS	1981	1.89	80
+2	2.0	Shani DAVIS	USA	01:46.13	1	2006	Shani DAVIS	1982	1.88	86
+...										‌
+150	33.0	Marten LIIV	EST	01:50.23	1	2018	Marten LIIV	1996	1.82	74
+151	34.0	William TAI	TPE	01:50.63	1	2018	William TAI	1997	1.74	65
+152	NaN	Allan Dahl JOHANSSON	NOR	NaN	0	2018	Allan Dahl JOHANSSON	1998	1.85	80
+|===
+
+[.notes]
+--
+Point out that Athlete and Name columns are redundant.
+--
+
+=== [slot]#df#`.drop()`
+
+[.fragment]
+The `drop()` method of a DataFrame lets us get rid of rows or columns we don't need.
+
+[.fragment]
+--
+For rows:
+
+[.nobullet.nosubbullet]
+* [slot]#df#`.drop(`[slot]#labels#`)`
+** [slot]#labels# is a single row label or a list of several row labels
+--
+
+[.fragment]
+--
+For columns:
+
+[.nobullet.nosubbullet]
+* [slot]#df#`.drop(`[slot]#labels#`, axis=1)`
+** [slot]#labels# is a single column name or a list of several column names
+--
+
+[.fragment]
+[source, python]
+----
+df = df.drop("Name", axis=1)
+----
+
+== Dealing with merge mismatches
+
+[.fragment]
+What should happen when merging two tables that don't totally line up?
+
+[.lefttable]
+[%autowidth]
+[cols="a,a", frame="none", grid="none"]
+|===
+|
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+!===
+	Product ID	Name	Manufacturer
+0	1043	small sprocket	Gear World
+1	1044	medium sprocket	Gear World
+2	1052	chrome hub	Parts LLC
+3	1053	plastic hub	Parts LLC
+!===
+
+|
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+!===
+	Product ID	Inventory
+0	1043	5
+1	1052	12
+2	1074	6
+!===
+|===
+
+[.fragment]
+The `merge()` method takes an optional argument `how` that can have one of four values: `"inner"`, `"outer"`, `"left"`, or `"right"`
+
+
+[%notitle]
+=== How
+// inner, left, right, full joins
+
+[.lefttable]
+[cols="a,a", frame="none", grid="none"]
+|===
+
+|
+[.fragment]
+--
+*`"inner"`*: include only matching items (this is the default)
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+!===
+	Product ID	Name	Manufacturer	Inventory
+0	1043	small sprocket	Gear World	5
+1	1052	chrome hub	Parts LLC	12
+!===
+--
+|
+[.fragment]
+--
+*`"outer"`*: include all items from both DataFrames
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+!===
+	Product ID	Name	Manufacturer	Inventory
+0	1043	small sprocket	Gear World	5.0
+1	1044	medium sprocket	Gear World	NaN
+2	1052	chrome hub	Parts LLC	12.0
+3	1053	plastic hub	Parts LLC	NaN
+4	1074	NaN	NaN	6.0
+!===
+--
+
+|
+[.fragment]
+--
+*`"left"`*: include all items from the left DataFrame and any matching items from the right DataFrame
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+!===
+	Product ID	Name	Manufacturer	Inventory
+0	1043	small sprocket	Gear World	5.0
+1	1044	medium sprocket	Gear World	NaN
+2	1052	chrome hub	Parts LLC	12.0
+3	1053	plastic hub	Parts LLC	NaN
+!===
+--
+|
+[.fragment]
+--
+*`"right"`*: include all items from the right DataFrame and any matching items from the left DataFrame
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+!===
+	Product ID	Name	Manufacturer	Inventory
+0	1043	small sprocket	Gear World	5
+1	1052	chrome hub	Parts LLC	12
+2	1074	NaN	NaN	6
+!===
+--
+|===
+
+=== `merge()` with explicit `how` argument
+
+[source, python]
+----
+df_products.merge(df_inventory, on="Product ID", how="left")
+----
+
+=== Summary
+
+[%step]
+[.nosubbullet]
+* We can combine information from two different DataFrames using the `merge()` method
+** The two DataFrames have to have some shared information
+* We have to specify which columns contain the shared information, using the `on` or `left_on`/`right_on` arguments
+** If we use `left_on`/`right_on`, we can eliminate the redundant column with the `drop()` method
+* We can specify how to deal with mismatches in the shared information using the `how` argument
+
+== Adding a column to a DataFrame
+
+[.fragment]
+[slot]#df#`+++[+++`[slot]#new_column_name#`+++] = +++`[slot]#series#
+
+[.prettytinytext.lefttable.fragment]
+[%autowidth]
+[format=tsv, options="header", frame="none", grid="none"]
+|===
+	Rank	Athlete	Country	Result	Finished	Year	Name	Birth year	Height	Weight
+0	1.0	Enrico FABRIS	ITA	01:45.97	1	2006	Enrico FABRIS	1981	1.89	80
+1	10.0	Enrico FABRIS	ITA	01:47.02	1	2010	Enrico FABRIS	1981	1.89	80
+2	2.0	Shani DAVIS	USA	01:46.13	1	2006	Shani DAVIS	1982	1.88	86
+...										‌
+150	33.0	Marten LIIV	EST	01:50.23	1	2018	Marten LIIV	1996	1.82	74
+151	34.0	William TAI	TPE	01:50.63	1	2018	William TAI	1997	1.74	65
+152	NaN	Allan Dahl JOHANSSON	NOR	NaN	0	2018	Allan Dahl JOHANSSON	1998	1.85	80
+|===
+
+[.fragment]
+What if we want to compute the age of each athlete at the time of each event?
+
+[.fragment]
+[source, python]
+----
+df["Age"] = df["Year"] - df["Birth year"]
+----
+
+== Split-Apply-Combine
+
+[%step]
+* A common pattern in data analysis is to split a dataset into groups based on categories, perform some operation on each group, then combine the results back into a single data structure
+* In Pandas, this is done with the help of the `groupby()` method of DataFrames
+* We're only going to scratch the surface of what can be done with `groupby()`
+
+=== What kinds of questions can we answer with split-apply-combine?
+
+[%step]
+* From 2006 to 2018, what is the best rank each country has achieved in this event?
+* From 2006 to 2018, what is the best rank each athlete has achieved in this event?
+* From 2006 to 2018, how many times did each athlete compete in this event?
+* What was the average age of athletes in this event by year?
+* What was the average height of athletes in this event by year?
+
+=== Split
+
+The most common way to split data is to use a column that contains categorical data:
+
+[.fragment]
+[slot]#df#`.groupby(`[slot]#column_name#`)`
+
+[.fragment]
+This evaluates to a groupby object.
+
+[.fragment]
+[source, python]
+----
+by_country = df.groupby("Country")
+----
+
+=== Apply/Combine
+
+[%step]
+* Once we have a groupby object, we can apply aggregate methods to it
+* Aggregate methods include `count()`, `sum()`, `mean()`, `median()`, `mode()`, `min()`, `max()`, `std()`
+* We can aggregate over all columns in a group, or just over a single column
+* After the method is applied to each group, the results are combined into a single Series or DataFrame
+
+[.fragment]
+--
+Find the best rank achieved by each country in our dataset:
+
+[source, python]
+----
+best_rank = by_country["Rank"].min()
+----
+--
+
+[.fragment]
+--
+Find the total number of competitors from each country in our dataset:
+
+[source, python]
+----
+total_athletes = by_country["Athlete"].count()
+----
+--
+
+=== Split-apply-combine in a single statement
+
+[.fragment]
+--
+Best rank achieved by each country from 2006 to 2018:
+
+[source, python]
+----
+best_rank = df.groupby("Country")["Rank"].min()
+----
+--
+
+[.fragment.smalltext]
+----
+Country
+BEL     6.0
+CAN     3.0
+CHN    21.0
+EST    33.0
+FIN    24.0
+FRA    22.0
+GER    23.0
+HUN    26.0
+ITA     1.0
+JPN     5.0
+KAZ     9.0
+KOR     3.0
+LAT     4.0
+NED     1.0
+NOR     3.0
+NZL    14.0
+OAR    18.0
+POL     1.0
+RUS     4.0
+SUI    25.0
+SWE    24.0
+TPE    34.0
+USA     2.0
+Name: Rank, dtype: float64
+----
+
+=== More examples
+
+[.fragment]
+--
+Total athletes sent by each country from 2006 to 2018:
+
+[source, python]
+----
+total_athletes = df.groupby("Country")["Athlete"].count()
+----
+--
+
+[.fragment]
+--
+Average age of medalists by year:
+
+[source, python]
+----
+average_age = df[df["Rank"] <= 3].groupby("Year")["Age"].mean()
+----
+--
+
+[.fragment]
+----
+Year
+2006    26.000000
+2010    27.000000
+2014    27.666667
+2018    23.666667
+Name: Age, dtype: float64
+----
+
+=== Summary
+
+[%step]
+* The `groupby()` method of DataFrames makes it easy to use the split-apply-combine strategy
+* We can specify a column to use for grouping, optionally a column to apply aggregation to, and an aggregate method to apply

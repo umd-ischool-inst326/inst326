@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="8in"
+   height="4.5in"
+   viewBox="0 0 203.2 114.3"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="anatomy_of_complex_statement.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1264"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#ffcc00;stroke-width:1pt;stroke-opacity:1;fill:#ffcc00;fill-opacity:1"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1258"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#808080;stroke-width:1pt;stroke-opacity:1;fill:#808080;fill-opacity:1"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Send-2"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1264-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:#ffcc00;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Send-0"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1264-8"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:#ffcc00;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="240.55744"
+     inkscape:cy="262.85714"
+     inkscape:document-units="in"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="in"
+     showguides="false"
+     inkscape:snap-grids="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:snap-to-guides="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid815"
+       units="in"
+       spacingx="6.35"
+       spacingy="6.35"
+       empspacing="2" />
+    <sodipodi:guide
+       position="43.364071,102.36318"
+       orientation="35.733306,0"
+       id="guide1216"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="58.865704,92.095632"
+       orientation="72.730992,0"
+       id="guide1239"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-182.69999)">
+    <g
+       id="g1139"
+       transform="translate(-3.4080947,-5.5169838)">
+      <text
+         id="text839"
+         y="225.01968"
+         x="35.162971"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:30.07911873px;line-height:120.00000477%;font-family:Lato;-inkscape-font-specification:'Lato Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0066;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-family:Lato;-inkscape-font-specification:'Lato Ultra-Light';fill:#ff0066;stroke-width:0.26458332px;"
+           y="225.01968"
+           x="35.162971"
+           id="tspan837"
+           sodipodi:role="line">{</tspan></text>
+      <text
+         id="text843"
+         y="217.11194"
+         x="21.087427"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0066;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="fill:#ff0066;stroke-width:0.26458332px"
+           y="217.11194"
+           x="21.087427"
+           id="tspan841"
+           sodipodi:role="line">Clause</tspan></text>
+    </g>
+    <g
+       id="g1002"
+       transform="translate(-3.4080947,-5.7842612)">
+      <rect
+         y="200.42107"
+         x="46.772167"
+         height="9.4544449"
+         width="109.03593"
+         id="rect950"
+         style="opacity:0.5;vector-effect:none;fill:#aa87de;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#aa87de;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="163.58281"
+         y="206.25835"
+         id="text843-1"><tspan
+           sodipodi:role="line"
+           id="tspan841-9"
+           x="163.58281"
+           y="206.25835"
+           style="text-align:start;text-anchor:start;fill:#aa87de;stroke-width:0.26458332px">Clause header</tspan></text>
+    </g>
+    <g
+       transform="translate(-3.4080947,24.539804)"
+       id="g1002-8">
+      <rect
+         y="200.42107"
+         x="46.772171"
+         height="9.4544449"
+         width="109.03593"
+         id="rect950-4"
+         style="opacity:0.5;vector-effect:none;fill:#aa87de;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#aa87de;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="163.58281"
+         y="206.25835"
+         id="text843-1-3"><tspan
+           sodipodi:role="line"
+           id="tspan841-9-7"
+           x="163.58281"
+           y="206.25835"
+           style="text-align:start;text-anchor:start;fill:#aa87de;stroke-width:0.26458332px">Clause header</tspan></text>
+    </g>
+    <g
+       transform="translate(-3.4080909,54.863874)"
+       id="g1002-3">
+      <rect
+         y="200.42107"
+         x="46.772171"
+         height="9.4544449"
+         width="109.03593"
+         id="rect950-8"
+         style="opacity:0.5;vector-effect:none;fill:#aa87de;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#aa87de;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="163.58281"
+         y="206.25835"
+         id="text843-1-0"><tspan
+           sodipodi:role="line"
+           id="tspan841-9-9"
+           x="163.58281"
+           y="206.25835"
+           style="text-align:start;text-anchor:start;fill:#aa87de;stroke-width:0.26458332px">Clause header</tspan></text>
+    </g>
+    <g
+       id="g1093"
+       transform="translate(-3.4080947,-5.2330368)">
+      <rect
+         y="210.16583"
+         x="62.2738"
+         height="19.186523"
+         width="93.534302"
+         id="rect1040"
+         style="opacity:0.5;vector-effect:none;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text843-1-7"
+         y="220.57558"
+         x="163.58281"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="text-align:start;text-anchor:start;fill:#b3b3b3;stroke-width:0.26458332px"
+           y="220.57558"
+           x="163.58281"
+           id="tspan841-9-99"
+           sodipodi:role="line">Clause body</tspan></text>
+    </g>
+    <g
+       transform="translate(-3.3934169,25.091033)"
+       id="g1093-3">
+      <rect
+         y="210.16734"
+         x="62.2738"
+         height="19.183514"
+         width="93.519623"
+         id="rect1040-7"
+         style="opacity:0.5;vector-effect:none;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text843-1-7-1"
+         y="220.57558"
+         x="163.58281"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="text-align:start;text-anchor:start;fill:#b3b3b3;stroke-width:0.26458332px"
+           y="220.57558"
+           x="163.58281"
+           id="tspan841-9-99-2"
+           sodipodi:role="line">Clause body</tspan></text>
+    </g>
+    <g
+       transform="translate(-3.3934169,55.415099)"
+       id="g1093-2">
+      <rect
+         y="210.13739"
+         x="62.2738"
+         height="19.243408"
+         width="93.519623"
+         id="rect1040-0"
+         style="opacity:0.5;vector-effect:none;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text843-1-7-2"
+         y="220.57558"
+         x="163.58281"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="text-align:start;text-anchor:start;fill:#b3b3b3;stroke-width:0.26458332px"
+           y="220.57558"
+           x="163.58281"
+           id="tspan841-9-99-1"
+           sodipodi:role="line">Clause body</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="47.125332"
+       y="201.23045"
+       id="text819"><tspan
+         sodipodi:role="line"
+         id="tspan817"
+         x="47.125332"
+         y="201.23045"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px">if p1_score &gt; p2_score:</tspan><tspan
+         sodipodi:role="line"
+         x="47.125332"
+         y="211.39046"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan821">    print(&quot;Player 1 wins!&quot;)</tspan><tspan
+         sodipodi:role="line"
+         x="47.125332"
+         y="221.55046"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan823">    p1_wins += 1</tspan><tspan
+         sodipodi:role="line"
+         x="47.125332"
+         y="231.71045"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan825">elif p2_score &gt; p1_score:</tspan><tspan
+         sodipodi:role="line"
+         x="47.125332"
+         y="241.87045"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan827">    print(&quot;Player 2 wins!&quot;)</tspan><tspan
+         sodipodi:role="line"
+         x="47.125332"
+         y="252.03044"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan829">    p2_wins += 1</tspan><tspan
+         sodipodi:role="line"
+         x="47.125332"
+         y="262.19043"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan831">else:</tspan><tspan
+         sodipodi:role="line"
+         x="47.125332"
+         y="272.35043"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan833">    print(&quot;Tie game!&quot;)</tspan><tspan
+         sodipodi:role="line"
+         x="47.125332"
+         y="282.51044"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:160.00000238%;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Medium';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan835">    ties += 1</tspan></text>
+    <g
+       transform="translate(-3.4080947,54.651795)"
+       id="g1139-7">
+      <text
+         id="text839-5"
+         y="225.01968"
+         x="35.162971"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:30.07911873px;line-height:120.00000477%;font-family:Lato;-inkscape-font-specification:'Lato Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0066;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-family:Lato;-inkscape-font-specification:'Lato Ultra-Light';fill:#ff0066;stroke-width:0.26458332px;"
+           y="225.01968"
+           x="35.162971"
+           id="tspan837-1"
+           sodipodi:role="line">{</tspan></text>
+      <text
+         id="text843-7"
+         y="217.11194"
+         x="21.087427"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0066;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="fill:#ff0066;stroke-width:0.26458332px"
+           y="217.11194"
+           x="21.087427"
+           id="tspan841-4"
+           sodipodi:role="line">Clause</tspan></text>
+    </g>
+    <g
+       transform="translate(-3.4080947,24.567406)"
+       id="g1139-1">
+      <text
+         id="text839-7"
+         y="225.01968"
+         x="35.162971"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:30.07911873px;line-height:120.00000477%;font-family:Lato;-inkscape-font-specification:'Lato Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0066;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-family:Lato;-inkscape-font-specification:'Lato Ultra-Light';fill:#ff0066;stroke-width:0.26458332px;"
+           y="225.01968"
+           x="35.162971"
+           id="tspan837-11"
+           sodipodi:role="line">{</tspan></text>
+      <text
+         id="text843-17"
+         y="217.11194"
+         x="21.087427"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0066;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="fill:#ff0066;stroke-width:0.26458332px"
+           y="217.11194"
+           x="21.087427"
+           id="tspan841-0"
+           sodipodi:role="line">Clause</tspan></text>
+    </g>
+    <g
+       id="g1974">
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path1247"
+         d="m 43.36407,209.87012 13.898017,0"
+         style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:#ffcc00;stroke-width:1.058;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.058, 1.05800000000000005;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send)" />
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444447px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         x="43.093136"
+         y="216.15565"
+         id="text843-16"><tspan
+           sodipodi:role="line"
+           id="tspan841-6"
+           x="43.093136"
+           y="216.15565"
+           style="font-size:5.64444447px;text-align:start;text-anchor:start;fill:#ffcc00;stroke-width:0.26458332px;">Indent</tspan></text>
+    </g>
+    <g
+       transform="translate(0,29.97987)"
+       id="g1974-9">
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path1247-6"
+         d="M 43.36407,209.87012 H 57.262087"
+         style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:#ffcc00;stroke-width:1.05799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.058, 1.058;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-2)" />
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444447px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="43.093136"
+         y="216.15565"
+         id="text843-16-4"><tspan
+           sodipodi:role="line"
+           id="tspan841-6-8"
+           x="43.093136"
+           y="216.15565"
+           style="font-size:5.64444447px;text-align:start;text-anchor:start;fill:#ffcc00;stroke-width:0.26458332px">Indent</tspan></text>
+    </g>
+    <g
+       transform="translate(0,60.889289)"
+       id="g1974-1">
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path1247-0"
+         d="M 43.36407,209.87012 H 57.262087"
+         style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:#ffcc00;stroke-width:1.05799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.058, 1.058;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Send-0)" />
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444447px;line-height:120.00000477%;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="43.093136"
+         y="216.15565"
+         id="text843-16-2"><tspan
+           sodipodi:role="line"
+           id="tspan841-6-2"
+           x="43.093136"
+           y="216.15565"
+           style="font-size:5.64444447px;text-align:start;text-anchor:start;fill:#ffcc00;stroke-width:0.26458332px">Indent</tspan></text>
+    </g>
+  </g>
+</svg>

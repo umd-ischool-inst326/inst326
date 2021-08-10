@@ -1,0 +1,576 @@
+= Checking your work: Basic principles of software testing
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 810
+:title-slide-background-image: antenna_test.jpg
+
+[.columns]
+== What could go wrong?
+
+[.column.fragment]
+image::math_error.png[]
+
+[.column.fragment]
+[quote, "Edward Weiler, NASA associate administrator for space science"]
+The problem here was not the error; it was the failure of NASA's systems engineering, and the checks and balances in our processes, to detect the error. That's why we lost the spacecraft.
+
+[.notes]
+--
+The Mars Climate Orbiter was one of two main components of a $327.6 million dollar mission to study the atmosphere, climate, and surface of Mars. Built by NASA and Lockheed Martin, the probe was launched on Dec. 11, 1998. More than nine months and 669 million kilometers later, the orbiter reached its destination, but it failed to correctly insert itself into orbit around the planet. An investigation revealed that a program written by Lockheed was producing results in pound-force seconds; these results fed into a second program, written by NASA, which expected inputs in newton-seconds. NASA's testing protocol somehow failed to detect this error, and it cost them the mission.
+--
+
+=== What could go wrong?
+image::knight_capital_AP.png[]
+
+[.notes]
+--
+On August 1, 2012, Knight Capital Group activated new automatic trading software on the New York Stock Exchange. In about 45 minutes, the software made millions of bad trades that ultimately cost the company $440 million and drained them of most of their capital. One of the key mistakes made by Knight's IT team was leaving a piece of code called "Power Peg" in the code base. Power Peg was part of the software development team's strategy for offline simulations. It was intended to cause the system to buy simulated stock at a high price and sell it at a lower price, in order to test certain aspects of the software. It was never intended to be used on the actual stock market. This one error destroyed 75% of Knight's equity value. Experts agree that a more robust testing and deployment infrastructure could have prevented this catastrophe.
+--
+
+=== What could go wrong?
+image::warehouse_hit_by_scud.jpg[]
+
+[.notes]
+--
+The Patriot is a surface-to-air missile system designed to intercept incoming missiles. The system was widely used in the Persian Gulf War of 1991, but on Feb. 25, it failed to intercept an incoming Iraqi Scud missile in Dhahran, Saudi Arabia. The Scud missile hit the Army barracks and killed 28 soldiers. Subsequent investigation identified a flaw in the way the system calculated time that had to do with converting integers to fixed-point real numbers. The conversion introduced a loss of precision that decreased the accuracy of the system in direct proportion to the amount of time since the system was last booted up. On that fateful day in February, the system had been operating for 100 hours, enough to cause the system to miscalculate the position of the incoming missile by 600 meters and mistake it for a false alarm. More rigorous testing could have detected this issue and saved lives.
+--
+
+=== Summary
+
+[%step]
+* Sometimes little errors can cause big problems
+* A lot of problems can be prevented through careful testing
+
+== Kinds of tests
+
+[%step,role="nosubbullet"]
+* Unit tests
+** test components (functions) in isolation
+* Integration tests
+** test interfaces between components
+* System tests
+** test system functionality
+
+=== Test cases
+
+[%step,role="nosubbullet"]
+* Happy path
+** inputs and expected outputs are "normal"
+* Edge cases ("unhappy path")
+** inputs are unusual or special values
+** may trigger exceptions
+
+== `assert` statements
+
+[.fragment]#An `assert` statement tells Python to verify an expression.# [.fragment]#If the expression evaluates to `True` or a truthy value, the program continues.# [fragment]#Otherwise, an `AssertionError` is raised.#
+
+[.fragment]
+Two forms:
+
+[%step]
+* `assert` [slot]#expression#
++
+[source, python]
+----
+assert cube(3) == 27
+----
+* `assert` [slot]#expression#, [slot]#error_msg#
++
+[source, python]
+----
+assert cube(3) == 27, \
+    ("cube(3) returned"
+     " unexpected result")
+----
+
+[.notes]
+--
+An `assert` statement is a boolean context
+--
+
+[.columns]
+=== `assert` in action
+
+[.column.fragment]
+--
+image::annual_permit_fees.png[]
+
+[.fragment]
+Pretend we have a function `faculty_parking()` that takes an annual income and returns a permit fee.
+--
+
+[.column]
+--
+[source, python,role="fragment"]
+----
+# some happy path cases
+assert faculty_parking(25_000) == 494
+assert faculty_parking(40_000) == 559
+assert faculty_parking(50_000) == 627
+assert faculty_parking(70_000) == 932
+assert faculty_parking(90_000) == 986
+----
+
+[source, python,role="fragment"]
+----
+# some edge cases
+assert faculty_parking(30_000) == 494
+assert faculty_parking(30_001) == 559
+# etc.
+----
+--
+
+[.notes]
+--
+Imagine we want to write a function called `faculty_parking()` that calculates how much a faculty member will be charged for their parking based on the table above.
+
+We should have a few happy path cases. We don't really need more than one of these per tier in the table--additional tests would not tell us anything more about whether our code is behaving correctly.
+
+However, we should test a number of edge cases. In the case of this table, we should test the upper and lower bounds of each tier, because that's where logic mistakes are most likely.
+--
+
+// === `assert` in action
+
+// [source, python]
+// ----
+// def faculty_parking(income):
+//     """ Determine the cost of faculty
+//     parking based on a faculty member's
+//     annual salary. """
+//     return (494 if income < 30_001 else
+//             559 if income < 45_001 else
+//             627 if income < 60_001 else
+//             932 if income < 80_001 else
+//             986)
+// ----
+
+=== Testing floating-point values
+
+True or false: `1/3 == (10/3)/10`
+
+[%step]
+* Floats can be imprecise (=inexact)
+* Calculations can result in additional loss of precision
+* We almost never care about the exact value of a float
+
+[.fragment]
+When testing floats, we almost always want to know if they are "close enough"
+
+=== Testing floating-point values
+
+[.fragment]
+--
+What not to do:
+
+[source, python]
+----
+assert myfloat == 0.3333333333333333
+----
+--
+
+[.fragment]
+--
+What to do:
+
+[source, python]
+----
+assert abs(myfloat - 0.3333333333333333) <= 0.000000001
+----
+--
+
+[.fragment]
+--
+Even better:
+
+[source, python]
+----
+from math import isclose
+
+assert isclose(myfloat, 0.3333333333333333)
+----
+--
+
+=== Summary
+
+[%step,role="nosubbullet"]
+* `assert` statements tell Python to verify an expression
+* If the expression evaluates to `False` or a falsy value, an `AssertionError` is raised
+** You can specify an error message to go along with an `AssertionError`
+* When testing floating-point values, we want to check for a "close" value rather than an exact value
+** `math.isclose()` is our friend
+
+== Modules, part 1: reusing other people's work
+
+* Modules allow code to be reused in other programs
+* Some modules you may be familiar with:
+** `math`
+** `random`
+** `sys`
+** `pandas`
+
+=== `import` statements, part 1
+
+* `import` statements allow us to access code in a module
+* `import` statements come in different flavors
+
+[.fragment]
+--
+Flavor #1:
+
+`import` [slot]#modulename#
+
+[source, python]
+----
+import math
+import statistics
+----
+--
+
+[.fragment]
+--
+We can then access objects from the `math` module like this:
+
+[source, python]
+----
+math.pi
+math.sqrt(5)
+statistics.stdev([1, 3, 2, 5, 6])
+----
+--
+
+=== Namespaces
+
+[%step]
+* When you import the `math` module, Python creates an object called `math` that contains the functions and constants defined in the module. This object is a _namespace_.
+* A namespace is a container for holding Python objects (functions, variables, etc.).
+* Namespaces help prevent _name collisions_.
+* Every program gets its own namespace: the _global namespace_.
+
+=== `import` statements, part 2
+
+Flavor #2:
+
+`import` [slot]#modulename# `as` [slot]#othername#
+
+[source, python]
+----
+import math as m
+import statistics as stats
+
+m.pi
+m.sqrt(5)
+stats.stdev([1, 3, 2, 5, 6])
+----
+
+Imports [slot]#modulename# but renames the namespace to [slot]#othername#.
+
+=== `import` statements, part 3
+
+Flavor #3:
+
+`from` [slot]#modulename# `import` [slot]#object# {blank}[, [slot]#object# ...{blank}]
+
+[source, python]
+----
+from math import pi, sqrt
+from statistics import stdev
+
+pi
+sqrt(5)
+stdev([1, 3, 2, 5, 6])
+----
+
+Imports specific [slot]#object#{blank}s from [slot]#modulename# into the current (global) namespace.
+
+It's okay to import multiple objects with a single `import` statement.
+
+=== `import` statements, part 4
+
+Flavor #4:
+
+`from` [slot]#modulename# `import` [slot]#object# `as` [slot]#othername# {blank}[, [slot]#object# `as` [slot]#othername# ...{blank}]
+
+[source, python]
+----
+from math import pi as PI, sqrt as square_root
+from statistics import stdev as st_dev
+
+PI
+square_root(5)
+st_dev([1, 3, 2, 5, 6])
+----
+
+Imports specific [slot]#object#{blank}s from [slot]#modulename# into the current (global) namespace but renames them to [slot]#othername#.
+
+
+=== `import` statements, part 5
+
+Flavor #5:
+
+`from` [slot]#modulename# ``import *``
+
+[source, python]
+----
+from math import *
+from statistics import *
+
+pi
+sqrt(5)
+stdev([1, 3, 2, 5, 6])
+----
+
+Imports all objects from [slot]#modulename# into the current (global) namespace.
+
+[%step]
+* [thumbsdown]#Can clobber objects in your namespace#
+* [thumbsdown]#Obscures the origin of imported objects (where is `pi` defined?)#
+
+=== Summary
+
+[%step,role="nosubbullet"]
+* Modules make it possible to package up code so it can be reused
+* There are several flavors of `import` statements for importing modules:
+[%step]
+** `import` [slot]#modulename#
+** `import` [slot]#modulename# `as` [slot]#othername#
+** `from` [slot]#modulename# `import` [slot]#object# {blank}[, [slot]#object# ...{blank}]
+** `from` [slot]#modulename# `import` [slot]#object# `as` [slot]#othername# {blank}[, [slot]#object# `as` [slot]#othername# ...{blank}]
+** [thumbsdown]#{blank}#`from` [slot]#modulename# ``import *``
+* The first two flavors of `import` statements create namespaces
+** Namespaces are containers that help prevent name collisions
+
+
+== Modules, part 2: now it's personal
+
+[%step, role="nosubbullet"]
+* Turns out any script can be used as a module
+* Some scripts make better modules than others
+* We want most scripts we write to work as modules
+[%step]
+** [thumbsup]#Easier to test#
+** [thumbsup]#Can reuse functions#
+
+=== What a module _shouldn't_ do
+
+[.fragment]
+image::surprise.png[]
+
+[.notes]
+--
+As a general rule, a module shouldn't run any code when it is imported.
+
+Imagine you wrote a program that plays "Happy Birthday" and displays a fun animation on the screen. You want to be able to test the parts of your program, and you realize that some of the functions could be useful for playing other songs or animations. But how do you make it play songs and animations when it runs as a program, but not when it loads as a module?
+--
+
+=== A little bit of magic
+
+A good program is
+
+* 99% definitions
+* 1% instructions to do something
+
+[.fragment]
+--
+Put the 1% inside the following statement:
+
+[source, python]
+----
+if __name__ == "__main__":
+    # instructions go here
+----
+--
+
+[.notes]
+--
+The instructions will run when your script runs as the main program. They won't run when your script is imported as a module.
+
+Those big long lines are two underscores. The Python community has a special name for two underscores in a row: "dunder".
+--
+
+=== Decoding the magic
+
+[%step]
+* Whenever Python loads a script, it creates a special variable, `+++__name__+++`
+* For modules, `+++__name__+++` is the name of the module
+* For the main script, `+++__name__+++` gets the special value `+++"__main__"+++`
+
+[.fragment]
+--
+Bottom line: the value of `+++__name__+++` will be different depending on whether your script was run or imported.
+--
+
+[.notes]
+--
+Demonstrate __name__ in an interactive interpreter.
+--
+
+=== Summary
+
+[%step]
+* We want to write scripts that work as both programs and modules
+* Modules generally shouldn't execute code when they are loaded
+* `+++if __name__ == "__main__":+++` helps you isolate instructions that should only run when your program runs.
+
+== Pytest
+
+* Pytest is a popular testing framework for Python
+* If you can import a module and write functions and `assert` statements, you can use Pytest
+
+[.columns]
+=== Example script to test
+
+[.column]
+.facparking.py
+--
+[source, python, role="fullwidth"]
+----
+import sys
+
+def faculty_parking(income):
+    """ Determine the cost of faculty
+    parking based on a faculty member's
+    annual salary. """
+    return (494 if income < 30_001 else
+            559 if income < 45_001 else
+            627 if income < 60_001 else
+            932 if income < 80_001 else
+            986)
+----
+--
+
+[.column]
+--
+[source, python, role="fullwidth"]
+----
+if __name__ == "__main__":
+    try:
+        income = int(sys.argv[1])
+    except IndexError:
+        print("Please provide your income"
+              " as a command-line argument")
+    except ValueError:
+        print("Please provide your income"
+              " as an integer as the first"
+              " command-line argument")
+    print("You would pay",
+          faculty_parking(income),
+          "for an annual parking pass")
+----
+--
+
+[.columns]
+=== Example Pytest test script
+
+[.column]
+--
+.test_facparking.py
+[source, python, role="fullwidth"]
+----
+import facparking as fp
+
+def test_faculty_parking_happy_path():
+    """ some happy path cases to test
+    faculty_parking() """
+    assert fp.faculty_parking(25_000) == 494
+    assert fp.faculty_parking(40_000) == 559
+    assert fp.faculty_parking(50_000) == 627
+    assert fp.faculty_parking(70_000) == 932
+    assert fp.faculty_parking(90_000) == 986
+----
+--
+
+[.column]
+--
+[source, python, role="fullwidth"]
+----
+def test_faculty_parking_edge_cases():
+    """ some edge cases to test
+    faculty_parking() """
+    assert fp.faculty_parking(30_000) == 494
+    assert fp.faculty_parking(30_001) == 559
+    # etc.
+----
+--
+
+=== Running your tests
+
+The following instructions assume you have Pytest installed.
+
+. Open a terminal in the directory where your script and test script live.
+. Type `pytest` followed by a space and the name of your test script, e.g.: +
+`pytest test_facparking.py`
+
+=== Interpreting the output: passed all tests
+
+----
+========================== test session starts ===========================
+platform linux -- Python 3.8.2, pytest-6.0.1, py-1.9.0, pluggy-0.13.1
+rootdir: /home/aric/Documents/INST326/2020_fall/module03
+collected 2 items                                                        
+
+test_facparking.py ..                                              [100%]
+
+=========================== 2 passed in 0.00s ============================
+----
+
+=== Interpreting the output: failed test
+
+++++
+<pre class="fragment">
+========================== test session starts ===========================
+platform linux -- Python 3.8.2, pytest-6.0.1, py-1.9.0, pluggy-0.13.1
+rootdir: /home/aric/Documents/INST326/2020_fall/module03
+collected 2 items                                                        
+
+test_facparking.py F.                                              [100%]
+</pre>
+<pre class="fragment">
+================================ FAILURES ================================
+____________________ test_faculty_parking_happy_path _____________________
+
+    def test_faculty_parking_happy_path():
+        """ some happy path cases to test
+        faculty_parking() """
+        assert fp.faculty_parking(25_000) == 494
+>       assert fp.faculty_parking(40_000) == 559
+E       assert 550 == 559
+E        +  where 550 = <function faculty_parking at 0x7f1114b443a0>(40000)
+E        +    where <function faculty_parking at 0x7f1114b443a0> = fp.faculty_parking
+
+test_facparking.py:7: AssertionError
+</pre>
+<pre class="fragment">
+======================== short test summary info =========================
+FAILED test_facparking.py::test_faculty_parking_happy_path - assert 550...
+====================== 1 failed, 1 passed in 0.02s =======================
+</pre>
+++++
+
+=== Two ways a test can fail
+
+[%step]
+* There can be an error in the code being tested
+* There can be an error in the test code
+
+=== I passed all tests! My code is perfect, right?
+
+* Passing tests is not a guarantee of correctness
+* The better your test set, the more confidence you can have in your code
+
+=== Summary
+
+[%step]
+* Pytest is a popular, easy-to-use test framework for Python
+* Tests go in fuctions whose names start with `test`
+* Tests are built on `assert` statements
+
+
+//   don't put your tests in your main script! definitely don't import your script within itself
+
+// running your tests
+// interpreting results
+//   in cases where all tests succeed
