@@ -1,5 +1,0 @@
-pytest
-pandas
-gradescope-utils>=0.3.1
-pytest-json-report>=1.2.4
-decorator>=4.4.2
