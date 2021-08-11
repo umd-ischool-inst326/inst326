@@ -1,0 +1,15 @@
+= Fundamentals Part 1 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:rock_paper_scissors/index.html[Rock, Paper, Scissors]
+- link:easter/index.html[Calculating Easter]
+- link:covid/index.html[COVID Testing]

@@ -1,6 +1,4 @@
-= INST 326 Module 10: Data Analysis
-//:stylesdir: ../../css
-//:stylesheet: page.css
+= Data Analysis
 :includedir: ../../includes
 :toc: left
 

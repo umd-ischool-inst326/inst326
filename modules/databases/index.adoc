@@ -1,4 +1,4 @@
-= INST 326 Module 11: Databases and SQL
+= Databases and SQL
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

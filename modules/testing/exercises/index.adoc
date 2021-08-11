@@ -1,0 +1,17 @@
+= Testing 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:rock_paper_scissors/index.html[Rock, Paper, Scissors, Fire, Water]
+- link:testing/index.html[Testing]
+- link:covid/index.html[Testing]
+- link:reverse_polish_notation/index.html[Testing Reverse Polish Notation]
+- link:bulk_pricing/index.html[Bulk Pricing]

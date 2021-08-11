@@ -1,0 +1,13 @@
+= Exmaple 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:example/index.html[Example]

@@ -1,4 +1,4 @@
-= Exercise 2: Grouped-Frequency Word Counter
+= Exercise: Grouped-Frequency Word Counter
 :includedir: ../../../../includes
 :source-highlighter: rouge
 :stem:

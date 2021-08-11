@@ -1,0 +1,257 @@
+= INST326-101,103 Python Style Guide
+//:stylesdir: ../css
+//:stylesheet: page.css
+:includedir: ../includes
+:toc: left
+:revnumber: 1.0
+:revdate: 2020-09-28
+:source-highlighter: rouge
+//:revremark: 
+
+// ++++
+// include::{includedir}/navigation.html[]
+// ++++
+ 
+== Style Matters
+
+It might be tempting to think of programming as a purely technical exercise of assembling instructions in order to accomplish a particular task, but in fact writing code is as much a creative art as it is a skill. As such, it requires not only logic and precision, but also leaves room for a good amount of of creativity and style.
+
+The leaders of the Python community have issued guidelines on various topics with the goal of promoting the health of the open-source community. These guidelines are known as Python Enhancement Proposals, or PEPs, and include a link:https://www.python.org/dev/peps/pep-0008/["Style Guide for Python Code,"] known as PEP8. Many of the rules below draw on PEP8, and certainly none of them contradict it. I would encourage you to familiarize yourselves with the entire document so you can write code more clearly, and keep your code in line with community best practices.
+
+== Course Style Guide
+
+=== Line length
+
+No individual line of code should exceed 80 characters. This includes comments and docstrings.
+
+=== Whitespace
+
+Use 4 spaces per indentation level (but any exception listed in PEP 8 is okay). *Don't use tab characters.* Most feature-rich text editors can be configured to insert four spaces when you press the tab key. Visual Studio Code does this by default.
+
+For readability, please insert one or two blank lines between class, method, and function declarations in your code. See below for an example.
+
+.Example of proper use of indentation and blank lines between methods and functions
+[source, python]
+----
+class Example:
+    """ Gives an example of proper space between classes, methods, and
+    functions. """
+
+    def __init__(self, number):
+        """ Initializes instances of the class. """
+        self.number = number
+
+    def do_math(self, other_number):
+        """ Gives the info to the user. """
+        return self.number * other_number
+
+
+def compare(ex1, ex2):
+    """ Compare two Example objects. Return -1 if ex1 is smaller than
+    ex2, 0 if they are the same, or 1 if ex1 is greater than ex2. """
+    return (-1 if ex1.number < ex2.number else
+             1 if ex1.number > ex2.number else
+             0)
+
+
+def main():
+    """ Make two example objects and do some useless things with
+    them. """
+    ex1 = Example(5)
+    ex2 = Example(12)
+    if compare(ex1, ex2) == -1:
+        print(f"{ex1.number} is smaller than {ex2.number}")
+    print(ex1.do_math(4))
+
+
+if __name__ == "__main__":
+    main()
+----
+
+Elsewhere in your code, use whitespace judiciously to delimit groups of related statements (similar to space between paragraphs in writing).
+
+=== Meaningful names
+
+Use meaningful names for variables, functions, methods, and classes. Any variables or functions that you create should be named according to purpose or use.
+
+Variables containing collections (lists, tuples, dictionaries, sets, etc.) should generally have plural names; when you iterate over items in a collection, your iteration variable should generally have a singular name:
+
+[source, python]
+----
+# give plural names (e.g., animals) to collections
+animals = ["dog", "cat", "horse", "sheep"]
+
+# give singular names (e.g., animal) to iteration variables
+for animal in animals:
+    print(f"A {animal} is an animal")
+----
+
+=== Naming conventions
+
+Variables, functions, module names, package names: use lower-case letters, plus underscores as needed to improve readability. It's okay to include numbers in names, if it makes sense to do so. Avoid using capital letters in these names.
+
+[source, python]
+----
+def is_valid_phone_number(num):
+----
+
+Class Names: use CapWords (CamelCase). It's okay to use numbers in your class names, if it makes sense to do so. Avoid underscores in these names.
+
+[source, python]
+----
+class PhoneNumber:
+----
+
+Constants: use capital letters, plus underscores as needed to improve readability. It's okay to use numbers in your constant names, if it makes sense to do so. Avoid using lower-case letters in these names.
+
+[source, python]
+----
+UMD_COLORS = ['red', 'white', 'black', 'gold']
+----
+
+Note that many of these styling requirements are subjective and that there are legitimate circumstances under which some of these rules can/should be broken. When in doubt, add a comment. Style points will be deducted for deviations from these style requirements (up to 20% of the points for a given assignment).
+
+=== Documentation strings (docstrings) 
+
+Docstrings are special strings that document scripts, classes, functions, and methods. Unless instructed otherwise, you are expected to include docstrings in every script, class, function, and method you write. Docstrings must be the first statement in the body of the script, class, function, or method they describe; otherwise Python does not recognize them as docstrings. Please see the xref:appendix[appendix] of this document for more details on how to properly format docstrings.
+
+=== Helpful comments 
+
+Wherever you write a non-obvious algorithm or series of statements, include appropriate comments to explain the underlying reasoning.
+
+=== Functions and classes 
+
+Unless otherwise instructed, please perform all meaningful computation inside functions or classes. Use of functions and classes facilitates testing and code reuse.
+
+=== Global variables 
+
+Global variables should only be used for constant values. Variables whose values will change over the course of the program should be defined within functions, methods, or classes and passed as arguments to other functions or methods as needed. 
+
+===  `+++if __name__ == "__main__":+++`
+
+Unless otherwise instructed, please put an `+++if __name__ == "__main__":+++` clause in your main scripts, and keep its contents to a minimum. This facilitates testing and code reuse. For more information, see: link:++https://docs.python.org/3/library/__main__.html++[] and 
+link:https://docs.python.org/3/tutorial/modules.html[]
+
+=== Imports
+
+Use separate lines for imports from separate modules, for example:
+
+[source, python]
+----
+import random
+import sys
+----
+
+Don't import multiple modules on a single line:
+
+[source, python]
+----
+import random, sys
+----
+
+Don't use wildcard imports:
+
+[source, python]
+----
+from random import *
+----
+
+=== File naming conventions
+
+Because we will generally want the ability to import Python scripts as modules, it's important to save these files with names that are valid module names. Please observe the following constraints when naming Python files:
+
+* Use only lower-case letters, numbers, and underscores only. Avoid hyphens, spaces, and other special characters at all costs.
+* File names must begin with a letter (not a number or underscore).
+* File names should be short but reasonably mnemonic.
+* File names for python files should end in ``.py``; data files and zip archives should be given the appropriate extension for the file format.
+
+For other kinds of files (essays, documentation, etc.), use mnemonic names.
+
+
+[id='appendix']
+== Appendix: Docstrings
+
+=== Function/method docstrings
+
+A docstring for a function or method should start with a 1&ndash;2 line description of the purpose of the function or module. For functions or methods with fewer than five statements, this can be the complete docstring if the data types and return value of the function/method are self-evident from the code. Longer functions can optionally contain a longer description after the short description. Whether or not they have a longer description, they should have as many of the following sections as apply to the function: Args, Returns, Raises, Side effects. Each of these sections is described below. Please see xref:funcexample[below] for an example docstring that contains all of these sections.
+
+==== Args section
+
+This section describes the data type and meaning of each parameter. `self` never needs to be documented in a docstring. If your function or method has no parameters (other than `self`), you can omit this section.
+
+==== Returns section
+
+This section describes the data type and meaning of the return value of the function or method. If your function or method does not return a value, you can omit this section.
+
+==== Raises section
+
+This section describes any exceptions raised by your function or method and the conditions that trigger those exceptions. If your function or method does not raise any exceptions, you can omit this section.
+
+==== Side effects section
+
+This section describes changes your function or method makes to the computer or to the world beyond your computer whose effects persist after the function or method finishes running. Side effects include, but are not limited to, changing attributes of a class instance, printing text, writing to a file, launching other programs, and sending electronic communications over a network. If your function or method does not have side effects, you cab omit this section.
+
+[id='funcexample']
+==== Example function docstring
+
+[source, python]
+----
+def save_prime_factors(n, filename):
+    """ Identify prime factors and store these in a text file.
+
+    Find a list of all prime factors of the specified number such that
+    the product of the numbers in the list is equal to the specified
+    number. Note that in some cases, the list may contain repeats; for
+    example, the prime factors of 36 will be identified as [2, 2, 3, 3].
+
+    Args:
+        n (int): the number to factorize. Must be a number greater
+            than 1.
+        filename (str): the file in which to store the factors.
+
+    Returns:
+        list of int: the list of prime factors of n.
+
+    Raises:
+        TypeError: n is not an integer.
+        ValueError: n is not greater than 1.
+
+    Side effects:
+        Writes or overwrites filename.
+    """
+----
+
+=== Class docstrings
+
+A class docstring begins with a 1&ndash;2 line description of the purpose of the class. Optionally, a longer description can follow the short description. This should be followed by an Attributes section which documents the data type and meaning of each attribute of the class.
+
+==== Example class docstring
+
+[source, python]
+----
+class Vector:
+    """ A object modeling an n-dimensional vector.
+    
+    Vector objects support common operations from linear algebra such as
+    vector addition and dot product.
+
+    Attributes:
+        coords (list of float): coordinates of the vector.
+    """
+----
+
+=== Script/module docstrings
+
+A script or module docstring begins with a 1-2 line description of the purpose of the script/module. Any constants or global variables defined in the script/module should then be documented in the docstring. An example is given below.
+
+.Example module docstring
+[source, python]
+----
+""" Provide utilities for calculations related to the golden ratio and
+related numbers.
+
+Constants:
+    phi (float): an approximation of the golden ratio.
+    delta_s (float): an approximation of the silver ratio.
+"""
+----

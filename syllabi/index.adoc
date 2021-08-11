@@ -9,13 +9,14 @@ include::{includedir}/navigation.html[]
 
 == Current Syllabi
 
-- link:inst326_2020fall_bills.html[INST326-101/103 (Bills)]
-- link:inst326_2021spring_westgard.pdf[INST326-104 (Westgard)]
-- link:INST326_Syllabus_Fall2020_Cruz_AUG29.pdf[INST326-ESG1 (Cruz)]
+- link:2020-fall-bills.html[INST326-101/103 (Bills)]
+- link:2021-spring-westgard.pdf[INST326-104 (Westgard)]
+- link:2020-fall-cruz.pdf[INST326-ESG1 (Cruz)]
+- link:2021-spring-summers.html[INST326-105 (Summers)]
 
 == Previous Syllabi
 
-- link:archive/fa2020-102.pdf[Fall 2020 (Westgard)]
-- link:archive/sp2020-101.pdf[Spring 2020 (Westgard)]
-- link:archive/fa2019-103.pdf[Fall 2019 (Westgard)]
-- link:archive/sp2019-101.pdf[Spring 2019 (Westgard)]
+- link:2020-fall-westgard.pdf[Fall 2020 (Westgard)]
+- link:2020-spring-westgard.pdf[Spring 2020 (Westgard)]
+- link:2019-fall-westgard.pdf[Fall 2019 (Westgard)]
+- link:2019-spring-westgard.pdf[Spring 2019 (Westgard)]

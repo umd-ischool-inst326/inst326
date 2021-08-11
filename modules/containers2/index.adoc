@@ -1,4 +1,4 @@
-= Container data types, part 2
+= Container Data Types: Part 2
 :imagesdir: images
 :docinfo: shared
 :revealjsdir: ../../lib/reveal.js.3.9.2

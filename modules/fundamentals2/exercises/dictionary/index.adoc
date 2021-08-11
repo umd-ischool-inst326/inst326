@@ -1,4 +1,4 @@
-= Exercise 4: Dictionary Traversal
+= Exercise: Dictionary Traversal
 :includedir: ../../../../includes
 :source-highlighter: rouge
 :stem:

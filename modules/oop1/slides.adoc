@@ -522,5 +522,5 @@ class Greeter:
 [source, python]
 [.bigcode]
 --
-include::memobox.py[]
+include::files/memobox.py[]
 --

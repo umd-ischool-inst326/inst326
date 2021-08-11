@@ -1,7 +1,5 @@
 = Exercise: Testing
-//:stylesdir: ../../css
-//:stylesheet: page.css
-:includedir: ../../../includes
+:includedir: ../../../../includes
 :source-highlighter: rouge
 :stem:
 :toc: left

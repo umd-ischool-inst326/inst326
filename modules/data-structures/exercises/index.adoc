@@ -1,0 +1,14 @@
+= Advanced Data Structures 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:books/index.html[Book Indexer]
+- link:songs/index.html[Song Maker]

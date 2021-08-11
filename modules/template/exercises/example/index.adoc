@@ -1,4 +1,4 @@
-= Example Exercise
+= Exercise: Example
 :includedir: ../../../../includes
 :toc: left
 

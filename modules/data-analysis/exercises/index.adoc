@@ -1,0 +1,15 @@
+= Data Analysis 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:iris/index.html[Iris]
+- link:airbnb/index.html[AirBnb]
+- link:energy/index.html[Energy Sources]

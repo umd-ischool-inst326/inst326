@@ -1,4 +1,4 @@
-= INST 326 Module 12: Data on the Web
+= Data on the Web
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

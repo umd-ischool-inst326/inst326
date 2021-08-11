@@ -1,4 +1,4 @@
-= INST 326 Module 9: Advanced OOP
+= Advanced OOP
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

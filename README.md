@@ -1,5 +1,40 @@
 # inst326
 
-This repository contains public course repository for INST326: Object-Oriented Programming for Information Science at the University of Maryland.
+This repository contains public course repository for **INST326: Object-Oriented Programming for Information Science** at the University of Maryland.
 
-The content in the html subdirectory can be used to generate a website designed to be served out of Github Pages, including self-directed turorials and exercises, links to open-access readings, and slide decks in Reveal.js.  The public version of this repository is also designed to be cloned to a local copy and contains various data files and code examples for use in the course.
+You can find the public site at:
+
+    https://umd-ischool-inst326.github.io/inst326/
+
+It is organized into thematic modules that have a default ordering but which can be reordered as needed. Each module contains an overview of the module's  learning objectives, presentation slides and exercises.
+
+## Add Content
+
+If you would like to add a module you will need to clone the repository:
+
+    git clone https://github.com/umd-ischool-inst326/inst326/
+    cd inst326/modules
+
+Then copy the module template:
+
+    cp -r template my_new_module
+
+Edit the content using existing modules as a guide.
+
+## Build
+
+The build process is a small Python program which runs [asciidoctor] on the input [asciidoc] files to create html files. So you will need to make sure you have installed [asciidoctor].
+
+    scripts/build.py
+
+## Questions?
+
+If you have any questions or comments please send them our way via the GitHub issue tracker. We'd love to incorporate new and improved content if you have ideas.
+
+## License
+
+The contents of this repository are copyright University of Maryland and made available with the [CC-BY-NC-SA] License. 
+
+[asciidoctor]: https://asciidoctor.org/
+[asciidoc]: https://en.wikipedia.org/wiki/AsciiDoc
+[CC-BY-NC-SA]: http://creativecommons.org/licenses/by-nc-sa/4.0/

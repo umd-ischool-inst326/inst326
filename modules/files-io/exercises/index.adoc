@@ -1,0 +1,15 @@
+= Serialization and File I/O 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:energy/index.html[Energy Data]
+- link:twitter/index.html[Twitter Data]
+- link:speech/index.html[Speech]

@@ -1,4 +1,4 @@
-= INST 326 Module 3: Testing
+= Testing
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

@@ -1,0 +1,16 @@
+= Container Data Types: Part 1 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:nearest_cities/index.html[Nearby Cities]
+- link:covid/index.html[Vaccination Amomalies]
+- link:word_value/index.html[Word Value]
+- link:unique_words/index.html[Unique Words]

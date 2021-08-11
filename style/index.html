@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.13">
-<title>Exercise: Appointment class</title>
+<meta name="generator" content="Asciidoctor 2.0.12">
+<title>INST 326 Python Coding Style</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -94,6 +94,9 @@ dl dd{margin-bottom:1.25em}
 abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
 abbr{text-transform:none}
 blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
 blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 @media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
 h1{font-size:2.75em}
@@ -258,7 +261,7 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
-.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
 p.tableblock:last-child{margin-bottom:0}
 td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
@@ -434,249 +437,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge .cm {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cp {
-  color: #999999;
-  font-weight: bold;
-}
-pre.rouge .c1 {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-pre.rouge .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-pre.rouge .ge {
-  color: #000000;
-  font-style: italic;
-}
-pre.rouge .gr {
-  color: #aa0000;
-}
-pre.rouge .gh {
-  color: #999999;
-}
-pre.rouge .gi {
-  color: #000000;
-  background-color: #ddffdd;
-}
-pre.rouge .go {
-  color: #888888;
-}
-pre.rouge .gp {
-  color: #555555;
-}
-pre.rouge .gs {
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #aaaaaa;
-}
-pre.rouge .gt {
-  color: #aa0000;
-}
-pre.rouge .kc {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kd {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kn {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kp {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kr {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kt {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .k, pre.rouge .kv {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .mf {
-  color: #009999;
-}
-pre.rouge .mh {
-  color: #009999;
-}
-pre.rouge .il {
-  color: #009999;
-}
-pre.rouge .mi {
-  color: #009999;
-}
-pre.rouge .mo {
-  color: #009999;
-}
-pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
-  color: #009999;
-}
-pre.rouge .sa {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .sb {
-  color: #d14;
-}
-pre.rouge .sc {
-  color: #d14;
-}
-pre.rouge .sd {
-  color: #d14;
-}
-pre.rouge .s2 {
-  color: #d14;
-}
-pre.rouge .se {
-  color: #d14;
-}
-pre.rouge .sh {
-  color: #d14;
-}
-pre.rouge .si {
-  color: #d14;
-}
-pre.rouge .sx {
-  color: #d14;
-}
-pre.rouge .sr {
-  color: #009926;
-}
-pre.rouge .s1 {
-  color: #d14;
-}
-pre.rouge .ss {
-  color: #990073;
-}
-pre.rouge .s, pre.rouge .dl {
-  color: #d14;
-}
-pre.rouge .na {
-  color: #008080;
-}
-pre.rouge .bp {
-  color: #999999;
-}
-pre.rouge .nb {
-  color: #0086B3;
-}
-pre.rouge .nc {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .no {
-  color: #008080;
-}
-pre.rouge .nd {
-  color: #3c5d5d;
-  font-weight: bold;
-}
-pre.rouge .ni {
-  color: #800080;
-}
-pre.rouge .ne {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nl {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nn {
-  color: #555555;
-}
-pre.rouge .nt {
-  color: #000080;
-}
-pre.rouge .vc {
-  color: #008080;
-}
-pre.rouge .vg {
-  color: #008080;
-}
-pre.rouge .vi {
-  color: #008080;
-}
-pre.rouge .nv, pre.rouge .vm {
-  color: #008080;
-}
-pre.rouge .ow {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .o {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .w {
-  color: #bbbbbb;
-}
-pre.rouge {
-  background-color: #f8f8f8;
-}
-</style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>Exercise: Appointment class</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_background">Background</a></li>
-<li><a href="#_instructions">Instructions</a>
-<ul class="sectlevel2">
-<li><a href="#_init_method"><code>__init__()</code> method</a></li>
-<li><a href="#_overlaps_method"><code>overlaps()</code> method</a></li>
-<li><a href="#_docstrings">Docstrings</a></li>
-</ul>
-</li>
-<li><a href="#_using_your_class">Using your class</a></li>
-</ul>
-</div>
+<h1>INST 326 Python Coding Style</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div align="center">
     <nav id="main_navigation">
-        <a href="/inst326-public/index.html">Home</a> | 
-        <a href="/inst326-public/modules/index.html">Modules</a> | 
-        <a href="/inst326-public/style/index.html">Stylesheet</a> | 
-        <a href="/inst326-public/syllabus/index.html">Syllabus</a>
+        <a href="/inst326/index.html">Home</a> | 
+        <a href="/inst326/modules/index.html">Modules</a> | 
+        <a href="/inst326/style/index.html">Stylesheet</a> | 
+        <a href="/inst326/syllabus/index.html">Syllabus</a>
     </nav>
 </div>
 <script>
@@ -701,192 +475,52 @@ pre.rouge {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_background">Background</h2>
+<h2 id="_course_stylesheet">Course Stylesheet</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>For this exercise, you will write an <code>Appointment</code> class that tracks information about an appointment such as the start and end times and a name for the appointment. Your Appointment class will also have an <code>overlaps()</code> method that takes another <code>Appointment</code> object as an argument and determines whether the two appointments overlap.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="style-guide.html">HTML version</a></p>
+</li>
+<li>
+<p><a href="style-guide.pdf">PDF version</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_instructions">Instructions</h2>
+<h2 id="_homework_template">Homework Template</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Write a class called <code>Appointment</code> with methods as described below:</p>
-</div>
-<div class="sect2">
-<h3 id="_init_method"><code>__init__()</code> method</h3>
-<div class="paragraph">
-<p>Define an <code>__init__()</code> method with four parameters:</p>
+<p>This code template is intended to facilitate adherence to the stylesheet by providing an example of a code file that follows its rules and conventions.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>self</code></p>
-</li>
-<li>
-<p><code>name</code>, a string indicating the name of the appointment (for example, "Sales brunch").</p>
-</li>
-<li>
-<p><code>start</code>, a tuple consisting of two integers representing the start time of the appointment. The first integer represents an hour in 24-hour time; the second integer represents a number of minutes. For example, the tuple (10, 30) would represent 10:30 am.</p>
-</li>
-<li>
-<p><code>end</code>, a tuple similar to <code>start</code> representing the end time of the appointment.</p>
+<p><a href="template.py">Code Template</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The <code>__init__()</code> method should create attributes <code>name</code>, <code>start</code>, and <code>end</code>, and use them to store the information from the parameters.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_overlaps_method"><code>overlaps()</code> method</h3>
-<div class="paragraph">
-<p>Define an <code>overlaps()</code> method with two parameters, <code>self</code> and <code>other</code>, where <code>other</code> is another <code>Appointment</code> object.</p>
-</div>
-<div class="paragraph">
-<p>This method should return <code>True</code> if <code>self</code> and <code>other</code> overlap and <code>False</code> if they do not. Be sure to return a boolean value rather than a string.</p>
-</div>
-<div class="paragraph">
-<p>Note that two appointments overlap if</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the start time of one appointment occurs between the start and end times of the other appointment (including if the start times are equal), OR</p>
-</li>
-<li>
-<p>the end time of one appointment occurs between the start and end times of the other appointment (including if the end times are equal)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For this assignment, if the start time of one appointment is equal to the end time of the other appointment, the two appointments are not considered to overlap.</p>
-</div>
-<div class="sect3">
-<h4 id="_hints">Hints</h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Assuming you have two values <code>a</code> and <code>c</code> such that <code>a</code> is less than <code>c</code>, you can determine if a third value <code>b</code> is between <code>a</code> (inclusive) and <code>c</code> (exclusive) with an expression like this:<br></p>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>a &lt;= b &lt; c</pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="2">
-<li>
-<p>When Python compares two sequences (such as tuples), it compares each item in the first sequence to the corresponding item in the second sequence until it finds a difference. For example, given the expression <code>(10, 4, 12) &lt; (10, 5, 1)</code>, Python first compares <code>10</code> to <code>10</code>. Because they are the same, Python then compares <code>4</code> to <code>5</code>. Because <code>4</code> is smaller than 5, Python stops comparing and the expression evaluates to <code>True</code>: <code>(10, 4, 12)</code> is considered less than <code>(10, 5, 1)</code> in Python.</p>
-</li>
-<li>
-<p>A boolean expression such as <code>a <= b &lt; c</code> evaluates to <code>True</code> or <code>False</code>. You don&#8217;t need to put it inside a conditional statement to return a boolean value. In other words, instead of this:</p>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">True</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">False</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>you can do this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">return</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_docstrings">Docstrings</h3>
-<div class="paragraph">
-<p>Write a docstring for your class that documents the purpose of the class as well as the purpose and expected data type of each attribute.</p>
-</div>
-<div class="paragraph">
-<p>For each of the methods you wrote, write a docstring that documents the purpose of the method as well as the purpose and expected data type of each parameter other than <code>self</code> (you never need to document <code>self</code> in a docstring). If your document returns a value, document that. If your document has side effects, such as modifying attributes or writing to standard output, document those as well.</p>
-</div>
-<div class="paragraph">
-<p>Be sure your docstrings are the first statement in the class or method they document. Improperly positioned docstrings are not recognized as docstrings by Python.</p>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_using_your_class">Using your class</h2>
+<h2 id="_further_information">Further Information</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>You can use your class by importing your module into another script. Below is an example of such a script; it assumes the <code>Appointment</code> class is defined in a script called <code>appointment.py</code> which is located in the same directory as this script.</p>
-</div>
-<div class="listingblock">
-<div class="title">use_appointment.py</div>
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">appointment</span> <span class="kn">import</span> <span class="n">Appointment</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="s">""" Demonstrate use of the Appointment class. """</span>
-    <span class="n">appt1</span> <span class="o">=</span> <span class="n">Appointment</span><span class="p">(</span><span class="s">"Physics meeting"</span><span class="p">,</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">45</span><span class="p">))</span>
-    <span class="n">appt2</span> <span class="o">=</span> <span class="n">Appointment</span><span class="p">(</span><span class="s">"Brunch"</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">00</span><span class="p">))</span>
-    <span class="n">appt3</span> <span class="o">=</span> <span class="n">Appointment</span><span class="p">(</span><span class="s">"English study session"</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">00</span><span class="p">),</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">00</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">appt1</span><span class="p">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt2</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">appt1</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> overlaps with </span><span class="si">{</span><span class="n">appt2</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">appt1</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> does not overlap with </span><span class="si">{</span><span class="n">appt2</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">appt1</span><span class="p">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt3</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">appt1</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> overlaps with </span><span class="si">{</span><span class="n">appt3</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">appt1</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> does not overlap with </span><span class="si">{</span><span class="n">appt3</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">appt1</span><span class="p">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt2</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">appt2</span><span class="p">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt1</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">appt1</span><span class="p">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt3</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">appt3</span><span class="p">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt1</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">appt2</span><span class="p">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt3</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">appt3</span><span class="p">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt2</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span></code></pre>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.python.org/dev/peps/pep-0008/">PEP8: Style Guide for Python Code</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-21 17:48:58 -0400
+Last updated 2021-08-10 20:17:44 -0400
 </div>
 </div>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "none",
-  tex2jax: {
-    inlineMath: [["\\(", "\\)"]],
-    displayMath: [["\\[", "\\]"]],
-    ignoreClass: "nostem|nolatexmath"
-  },
-  asciimath2jax: {
-    delimiters: [["\\$", "\\$"]],
-    ignoreClass: "nostem|noasciimath"
-  },
-  TeX: { equationNumbers: { autoNumber: "none" } }
-})
-MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
-  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
-    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
-      data.math.root.display = "block"
-    }
-    return data
-  })
-})
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-= INST 326 Module 4: Object-Oriented Programming
+= Object-Oriented Programming
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

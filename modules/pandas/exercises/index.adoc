@@ -1,0 +1,16 @@
+= Pandas 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:life_expectancy/index.html[Hangman]
+- link:covid/index.html[COVID]
+- link:movie_ratings/index.html[Movie Ratings]
+- link:educational_attainment/index.html[Educational Attainment by County]

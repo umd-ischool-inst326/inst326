@@ -1,4 +1,4 @@
-= INST 326 Module 13: Web Scraping
+= Web Scraping
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

@@ -1,4 +1,4 @@
-= INST 326 Module 6: Serialization and File I/O
+= Serialization and File I/O
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

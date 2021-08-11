@@ -1,0 +1,13 @@
+= Web Scraping 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:ufo/index.html[UFOs]

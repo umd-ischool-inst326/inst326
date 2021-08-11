@@ -1,4 +1,4 @@
-= INST 326 Module 5: Advanced Data Structures
+= Advanced Data Structures
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

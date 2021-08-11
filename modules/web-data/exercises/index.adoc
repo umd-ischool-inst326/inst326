@@ -1,0 +1,13 @@
+= Data on the Web 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:propublica/index.html[Web APIs]

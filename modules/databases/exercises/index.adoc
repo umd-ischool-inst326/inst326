@@ -1,0 +1,15 @@
+= Databases and SQL 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:energy/index.html[Energy Database]
+- link:books/index.html[Books]
+- link:holidays/index.html[Holidays from a Web Service]

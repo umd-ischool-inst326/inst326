@@ -1,4 +1,4 @@
-= INST 326 Module 2: Fundamentals Part 2
+= Fundamentals Part 2
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

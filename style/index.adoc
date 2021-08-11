@@ -1,0 +1,23 @@
+= INST 326 Python Coding Style
+//:stylesdir: ../css
+//:stylesheet: page.css
+:includedir: ../includes
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Course Stylesheet
+
+- link:style-guide.html[HTML version]
+- link:style-guide.pdf[PDF version]
+
+== Homework Template
+
+This code template is intended to facilitate adherence to the stylesheet by providing an example of a code file that follows its rules and conventions.
+
+- link:template.py[Code Template]
+
+== Further Information
+
+- link:https://www.python.org/dev/peps/pep-0008/[PEP8: Style Guide for Python Code]

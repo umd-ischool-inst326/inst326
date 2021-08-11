@@ -1,0 +1,17 @@
+= Regular Expressions 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:addresses/index.html[Parsing Addresses]
+- link:birthdays/index.html[Extracting Names and Birthdays]
+- link:reddit/index.html[Reddit]
+- link:tutorial/index.html[Regular Expressions Tutorial]
+- link:people/index.html[People]

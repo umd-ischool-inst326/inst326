@@ -1,4 +1,4 @@
-= INST 326 Module 1
+= Exmaple
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
