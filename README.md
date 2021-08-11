@@ -1,12 +1,12 @@
 # inst326
 
-This repository contains public course materials for **INST326: Object-Oriented Programming for Information Science** at the University of Maryland.
+This repository contains public course materials for **INST326: Object-Oriented Programming for Information Studies** at the University of Maryland.
 
 You can find the public site at:
 
 https://umd-ischool-inst326.github.io/inst326/
 
-It is organized into weekly [modules] that have a suggested ordering but which can be reordered as desired. Each module contains an overview of the module's  learning objectives, presentation slides and exercises.
+It is organized into weekly [modules] that have a suggested ordering but which can be reordered as desired. Each module contains an overview of the module's  learning objectives, presentation slides and exercises. We also have a private repository of exercises that are not for distribution on the public web. Please [get in touch] if you are interested in seeing those.
 
 ## Overview
 
@@ -60,3 +60,4 @@ The contents of this repository are copyright University of Maryland and made av
 [asciidoc]: https://en.wikipedia.org/wiki/AsciiDoc
 [CC-BY-NC-SA]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [modules]: https://umd-ischool-inst326.github.io/inst326/modules/
+[get in touch]: https://github.com/umd-ischool-inst326/inst326/issues/
