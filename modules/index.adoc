@@ -19,12 +19,12 @@ include::{includedir}/navigation.html[]
 - link:containers2/index.html[Module 6: Container Types 2]
 - link:oop2/index.html[Module 7: Advanced OOP]
 - link:regex/index.html[Module 8: Regular Expressions]
-- link:collab/index.html[Module 9: Collaborative Programming]
+- link:collaboration/index.html[Module 9: Collaborative Programming]
 
 == Part 3: Python for Data Analysis
 
 - link:data-analysis/index.html[Module 10: Data Analysis]
 - link:databases/index.html[Module 11: Databases and SQL]
 - link:web-data/index.html[Module 12: Data on the Web]
-- link:web-scraping/index.html[Module 13: Web Scraping]
+- link:scraping/index.html[Module 13: Web Scraping]
 - link:ethics/index.html[Module 14: Ethics in Programming]

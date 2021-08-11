@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import shutil
 
 from re import sub
 from os import walk
@@ -8,6 +9,9 @@ from os.path import dirname, abspath, join
 from subprocess import run
 
 repo_dir = dirname(dirname(abspath(__file__)))
+
+if not shutil.which('asciidoctor'):
+    sys.exit('ERROR: asciidoctor is not installed or is not in your PATH')
 
 def asciidoc(adoc_file):
     html_file = sub(r'\.adoc$', '.html', adoc_file)
