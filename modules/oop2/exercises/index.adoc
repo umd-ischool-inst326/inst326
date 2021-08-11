@@ -11,7 +11,5 @@ include::{includedir}/navigation.html[]
 == Exercises
 
 - link:enron/index.html[Enron]
-- link:hangman/index.html[Hangman]
-- link:tic_tac_toe_logging/index.html[Parsing Addresses]
 - link:pizza/index.html[Pizza]
 - link:covid/index.html[COVID ]

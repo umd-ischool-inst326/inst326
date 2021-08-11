@@ -10,7 +10,4 @@ include::{includedir}/navigation.html[]
 
 == Exercises
 
-- link:nearest_cities/index.html[Nearby Cities]
 - link:covid/index.html[Vaccination Amomalies]
-- link:word_value/index.html[Word Value]
-- link:unique_words/index.html[Unique Words]

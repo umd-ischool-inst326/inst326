@@ -11,12 +11,8 @@ include::{includedir}/navigation.html[]
 == Exercises
 
 - link:covid/index.html[COVID Testing]
-- link:brackets/index.html[Balanced brackets]
 - link:logo/index.html[Logo (Turtle)]
 - link:hangman/index.html[Hangman]
-- link:reverse_polish_notation/index.html[Reverse Polish notation]
-- link:time_conversion/index.html[Time Conversion]
 - link:primes/index.html[Prime Number Finder]
 - link:dictionary/index.html[Dictionary Traversal]
-- link:electoral_college/index.html[Electoral College]
 - link:word-counter/index.html[Grouped-Frequency Word Counter]

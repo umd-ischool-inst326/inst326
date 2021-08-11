@@ -11,4 +11,3 @@ include::{includedir}/navigation.html[]
 == Exercises
 
 - link:marathon/index.html[Marathon]
-- link:github/index.html[Git and GitHub]

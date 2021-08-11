@@ -1,4 +1,4 @@
-= Testing 
+= Introduction 
 :includedir: ../../../includes
 :source-highlighter: rouge
 :stem:
@@ -10,5 +10,4 @@ include::{includedir}/navigation.html[]
 
 == Exercises
 
-- link:testing/index.html[Testing]
-- link:covid/index.html[Testing]
+- link:environment/index.html[Development Environment ]

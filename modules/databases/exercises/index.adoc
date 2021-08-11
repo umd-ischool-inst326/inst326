@@ -12,4 +12,3 @@ include::{includedir}/navigation.html[]
 
 - link:energy/index.html[Energy Database]
 - link:books/index.html[Books]
-- link:holidays/index.html[Holidays from a Web Service]
