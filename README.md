@@ -1,6 +1,6 @@
 # inst326
 
-This repository contains public course repository for **INST326: Object-Oriented Programming for Information Science** at the University of Maryland.
+This repository contains public course materials for **INST326: Object-Oriented Programming for Information Science** at the University of Maryland.
 
 You can find the public site at:
 
