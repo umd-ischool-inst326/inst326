@@ -8,6 +8,21 @@ You can find the public site at:
 
 It is organized into thematic modules that have a default ordering but which can be reordered as needed. Each module contains an overview of the module's  learning objectives, presentation slides and exercises.
 
+## Overview
+
+The repository uses the following directories for course content:
+
+* **modules:** contains a sub-directory for each course module
+* **syllabi**: includes current and previous course syllabi
+* **style**: code style guide for the course
+
+The following directories are used for managing the content:
+
+* **scripts**: utilities for processing the course materials
+* **lib**: third party software like reveal.js
+* **css**: local stylesheets
+* **includes**: reusable HTML fragments
+
 ## Add Content
 
 If you would like to add a module you will need to clone the repository:
