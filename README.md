@@ -38,7 +38,7 @@ Edit the content using existing modules as a guide.
 
 ## Build
 
-The build process is a small Python program which runs [asciidoctor] on the input [asciidoc] files to create html files. So you will need to make sure you have installed [asciidoctor].
+The build process is a small Python program which runs [asciidoctor] on the input [asciidoc] files to create html files. So you will need to make sure you have [asciidoctor] installed and available in your system path.
 
     scripts/build.py
 
