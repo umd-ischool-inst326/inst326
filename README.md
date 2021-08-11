@@ -4,9 +4,9 @@ This repository contains public course materials for **INST326: Object-Oriented 
 
 You can find the public site at:
 
-    https://umd-ischool-inst326.github.io/inst326/
+https://umd-ischool-inst326.github.io/inst326/
 
-It is organized into thematic modules that have a default ordering but which can be reordered as needed. Each module contains an overview of the module's  learning objectives, presentation slides and exercises.
+It is organized into weekly [modules] that have a suggested ordering but which can be reordered as desired. Each module contains an overview of the module's  learning objectives, presentation slides and exercises.
 
 ## Overview
 
@@ -25,12 +25,12 @@ The following directories are used for managing the content:
 
 ## Add Content
 
-If you would like to add a module you will need to clone the repository:
+If you would like to add or modify a module you will need to clone the repository:
 
     git clone https://github.com/umd-ischool-inst326/inst326/
     cd inst326/modules
 
-Then copy the module template:
+If adding a new module you can copy the module template:
 
     cp -r template my_new_module
 
@@ -41,6 +41,12 @@ Edit the content using existing modules as a guide.
 The build process is a small Python program which runs [asciidoctor] on the input [asciidoc] files to create html files. So you will need to make sure you have installed [asciidoctor].
 
     scripts/build.py
+
+When you are finished adding or modifying content you  will want to commit 
+your changes and push them up to GitHub where they are served from:
+
+    git commit -m 'more awesome content 🦄' -a
+    git push
 
 ## Questions?
 
@@ -53,3 +59,4 @@ The contents of this repository are copyright University of Maryland and made av
 [asciidoctor]: https://asciidoctor.org/
 [asciidoc]: https://en.wikipedia.org/wiki/AsciiDoc
 [CC-BY-NC-SA]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[thematic modules]: https://umd-ischool-inst326.github.io/inst326/modules/
