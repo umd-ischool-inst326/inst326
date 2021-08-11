@@ -1,0 +1,21 @@
+= INST 326 Object-Oriented Programming
+:includedir: includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Welcome
+
+This website is an Open Educational Resource (OER) for a course on Python Programming offered through the link:https://ischool.umd.edu[College of Information Studies] at the link:https://umd.edu[University of Maryland College Park].
+
+The course is divided into 14 link:modules/index.html[modules] covering various topics in programming with Python, designed for undergraduate students majoring in Information Science. The modules are organized into three main units:
+
+1. Fundamentals
+2. Object-Oriented Programming
+3. Working with Data
+
+== Acknowledgements
+
+This site was developed by Aric Bills, Gabriel Cruz, Jen Golbeck and Joshua Westgard in Summer 2020 with the support of a Teaching Innovation Grant from the Provost's Office at the University of Maryland College Park. The site's content is maintained in asciidoc files stored in a Github repository. It is built and published using https://asciidoctor.org[asciidoctor] and https://revealjs.com[reveal.js], and is served to the public web via Github pages.
