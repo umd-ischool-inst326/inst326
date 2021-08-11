@@ -59,4 +59,4 @@ The contents of this repository are copyright University of Maryland and made av
 [asciidoctor]: https://asciidoctor.org/
 [asciidoc]: https://en.wikipedia.org/wiki/AsciiDoc
 [CC-BY-NC-SA]: http://creativecommons.org/licenses/by-nc-sa/4.0/
-[thematic modules]: https://umd-ischool-inst326.github.io/inst326/modules/
+[modules]: https://umd-ischool-inst326.github.io/inst326/modules/
