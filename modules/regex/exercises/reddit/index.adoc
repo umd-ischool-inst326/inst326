@@ -23,9 +23,9 @@ https://www.reddit.com/r/UMD[University of Maryland].
 
 The last year's posts to the UMD subreddit have been collected from the
 https://pushshift.io/api-parameters/[PushShift API] as
-link:files/reddit.csv[this CSV]. Please use what you have learned about *regular
-expressions* to write a program that will read in the data and find the post
-that has been commented on the most that mentions the Coronavirus. Be sure to
-look for posts that mention either "Coronavirus", "COVID", and "COVID19" in any
-capitalization. The output of your program should include the title, URL
-and number of comments for this post.
+link:files/reddit.zip[this ZIP compressed CSV]. Please use what you have learned
+about *regular expressions* to write a program that will read in the data and
+find the post that has been commented on the most that mentions the Coronavirus.
+Be sure to look for posts that mention either "Coronavirus", "COVID", and
+"COVID19" in any capitalization. The output of your program should include the
+title, URL and number of comments for this post.

@@ -8,6 +8,7 @@ include::{includedir}/navigation.html[]
 
 == Part 1: Fundamentals
 
+- link:intro/index.html[Module 0: Introduction]
 - link:fundamentals1/index.html[Module 1: Python Fundamentals 1]
 - link:fundamentals2/index.html[Module 2: Python Fundamentals 2]
 - link:testing/index.html[Module 3: Testing]

@@ -1,0 +1,23 @@
+= Exercise: Development Environment 
+:includedir: ../../../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Instructions
+
+Follow the steps in the link:files/installation.html[Installation Instructions]
+to set up your development environment. This includes installing
+link:https://python.org[Python3] and the
+link:https://code.visualstudio.com/[Visual Studio Code] editor.
+
+link:https://www.youtube.com/watch?v=28EOCGOHcdA[This video] hows you how to
+open a folder, save a workspace, create a Python script, and run the script in
+the terminal.
+
+Modify the test program to print out your name, run it, and take a screenshot to
+demonstrate you have a working development environment. Upload the screenshot as
+submission for this assignment.
+

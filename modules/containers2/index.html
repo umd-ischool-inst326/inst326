@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
-<title>Container Data Types: Part 2</title>
+<title>Container Data Types: Part 1</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -437,201 +437,70 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Container Data Types: Part 2</h1>
+<h1>Container Data Types: Part 1</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_links">Links</a></li>
+</ul>
+</li>
+<li><a href="#_learning_objectives">Learning Objectives</a></li>
+<li><a href="#_readings">Readings</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="openblock notes">
-<div class="content">
-<div class="paragraph">
-<p>At this point in the course, we have covered a number of useful container data types, including lists, tuples, dictionaries, and sets. Having these in our arsenal allows us to tackle more complex problems in a more elegant way, and it may even make it possible to solve some problems that we would otherwise be unable to solve.</p>
+<div align="center">
+    <nav id="main_navigation">
+        <a href="/inst326/index.html">Home</a> | 
+        <a href="/inst326/modules/index.html">Modules</a> | 
+        <a href="/inst326/style/index.html">Stylesheet</a> | 
+        <a href="/inst326/syllabus/index.html">Syllabus</a>
+    </nav>
 </div>
-<div class="paragraph">
-<p>This weeek we&#8217;re going to build on our understanding of collections by introducing a few really useful, really powerful operations on collections.</p>
-</div>
-</div>
-</div>
+<script>
+    function localurl() {
+        console.log("This happened");
+        if (window.location.protocol == "file:") {
+            var ix = window.location.pathname.indexOf("inst326-public/");
+            var prefix = window.location.pathname.slice(0, ix);
+            var nav = document.getElementById("main_navigation");
+            console.log(nav);
+            var elements = Array.from(nav.getElementsByTagName("a"));
+            console.log(elements);
+            elements.forEach(element => {
+                var anchor = element.getAttribute("href");
+                var localpath = anchor.replace("/", prefix);
+                element.setAttribute("href", localpath);
+            });
+        }
+    }
+    window.onload = localurl;
+</script>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_focus_of_this_module">Focus of this module</h2>
+<h2 id="_overview">Overview</h2>
 <div class="sectionbody">
-<div class="ulist nobullet">
-<ul>
-<li>
-<p><span class="emph">Sorting</span></p>
-</li>
-<li>
-<p><span class="emph">Comprehensions</span> and <span class="emph">generators</span></p>
-</li>
-</ul>
-</div>
-<div class="openblock notes">
-<div class="content">
 <div class="paragraph">
-<p>One of those is sorting, which is the process of taking a collection of values and putting them in order according to one or more criteria. Sorted data is useful for solving a wide range of problems. Python has the most elegant sorting interface of any programming language I&#8217;ve ever used. It&#8217;s simple and yet very powerful. I&#8217;m excited to introduce you to it.</p>
-</div>
-<div class="paragraph">
-<p>We&#8217;re also going to look at a family of expressions that derive sequences from other sequences, which turns out to be a really useful thing to do. We call these comprehensions and generators. These are some of the most powerful features of Python, and if you take the time to wrap your brain around them, they&#8217;ll pay big dividends throughout your programming career.</p>
-</div>
-<div class="paragraph">
-<p>Before we dive into the main focus of our lecture, we&#8217;re going to need to go over some background information. In this background information, you&#8217;re going to hear things you&#8217;ve heard before, but try to focus on understanding these ideas at a deeper level, because you&#8217;ll need that understanding in order to tackle the new material we&#8217;re introducing today.</p>
-</div>
-</div>
+<p>This module covers two important tools Python gives us for dealing with collections of data: sorting and comprehensions/generator expressions. It also covers some important background information.</p>
 </div>
 <div class="sect2">
-<h3 id="_expressions">Expressions</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>Expressions are chunks of code that <span class="emph">evaluate to a value</span></p>
-</li>
-<li>
-<p><span class="emph">Literal values</span>, <span class="emph">variables</span>, and <span class="emph">function calls</span> are examples of simple expressions</p>
-</li>
-<li>
-<p>More complex expressions can be created with the help of <span class="emph">operators</span></p>
+<h3 id="_links">Links</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>(<code>+</code>, <code>-</code>, <code>&gt;</code>, <code>&lt;</code>, <code>==</code>, <code>in</code>, <code>is</code>, <code>[]</code>, etc.)</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_most_python_statements_contain_expressions">Most Python statements contain expressions</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p><span class="slot">varname</span> <code>=</code> <span class="slot emph">expression</span></p>
+<p><a href="slides.html">Slides</a></p>
 </li>
 <li>
-<p><code>return</code> <span class="slot emph">expression</span></p>
-</li>
-<li>
-<p><code>if</code> <span class="slot emph">condition</span><code>:</code></p>
-</li>
-<li>
-<p><span class="slot emph">function</span><code>(</code><span class="slot emph">expression</span>[<code>,</code> <span class="slot emph">expression</span>&#8230;&#8203;]<code>)</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Yes, even the <span class="emph">function</span> is an expression</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_how_python_compares_things">How Python compares things (<code>&lt;</code>, <code>&gt;</code>)</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p><span class="emph">Numbers</span> are compared as you&#8217;d expect</p>
-</li>
-<li>
-<p><code>True</code> &gt; <code>False</code></p>
-</li>
-<li>
-<p>Ordered sequences (strings, lists, tuples) are compared <span class="emph">one position at a time</span></p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>(1, 1000, 7) &lt; (2, 3, 4)</code></p>
-</li>
-<li>
-<p><code>(1, 2, 6) &lt; (1, 3, 0)</code></p>
-</li>
-<li>
-<p><code>(3, 17, 7) &lt; (3, 17, 7, -2)</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_how_python_compares_strings">How Python compares strings (<code>&lt;</code>, <code>&gt;</code>)</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>String comparison is based on Unicode <span class="emph">code points</span></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Code points are documented at <a href="https://www.unicode.org/charts/" class="bare">https://www.unicode.org/charts/</a></p>
-</li>
-<li>
-<p><code>"duck"</code> &lt; <code>"fish"</code></p>
-</li>
-<li>
-<p><code>"Horse"</code> &lt; <code>"bird"</code></p>
-</li>
-<li>
-<p><code>"moose"</code> &lt; <code>"älg"</code></p>
-</li>
-<li>
-<p><code>"cat"</code> &lt; <code>"ко́шка"</code></p>
-</li>
-<li>
-<p><code>"貓"</code> &lt; <code>"고양이"</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_python_functions_are_first_class_objects">Python functions are first-class objects</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def reverse_string(s):
-    """ Reverses the order of characters in a string """
-    return s[::-1]</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">do_stuff = reverse_string
-print(do_stuff("drawer"))</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def use_another_func(fnc, value_list):
-    """ Applies fnc to each item in value_list and returns the new list """
-    new_list = []
-    for v in value_list:
-        new_list.append(fnc(v))
-    return new_list</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_summary">Summary</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p><span class="emph">Expressions</span> are chunks of code that evaluate to a value</p>
-</li>
-<li>
-<p>Python <span class="emph">compares</span> sequences one index at a time until it finds a difference</p>
-</li>
-<li>
-<p><span class="emph">Functions</span> in Python are first-class objects</p>
+<p><a href="exercises">Exercises</a></p>
 </li>
 </ul>
 </div>
@@ -639,1049 +508,122 @@ print(do_stuff("drawer"))</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sorting">Sorting</h2>
+<h2 id="_learning_objectives">Learning Objectives</h2>
 <div class="sectionbody">
-<table class="tableblock frame-none grid-none stretch lefttable">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="openblock">
-<div class="content">
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p><span class="slot">list</span><code>.sort()</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>sorts lists in-place</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="openblock">
-<div class="content">
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p><code>sorted(</code><span class="slot">collection</span><code>)</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>sorts any collection of comparable values and returns a new list</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock bigcode">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; names = ["Reggie", "Susan", "Michael", "Gabby"]
-&gt;&gt;&gt; names.sort()</code></pre>
-</div>
-</div>
-<div class="listingblock bigcode">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(names)
-['Gabby', 'Michael', 'Reggie', 'Susan']</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock bigcode">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; names = ["Reggie", "Susan", "Michael", "Gabby"]
-&gt;&gt;&gt; names2 = sorted(names)</code></pre>
-</div>
-</div>
-<div class="listingblock bigcode">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(names)
-['Reggie', 'Susan', 'Michael', 'Gabby']</code></pre>
-</div>
-</div>
-<div class="listingblock bigcode">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(names2)
-['Gabby', 'Michael', 'Reggie', 'Susan']</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock bigcode">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; wages = {"Reggie" :27,
-...          "Susan"  :21,
-...          "Michael":19,
-...          "Gabby"  :32}
-&gt;&gt;&gt; names = sorted(wages)</code></pre>
-</div>
-</div>
-<div class="listingblock bigcode">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(names)
-["Gabby", "Michael", "Reggie", "Susan"]</code></pre>
-</div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="openblock notes">
-<div class="content">
 <div class="paragraph">
-<p>Sorting is based on &lt; operator</p>
+<p>After completing this module, you should understand</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_sorting_in_descending_order">Sorting in descending order</h3>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Both <code>sort()</code> and <code>sorted()</code> have optional keyword argument <code>reverse</code> (default is <code>False</code>)</p>
-</li>
-</ul>
-</div>
-<div class="listingblock bigcode">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; ordered_scores = sorted(scores, reverse=True)
-&gt;&gt;&gt; print(ordered_scores)
-[22, 20, 18, 16, 14, 12, 8]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_custom_sort_criteria">Custom sort criteria</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>Both <code>sort()</code> and <code>sorted()</code> have optional keyword argument <code>key</code>, which takes a function as a value</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Remember, functions are <span class="emph">first-class objects</span> in Python</p>
+<p>How Python compares numbers, booleans, and sequence data types (including strings)</p>
+</li>
+<li>
+<p>How to use the sort() method of lists and the sorted() built-in function, and the differences between them</p>
+</li>
+<li>
+<p>How to sort in descending order</p>
+</li>
+<li>
+<p>How to modify sort criteria using a key function</p>
+</li>
+<li>
+<p>How to write a key function</p>
+</li>
+<li>
+<p>How to write a lambda expression</p>
+</li>
+<li>
+<p>How to sort values using multiple criteria</p>
+</li>
+<li>
+<p>How to use the min() and max() functions</p>
+</li>
+<li>
+<p>How to write a list comprehension</p>
+</li>
+<li>
+<p>How to filter data with a list comprehension</p>
+</li>
+<li>
+<p>How to write a generator expression and how it differs from a list comprehension</p>
+</li>
+<li>
+<p>How to write a set comprehension</p>
+</li>
+<li>
+<p>How to write a dictionary comprehension</p>
 </li>
 </ul>
-</div>
-</li>
-<li>
-<p>The function must</p>
-<div class="ulist">
-<ul>
-<li>
-<p>take <span class="emph">one argument</span></p>
-</li>
-<li>
-<p><span class="emph">return</span> a value</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Python sorts based on the <span class="emph">output of the function</span></p>
-<div class="ulist">
-<ul>
-<li>
-<p>but the actual items in the list don&#8217;t change</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="openblock notes">
-<div class="content">
-<div class="paragraph">
-<p>Remember that functions are first class values in Python</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_custom_sort_criteria_examples">Custom sort criteria: examples</h3>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Sort a list of strings based on their length</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; words = ["class", "environment", "function", "call"]
-&gt;&gt;&gt; words.sort(key=len)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(words)
-['call', 'class', 'function', 'environment']</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_custom_sort_criteria_examples_2">Custom sort criteria: examples</h3>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Sort a list of numbers based on their absolute value</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; results = [5, -2, 3, 1, -4]
-&gt;&gt;&gt; results.sort(key=abs)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(results)
-[1, -2, 3, -4, 5]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_custom_sort_criteria_examples_3">Custom sort criteria: examples</h3>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Sort keys in a dictionary by their associated values in the dictionary</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; wages = {"Reggie" :27,
-...          "Susan"  :21,
-...          "Michael":19,
-...          "Gabby"  :32}
-&gt;&gt;&gt; names = sorted(wages, key=wages.get)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(names)
-['Michael', 'Susan', 'Reggie', 'Gabby']</code></pre>
-</div>
-</div>
-<div class="openblock notes">
-<div class="content">
-<div class="paragraph">
-<p>In the second example, we&#8217;ve set <code>reverse=True</code> to illustrate that you can specify both keyword arguments (<code>key</code> and <code>reverse</code>).</p>
-</div>
-<div class="paragraph">
-<p>In the third example, note that we can use the method of an object as a key function.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_summary_2">Summary</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>Two ways to sort things in Python</p>
-<div class="ulist">
-<ul>
-<li>
-<p><span class="slot">list</span><code>.sort()</code> (lists only, sorts in-place)</p>
-</li>
-<li>
-<p><code>sorted(</code><span class="slot">collection</span><code>)</code> (any collection, creates new list object)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Sorting is based on <code>&lt;</code> operation</p>
-</li>
-<li>
-<p>To reverse the order of a sort, add <code>reverse=True</code></p>
-</li>
-<li>
-<p>To change the sort criteria, you can specify a <code>key</code> function</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Function should take one argument and return a value</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_writing_our_own_key_function">Writing our own key function</h2>
+<h2 id="_readings">Readings</h2>
 <div class="sectionbody">
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>The function should take exactly <span class="emph">one argument</span> and should <span class="emph">return</span> a value</p>
-</li>
-<li>
-<p>We&#8217;ll pass the name of the function to the <code>key</code> argument</p>
-</li>
-<li>
-<p>Example: sort strings as if the strings were reversed</p>
-<div class="ulist">
-<ul>
-<li>
-<p>(causes similar endings to group together)</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def reverse_string(s):
-    """ Reverses the order of characters in a string """
-    return s[::-1]</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; words = ["string", "strings", "stringing", "float", "floats", "floating"]
-&gt;&gt;&gt; words_by_ending = sorted(words, key=reverse_string)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(words_by_ending)
-['stringing', 'string', 'floating', 'strings', 'floats', 'float']</code></pre>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_anonymous_functions">Anonymous functions</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>An <span class="emph">anonymous function</span> is a short, simple function that can take arguments (or not) and return the result of a single expression</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For now, we&#8217;ll only consider anonymous functions that take one argument</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>We create anonymous functions using <span class="emph">lambda expressions</span></p>
-<div class="ulist">
-<ul>
-<li>
-<p>A lambda expression evaluates to a function object</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <div class="paragraph">
-<p><code>lambda</code> <span class="slot">param</span><code>:</code> <span class="slot">expr</span></p>
+<p>You may find it helpful to refer to the following resources:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># lambda equivalent of the reverse_string() method from the previous slide
-lambda s: s[::-1]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_anonymous_functions_and_sorting">Anonymous functions and sorting</h3>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Sort strings as if they were reversed</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">lambda s: s[::-1]</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; words = ["string", "strings", "stringing", "float", "floats", "floating"]
-&gt;&gt;&gt; words_by_ending = sorted(words, key=lambda s: s[::-1])</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(words_by_ending)
-['stringing', 'string', 'floating', 'strings', 'floats', 'float']</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_anonymous_functions_and_sorting_2">Anonymous functions and sorting</h3>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Sort a list of tuples of the form <code>(</code><span class="slot">name</span><code>,</code> <span class="slot">location</span><code>)</code> based on location</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">lambda t: t[1]</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; employees = [("Trevon", "Omaha"), ("Beverly", "Dallas"), ("Dustin", "Omaha")]
-&gt;&gt;&gt; for name, location in sorted(employees, key=lambda t: t[1]):
-...     print(f"{name} is based in {location}")</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Beverly is based in Dallas
-Trevon is based in Omaha
-Dustin is based in Omaha</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_anonymous_functions_and_sorting_3">Anonymous functions and sorting</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>Imagine a contest where people guess the number of <span class="emph">jelly beans</span> in a jar</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Spoiler alert: it&#8217;s <span class="emph">3842</span></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>You have a dictionary <code>guesses</code> of contestants and their guesses</p>
-</li>
-<li>
-<p>You want a list of contestants based on <span class="emph">how close</span> the guesses are to the right answer</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">answer = 3842
-lambda name: abs(guesses[name]-answer)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; guesses = {"Aliyah": 4000, "Andrew": 3600, "Alexandra": 4250}
-&gt;&gt;&gt; results = sorted(guesses, key=lambda name: abs(guesses[name]-answer))</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(results)
-['Aliyah', 'Andrew', 'Alexandra']</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_multiple_sort_criteria">Multiple sort criteria</h3>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Have your key function return a <span class="emph">tuple</span></p>
-</li>
-<li>
-<p><span class="emph">First item</span> in tuple relates to most significant criterion, etc.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example: sort list of names by last name, then first name</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; students = ["Ron Jones", "Miryung Kim", "Jaehyun Kim", "Derold Jones",
-...             "Sandra Jones-Patterson"]</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; def split_name(name):
-...     parts = name.split()
-...     return parts[-1], parts[0]</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; students.sort(key=split_name)
-&gt;&gt;&gt; print(students)
-['Derold Jones', 'Ron Jones', 'Sandra Jones-Patterson', 'Jaehyun Kim', 'Miryung Kim']</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_summary_3">Summary</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>We can write our own <span class="emph">key functions</span> for sorting</p>
+<p>van Rossum et al., Python Tutorial</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Function should take <span class="emph">one argument</span> and <span class="emph">return</span> a value</p>
+<p><a href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">Section 4.7.6: Lambda expressions</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">Section 5.1.3: List Comprehensions</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html#comparing-sequences-and-other-types">Section 5.8: Comparing Sequences and Other Types</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>One way to write simple key functions is to use <span class="emph">anonymous functions</span></p>
+<p>Python documentation</p>
 <div class="ulist">
 <ul>
 <li>
-<p><span class="emph">Lambda expressions</span> create anonymous functions</p>
+<p>Andrew Dalke and Raymond Hettinger: <a href="https://docs.python.org/3/howto/sorting.html">Sorting HOW TO</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#list.sort">sort() method</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/library/functions.html#sorted">sorted() function</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/faq/design.html#why-doesn-t-list-sort-return-the-sorted-list">FAQ: Why doesn&#8217;t list.sort() return the sorted list?</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>To use <span class="emph">multiple sort criteria</span>, our key function can return a tuple</p>
+<p>RealPython</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Most significant value comes first</p>
+<p><a href="https://realpython.com/python-sort/">How to Use sorted() and sort() in Python</a>
+Dan Bader, dbader.org</p>
+</li>
+<li>
+<p><a href="https://dbader.org/blog/python-first-class-functions">Python&#8217;s Functions are First-Class</a></p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_min_and_max"><code>min()</code> and <code>max()</code></h2>
-<div class="sectionbody">
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Finding a minimum or maximum value is a <span class="emph">special case of sorting</span></p>
-</li>
-<li>
-<p><code>min()</code> and <code>max()</code> can either take a collection of values, or multiple arguments</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; scores = [88, 73, 92, 96, 85, 79, 91, 94]
-&gt;&gt;&gt; max_score = max(scores)
-&gt;&gt;&gt; print(max_score)
-96
-&gt;&gt;&gt; min_score = min(scores)
-&gt;&gt;&gt; print(min_score)
-73</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># see how many widgets still have to be made to meet our quota;
-# if we made extra, then remaining should be 0
-remaining = max(0, quota-widgets)</code></pre>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_min_and_max_can_take_a_key_argument"><code>min()</code> and <code>max()</code> can take a <code>key</code> argument</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; wages = {"Reggie" :27,
-...          "Susan"  :21,
-...          "Michael":19,
-...          "Gabby"  :32}
-&gt;&gt;&gt; lowest_paid_employee = min(wages, key=wages.get)
-&gt;&gt;&gt; highest_paid_employee = max(wages, key=wages.get)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(lowest_paid_employee)
-Michael</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; print(highest_paid_employee)
-Gabby</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_summary_4">Summary</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p><code>min()</code> and <code>max()</code> find the minimum and maximum value of a sequence or list of arguments</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Special case of sorting</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>key</code> argument to <code>min()</code> and <code>max()</code> lets us specify how to compare values</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_comprehensions_and_generator_expressions">Comprehensions and generator expressions</h2>
-<div class="sectionbody">
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Common pattern: <span class="emph">derive one list</span> from another</p>
-</li>
-</ul>
-</div>
-<div class="stemblock">
-<div class="content">
-\$s=\sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{N-1}}\$
-</div>
-</div>
-<div class="listingblock fragment lefttable smallspace">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">sample = [74, 46, 68, 72, 71, 57, 56, 58, 69, 67]
-mean = sum(sample) / len(sample)</code></pre>
-</div>
-</div>
-<div class="listingblock fragment lefttable smallspace">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">msd = [] # mean squared difference
-for n in sample:
-    msd.append((n - mean)**2)</code></pre>
-</div>
-</div>
-<div class="listingblock fragment lefttable smallspace">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">stdev = (sum(msd) / (len(sample) - 1))**0.5</code></pre>
-</div>
-</div>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>This pattern is so common that Python provides <span class="emph">shorthand notation</span> for it</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_basic_list_comprehensions">Basic list comprehensions</h3>
-<div class="paragraph">
-<p><code>[</code><span class="slot">expr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code>]</code></p>
-</div>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Python iterates once for each item in <span class="slot">iterable</span>, setting <span class="slot">itervar</span> each time</p>
-</li>
-<li>
-<p>Python evaluates <span class="slot">expr</span>, which usually involves <span class="slot">itervar</span> in some way</p>
-</li>
-<li>
-<p>Python builds a new list with the results of <span class="slot">expr</span> for each item in <span class="slot">iterable</span></p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-none grid-none fit-content twocoltable leftalign">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock fragment fullwidth">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; squares = [i**2 for i in range(10)]
-&gt;&gt;&gt; print(squares)
-[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock fragment fullwidth">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; squares = []
-&gt;&gt;&gt; for i in range(10):
-...     squares.append(i**2)
-...
-&gt;&gt;&gt; print(squares)
-[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
-</div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_standard_deviation_using_a_list_comprehension">Standard deviation using a list comprehension</h3>
-<div class="stemblock">
-<div class="content">
-\$s=\sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{N-1}}\$
-</div>
-</div>
-<div class="paragraph">
-<p>Assume we already have <code>sample</code> and <code>mean</code></p>
-</div>
-<table class="tableblock frame-none grid-none fit-content twocoltable leftalign">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>With for loop (for reference)</p>
-</div>
-<div class="listingblock fragment lefttable smallspace">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">msd = []
-for n in sample:
-    msd.append((n - mean)**2)
-stdev = (sum(msd) / (len(sample) - 1))**0.5</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>With list comprehension</p>
-</div>
-<div class="listingblock fragment lefttable smallspace">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">msd = [(n - mean)**2 for n in sample]
-stdev = (sum(msd) / (len(sample) - 1))**0.5</code></pre>
-</div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_more_examples">More examples</h3>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>Generate ten random numbers</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from random import randint
-
-numbers = [randint(1, 100) for i in range(10)]</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>Convert strings to integers</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">string_list = ["10", "14", "12", "7", "11"]
-int_list = [int(s) for s in string_list]</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>Process lines from a file</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def process_line(line):
-    """ Convert a line consisting of a string, a comma, and an integer
-    into a list of a string and an integer """
-    values = line.strip().split(",")
-    values[1] = int(values[1])
-    return values
-
-with open(filename, "r", encoding="utf-8") as f:
-    data = [process_line(line) for line in f]</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="openblock notes">
-<div class="content">
-<div class="paragraph">
-<p>In the third example, we&#8217;ve pulled out the code to process an individual line from a file and put it in its own function. This makes our code easier to read and to debug; we can now test our processing steps on their own. To be clear, we could have done the same thing whether we used a for loop or a list comprehension; the point is that we&#8217;ve improved our program by identifying a subproblem within our problem and breaking it out into its own function.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_summary_5">Summary</h3>
-<div class="ulist nobullet nusubbullet">
-<ul>
-<li>
-<p>A <span class="emph">list comprehension</span> is an expression that takes the place of a <code>for</code> loop</p>
-</li>
-<li>
-<p>List comprehensions <span class="emph">evaluate to lists</span></p>
-</li>
-<li>
-<p>The basic syntax is <code>[</code><span class="slot">expr</span> <code>for</code> <span class="slot">itervar</span> <code>in</code> <span class="slot">iterable</span><code>]</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_filtering_in_list_comprehensions">Filtering in list comprehensions</h2>
-<div class="sectionbody">
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>Sometimes we want to <span class="emph">extract</span> list items that satisfy some <span class="emph">criterion</span></p>
-</li>
-<li>
-<p>List comprehensions can contain an <code>if</code> element with a <span class="emph">condition</span></p>
-</li>
-<li>
-<p>Both the expression and the condition can use the <span class="emph">iteration variable</span></p>
-</li>
-<li>
-<p>Keep all items for which the condition evaluates to <code>True</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>[</code><span class="slot">expr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code> if </code><span class="slot">condition</span><code>]</code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">sample = [74, 46, 68, 72, 71, 57, 56, 58, 69, 67]
-above_70 = [s for s in sample if s &gt; 70]</code></pre>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_more_examples_2">More examples</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">games = [{"Johns Hopkins": 13, "Drexel"      : 11},
-         {"Maryland"     : 19, "George Mason":  6},
-         {"Michigan"     : 10, "Jacksonville":  8},
-         {"Florida"      : 15, "Maryland"    : 14},
-         # etc.
-         ]
-umd_games = [g for g in games if "Maryland" in g]</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">reps = [("Ralph Abraham"  , "LA"),
-        ("Alma Adams"     , "NC"),
-        ("Robert Aderholt", "AL"),
-        ("Anthony Brown"  , "MD"),
-        # etc.
-        ]
-md_reps = [rep[0] for rep in reps if rep[1] == "MD"]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_summary_6">Summary</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>You can use a list comprehension to filter values from a list, possibly also applying a transformation to the values</p>
-</li>
-<li>
-<p>The syntax for a list comprehension with filtering is<br>
-<code>[</code><span class="slot">expr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code> if </code><span class="slot">condition</span><code>]</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_generator_expressions">Generator expressions</h2>
-<div class="sectionbody">
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>Sometimes we&#8217;d rather not store a <span class="emph">whole new list</span> in memory</p>
-</li>
-<li>
-<p>Instead of using a list comprehension, we can use a <span class="emph">generator expression</span></p>
-<div class="ulist">
-<ul>
-<li>
-<p>With a generator, only one new item is in memory at any one time</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>(</code><span class="slot">expr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code>)</code><br>
-<code>(</code><span class="slot">expr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code> if </code><span class="slot">condition</span><code>)</code></p>
-</div>
-<div class="listingblock fragment smallspace">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">nums = [15, 10, 7, 9, 14, 6]
-sum(n**2 for n in nums)</code></pre>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_set_comprehensions">Set comprehensions</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>Similar to list comprehensions, but the <span class="emph">result is a set</span></p>
-</li>
-<li>
-<p>Useful for</p>
-<div class="ulist">
-<ul>
-<li>
-<p>removing <span class="emph">duplicates</span></p>
-</li>
-<li>
-<p>cases where you plan to do <span class="emph">set operations</span> on the result</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>{</code><span class="slot">expr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code>}</code><br>
-<code>{</code><span class="slot">expr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code> if </code><span class="slot">condition</span><code>}</code></p>
-</div>
-<div class="listingblock fragment smallspace">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">with open("filename", "r", encoding="utf-8") as f:
-    hashtags = {line.strip() for line in f if "#" in line}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_dictionary_comprehensions">Dictionary comprehensions</h3>
-<div class="ulist nobullet">
-<ul>
-<li>
-<p>Similar to list comprehensions, but the <span class="emph">result is a dict</span></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>{</code><span class="slot">keyexpr</span><code>:</code> <span class="slot">valueexpr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code>}</code><br>
-<code>{</code><span class="slot">keyexpr</span><code>:</code> <span class="slot">valueexpr</span><code> for </code><span class="slot">itervar</span><code> in </code><span class="slot">iterable</span><code> if </code><span class="slot">condition</span><code>}</code></p>
-</div>
-<div class="listingblock fragment smallspace">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">items_sold = ["gear", "sprocket", "sprocket", "hub", "gear", "widget"]
-sales_count = {item: items_sold.count(item) for item in set(items_sold)}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_summary_7">Summary</h3>
-<div class="ulist nobullet nosubbullet">
-<ul>
-<li>
-<p>Comprehensions/generator expressions <span class="emph">transform</span> and <span class="emph">filter</span> collections of data</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Often, we can use them in place of a <code>for</code> loop</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Comprehensions exist for <span class="emph">lists</span>, <span class="emph">sets</span>, and <span class="emph">dictionaries</span></p>
-<div class="ulist">
-<ul>
-<li>
-<p>The name of the comprehension refers to the <span class="emph">result</span> of the expression</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Generator expressions <span class="emph">conserve memory</span></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Only one item at a time is stored in memory</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-10 17:54:09 -0400
+Last updated 2021-08-11 08:11:27 -0400
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
-<script>
-if (!hljs.initHighlighting.called) {
-  hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
-}
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "none",
-  tex2jax: {
-    inlineMath: [["\\(", "\\)"]],
-    displayMath: [["\\[", "\\]"]],
-    ignoreClass: "nostem|nolatexmath"
-  },
-  asciimath2jax: {
-    delimiters: [["\\$", "\\$"]],
-    ignoreClass: "nostem|noasciimath"
-  },
-  TeX: { equationNumbers: { autoNumber: "none" } }
-})
-MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
-  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
-    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
-      data.math.root.display = "block"
-    }
-    return data
-  })
-})
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>

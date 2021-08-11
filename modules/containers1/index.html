@@ -438,16 +438,268 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
 <h1>Container Data Types: Part 1</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_links">Links</a></li>
+</ul>
+</li>
+<li><a href="#_learning_outcomes">Learning Outcomes</a></li>
+<li><a href="#_readings">Readings</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-
+<div id="preamble">
+<div class="sectionbody">
+<div align="center">
+    <nav id="main_navigation">
+        <a href="/inst326/index.html">Home</a> | 
+        <a href="/inst326/modules/index.html">Modules</a> | 
+        <a href="/inst326/style/index.html">Stylesheet</a> | 
+        <a href="/inst326/syllabus/index.html">Syllabus</a>
+    </nav>
+</div>
+<script>
+    function localurl() {
+        console.log("This happened");
+        if (window.location.protocol == "file:") {
+            var ix = window.location.pathname.indexOf("inst326-public/");
+            var prefix = window.location.pathname.slice(0, ix);
+            var nav = document.getElementById("main_navigation");
+            console.log(nav);
+            var elements = Array.from(nav.getElementsByTagName("a"));
+            console.log(elements);
+            elements.forEach(element => {
+                var anchor = element.getAttribute("href");
+                var localpath = anchor.replace("/", prefix);
+                element.setAttribute("href", localpath);
+            });
+        }
+    }
+    window.onload = localurl;
+</script>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview">Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This module covers four container data types that will allow us to work with collections of data in rich and interesting ways. The data types covered in this module are tuples, dictionaries, sets, and frozensets. Two other container data types that we have discussed previously are strings and lists.</p>
+</div>
+<div class="sect2">
+<h3 id="_links">Links</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="slides.html">Slides</a></p>
+</li>
+<li>
+<p><a href="exercises">Exercises</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_learning_outcomes">Learning Outcomes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After completing this module, you should understand:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The defining characteristics of containers:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ordered vs. unordered</p>
+</li>
+<li>
+<p>Mutable vs. immutable</p>
+</li>
+<li>
+<p>Hashable vs. unhashable</p>
+</li>
+<li>
+<p>Mapping vs. non-mapping</p>
+</li>
+<li>
+<p>What kinds of objects each container can contain</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>What a tuple is and how to create one</p>
+</li>
+<li>
+<p>How to use tuples to return multiple values from a function or method</p>
+</li>
+<li>
+<p>How to use sequence unpacking in variable assignment statements and for loops</p>
+</li>
+<li>
+<p>When to use a tuple vs. when to use a list</p>
+</li>
+<li>
+<p>What a dictionary is and how to create one</p>
+</li>
+<li>
+<p>How to add a key to a dictionary</p>
+</li>
+<li>
+<p>How to retrieve a value from a dictionary for a given key</p>
+</li>
+<li>
+<p>How to iterate over a dictionary</p>
+</li>
+<li>
+<p>How to remove keys from a dictionary</p>
+</li>
+<li>
+<p>How to copy a dictionary</p>
+</li>
+<li>
+<p>How to count objects with a dictionary</p>
+</li>
+<li>
+<p>What a set is and how to create one</p>
+</li>
+<li>
+<p>How to add values to a set</p>
+</li>
+<li>
+<p>How to remove values from a set</p>
+</li>
+<li>
+<p>What each of the following operations are, and how to perform them:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Union</p>
+</li>
+<li>
+<p>Intersection</p>
+</li>
+<li>
+<p>Difference</p>
+</li>
+<li>
+<p>Symmetric difference</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>What each of the following set relationships are, and how to evaluate sets for them</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Subsethood, supersethood</p>
+</li>
+<li>
+<p>Proper subsethood, proper supersethood</p>
+</li>
+<li>
+<p>Equality</p>
+</li>
+<li>
+<p>Disjointness</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>How to get the cardinality (size) of a set</p>
+</li>
+<li>
+<p>How to check for an item in a set</p>
+</li>
+<li>
+<p>What a frozenset is and how to create one</p>
+</li>
+<li>
+<p>How frozensets differ from sets</p>
+</li>
+<li>
+<p>Common applications of sets and frozensets</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_readings">Readings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You may find it helpful to refer to the following resources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Severance, Python for Everybody</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.py4e.com/html3/09-dictionaries">Chapter 9: Dictionaries</a></p>
+</li>
+<li>
+<p><a href="https://www.py4e.com/html3/10-tuples">Chapter 10: Tuples</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>van Rossum et al., Python Tutorial</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html#the-del-statement">Section 5.2: The <code>del</code> statement</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Section 5.3: Tuples and sequences</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html#sets">Section 5.4: Sets</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Section 5.5: Dictionaries</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Python documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#typesseq">Sequence Types — <code>list</code>, <code>tuple</code>, <code>range</code></a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">Set Types: <code>set</code>, <code>frozenset</code></a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#typesmapping">Mapping Types: <code>dict</code></a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-10 17:54:22 -0400
+Last updated 2021-08-11 08:11:27 -0400
 </div>
 </div>
 </body>

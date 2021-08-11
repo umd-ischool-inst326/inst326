@@ -1,0 +1,34 @@
+= Exercise: COVID Testing Anomaly Counter 
+:includedir: ../../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Background
+
+The data quality team at CRISP is impressed with your find about the faulty
+dates in vaccination records. They are concerned that these flaws, although
+minor in relation to the volume of valid data, might indicate a more general
+problem in county level data collection practices that could be magnified in
+the post December 11, 2020 vaccination data.
+
+In order to investigate what might be causing the problem in the different
+counties you've been asked to examine which counties are most responsible for
+generating these anomalous records in the dataset.
+
+Modify the program you wrote in Module 5 to print out a list of counties and
+the number of erroneous vaccinations that they reported. The list should be in
+reverse sorted order by the number of vaccinations. Be careful to count both
+the first and second doses. The output should be formatted like this (these
+results are just an illustration):
+
+    Montgomery,3
+    Prince George's,2
+    Anne Arundel,1
+
+The output should not include counties that have not generated any anomalous
+records.

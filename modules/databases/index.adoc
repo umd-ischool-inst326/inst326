@@ -17,7 +17,6 @@ This module looks at ways to integrate Python programs with databases and SQL (S
 * link:slides.html[Slides]
 * link:exercises[Exercises]
 
-
 == Learning Outcomes
 
 After completing this module, students should understand:

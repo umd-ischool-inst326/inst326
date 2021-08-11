@@ -1,1 +1,74 @@
 = Container Data Types: Part 1
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+This module covers four container data types that will allow us to work with collections of data in rich and interesting ways. The data types covered in this module are tuples, dictionaries, sets, and frozensets. Two other container data types that we have discussed previously are strings and lists.
+
+=== Links
+
+* link:slides.html[Slides]
+* link:exercises[Exercises]
+
+== Learning Outcomes
+
+After completing this module, you should understand:
+
+* The defining characteristics of containers:
+  ** Ordered vs. unordered
+  ** Mutable vs. immutable
+  ** Hashable vs. unhashable
+  ** Mapping vs. non-mapping
+  ** What kinds of objects each container can contain
+* What a tuple is and how to create one
+* How to use tuples to return multiple values from a function or method
+* How to use sequence unpacking in variable assignment statements and for loops
+* When to use a tuple vs. when to use a list
+* What a dictionary is and how to create one
+* How to add a key to a dictionary
+* How to retrieve a value from a dictionary for a given key
+* How to iterate over a dictionary
+* How to remove keys from a dictionary
+* How to copy a dictionary
+* How to count objects with a dictionary
+* What a set is and how to create one
+* How to add values to a set
+* How to remove values from a set
+* What each of the following operations are, and how to perform them:
+  ** Union
+  ** Intersection
+  ** Difference
+  ** Symmetric difference
+* What each of the following set relationships are, and how to evaluate sets for them
+  ** Subsethood, supersethood
+  ** Proper subsethood, proper supersethood
+  ** Equality
+  ** Disjointness
+* How to get the cardinality (size) of a set
+* How to check for an item in a set
+* What a frozenset is and how to create one
+* How frozensets differ from sets
+* Common applications of sets and frozensets
+
+== Readings
+
+You may find it helpful to refer to the following resources:
+
+* Severance, Python for Everybody
+  ** link:https://www.py4e.com/html3/09-dictionaries[Chapter 9: Dictionaries]
+  ** link:https://www.py4e.com/html3/10-tuples[Chapter 10: Tuples]
+* van Rossum et al., Python Tutorial
+  ** link:https://docs.python.org/3/tutorial/datastructures.html#the-del-statement[Section 5.2: The `del` statement]
+  ** link:https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences[Section 5.3: Tuples and sequences]
+  ** link:https://docs.python.org/3/tutorial/datastructures.html#sets[Section 5.4: Sets]
+  ** link:https://docs.python.org/3/tutorial/datastructures.html#dictionaries[Section 5.5: Dictionaries]
+* Python documentation
+  ** link:https://docs.python.org/3/library/stdtypes.html#typesseq[Sequence Types — `list`, `tuple`, `range`]
+  ** link:https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset[Set Types: `set`, `frozenset`]
+  ** link:https://docs.python.org/3/library/stdtypes.html#typesmapping[Mapping Types: `dict`]
+

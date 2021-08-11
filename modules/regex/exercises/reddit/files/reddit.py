@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+Collect the last year of UMD Reddit data from PushShift API.
+"""
+
 import csv
 import time
 import requests

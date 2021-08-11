@@ -1,0 +1,154 @@
+= Introduction to INST326: Object-Oriented Programming for Information Science
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 800
+:revealjs_history: true
+:revealjs_center: false
+:title-slide-background-image: spring2021_course_image_big.png
+
+== How do we become better [Python] programmers?
+
+[%step]
+[.nobullet]
+* By learning and applying [emph]#new skills#
+* By improving our [emph]#understanding# of how Python works
+* By [emph]#collaborating# and [emph]#discussing# programming together
+* By conscientiously applying [emph]#best practices#
+* By making [emph]#mistakes# and learning from them
+* By considering the [emph]#societal context# of programming
+
+[.notes]
+--
+Learning and applying new skills: OOP; a lot of programming techniques
+
+How the language works: it's important to understand why we do what we do;
+we're going to talk about the fundamental elements of Python, such as statements, expressions, variables, functions, and classes, and how these elements work. If you have questions about how or why a particular snippet of code works, please ask them, because deepening our understanding makes us better programmers.
+
+Collaborating: we're going to do a lot of pair programming. Research has shown that pair programming improves learning and results in better code. We're also going to talk together about solutions to programming problems. Examining problems from multiple perspectives helps us recognize optimal solutions and discover and fill gaps in our knowledge.
+
+Best practices:
+//Joel Spolsky, co-founder of Stack Overflow, famously said, "It's harder to read code than to write it." 
+In the book _Refactoring_, Martin Fowler wrote, "Any fool can write code that a computer can understand. Good programmers write code that humans can understand." Readable code is easier to debug, modify, and reuse. It doesn't happen by accident. We'll talk about practices that will make our code more readable, and while following them is not anyone's favorite part of programming, becoming a disciplined programmer will increase the value of your code and therefore your value to future employers.
+
+Making mistakes: nothing worthwhile was ever achieved without numerous failed attempts along the way. Some failures highlight holes in our understanding. Others sometimes happen because we got careless or forgot something. Errors are important learning opportunities, and how we go about dealing with them has a big impact on what we learn from them. In this class you will have access to a whole team of people you can turn to when you run into issues, but in many cases, rather than telling you how to fix a bug, they will work with you to help you find the source of the bug and fix it yourself.
+
+Societal context: programming doesn't occur in a vacuum; it influences and is influenced by society. In this class we'll explore some of the social issues that intersect with programming and ways that society (and we as members of society) can promote increased justice and equity.
+--
+
+== Course structure
+
+[%step]
+[.nobullet.nosubbullet.lessspace]
+* Monday
+** no live session; watch lectures; practice
+* Wednesday
+** live exercise session
+* Friday
+** live class session
+
+[.columns]
+== Grading
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Homework
+** 25%; 6 assignments
+* Quizzes
+** 15%; 4 quizzes, 1 dropped
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* In-class exercises
+** 15%; 12 exercises, 2 dropped
+* Practice
+** 15%; 14 practices
+--
+
+[.column]
+--
+[%step]
+[.nobullet.nosubbullet]
+* Final project
+** 15%
+* Participation
+** 10%; Wednesdays, some Fridays; four dropped
+* Critical reflection
+** 5%; 3 assignments
+--
+
+== Late work
+
+[%step]
+[.nobullet]
+* If you need [emph]#extra time# on homework, please let me know before the deadline
+* Please read the full policy on late work in the [emph]#syllabus#
+
+== Academic integrity
+
+[%step]
+[.nobullet.nosubbullet]
+* You have an obligation to produce your own [emph]#original work# to satisfy the learning objectives of each assignment
+** Other people’s work should complement, not replace, your own work
+* You should always [emph]#give credit# to individuals whose work you use
+* Learning requires effort; there are [emph]#no workarounds#
+
+== Technology we're going to use
+
+[%step]
+[.nobullet.nosubbullet]
+* Python 3.9
+** New to Python? see resources under "Prerequisite knowledge" in syllabus
+* Visual Studio Code
+* JupyterLab
+* Git
+
+== ELMS
+
+[%step]
+[.nobullet.nosubbullet]
+* Course content is structured in terms of [emph]#modules#
+** Includes lecture videos, assignments, quizzes, additional resources
+* [emph]#Links# to Discord, Zoom (for Friday meeting) are available in the first module
+* __Please look at the modules in ELMS, not just the due dates!__
+
+== First week of class
+
+[%step]
+[.nobullet.nosubbullet]
+* Watch [emph]#intro videos# and set up [emph]#software#
+[%step]
+** I'll will be available on Discord #help channel Monday and Wednesday during regular class time
+* Look over [emph]#syllabus#; send any questions to me
+* No exercise session Wednesday; please watch [emph]#lecture videos# and complete [emph]#practice#
+* Attend [emph]#live session# Friday
+* Complete [emph]#survey#
+
+== I look forward to having you in class!
+
+////
+
+Expectations
+    What if you've never programmed in Python before?
+Introduce practice as a new way of thinking about programming problems
+
+Academic dishonesty
+
+Pet peeves? - no
+    Code is a mass noun
+
+Separate video: software installation
+
+Separate video: Homework: it's all about following directions
+
+Separate video: How to debug your code; how to ask for help
+
+////

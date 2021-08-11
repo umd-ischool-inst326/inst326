@@ -1,0 +1,13 @@
+= Container Data Types: Part 1 
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Exercises
+
+- link:covid/index.html[COVID Testing Anomaly Counter ]

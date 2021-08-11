@@ -1,0 +1,78 @@
+= Installation Instructions
+:includedir: ../../../../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Welcome to Object-Oriented Programming. Before we get started programming we have to get some basic things out of the way. We will be spending much of the semester learning about Object Oriented Programming by writing computer programs using the Python language. To do this you need to install Python on your computer and also an "editor" which will help you write and manage your programs.
+
+
+== Install Python
+
+=== Windows
+
+Your computer probably has dozens of applications and systems of various kinds on it, but Windows doesn’t come with the one we need, Python. So, we’re going to have to get it.
+
+1. Download Python: Python 3 is required for this course. I recommend installing the latest version, which is currently 3.9. Whether you already have some version of Python installed, you can download and install the current latest version of Python 3 from http://python.org/download. This is the package you need to install Python. 
+2. Install Python: Once the download finishes, install it as you normally would any other application (by double clicking the installer). You will be prompted to "select a destination directory". The default location will be fine. You should click the checkbox to "add python to your PATH".
+
+=== Mac
+
+For those of you with Macs, it can be a little confusing because Python 2 .7 is already installed. For this course, you need to use Python 3.9 or later.
+
+1. To start, download the current latest version of Python 3 from http://python.org/download. I recommend you use the graphical installer for now, but in the future you may wish to look at the Homebrew package manager, which makes software installation and updates much easier. Excellent instructions are available here: https://docs.python-guide.org/starting/install3/osx/ 
+2. Once the download finishes, install it as you normally would any other application.
+
+== Install Visual Studio Code (all platforms)
+
+Visual Studio Code (sometimes called VSCode or simply Code) is a popular open source editor created by Microsoft which runs on Windows, Mac and Linux. You should be able to download and install it from https://code.visualstudio.com While it's possible to write programs using many different editors we are all going to be using VSCode so we can minimize difficulties you might have with other editors, and so we can all help each other.
+
+VSCode has many different types of plugins for different programming languages and utilities. Once you've installed Python and VSCode go ahead and install the Python Plugin following the instructions at https://code.visualstudio.com/docs/languages/python This plugin will do helpful things let let you know when you've made a mistake, and will do autocompletion and bring up relevant documentation as you are designing your programs.
+
+== Test Your Installation
+
+=== Windows
+
+* Go to the run menu (lower left) and in the search type "cmd".
+* A text-based window should open. Type "python" in this Window.
+* You should see some text, including the name python and a version number, followed by this prompt: ">>>"
+* Type control-z to exit.
+
+=== Mac
+
+* Go to the spotlight search (upper right magnifying glass icon) and type "terminal"; or navigate to Applications > Utilities > Terminal to open up the shell.
+* A text-based window should open. Type "python3" in this window.
+* You should see some text, including the name python and a version number, followed by this prompt: ">>>"
+* Type control-d to exit.
+
+== VSCode (all platforms)
+
+* Open VSCode
+* Create a new file
+* Type the following into this file and save it on your desktop with the name hello.py:
+
+    print('Hello, World')
+
+=== Run your program (Windows)
+
+* Open a command prompt (see above)
+* Use these commands to navigate to and run your program on Windows:
+
+    cd \Users\<your username>\Desktop
+    python hello.py
+
+=== Run your program (Mac)
+
+* Open a command prompt (see above)
+* Use these commands to navigate to and run your program on Windows:
+
+    cd ~/Desktop
+    python3 hello.py
+
+You should see "Hello, World". If so, congratulations! You've successfully set up your development enviroment for this course.  You can now complete the Installation worksheet for this module to verify that everything is working on your system.
+
+NOTE: VSCode also offers a run button in the upper right corner (it looks like a green "play" button) that you can use to conveniently run the open script.  Still, it is well worth your time to learn how to navigate around the filesystem with the command line and run you programs that way.
