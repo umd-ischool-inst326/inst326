@@ -3,56 +3,73 @@
 import sys
 import json
 import shutil
+import argparse
 import subprocess
 
 from re import sub
 from os import walk
-from os.path import dirname, abspath, join, getmtime, isfile
+from os.path import dirname, abspath, join, getmtime, isfile, basename
 
 # base directory for the git repository clone
 repo_dir = dirname(dirname(abspath(__file__)))
 
 # test to see if asciidoctor is available
-if not shutil.which('asciidoctor'):
-    sys.exit('ERROR: asciidoctor is not installed or is not in your PATH')
+if not shutil.which("asciidoctor"):
+    sys.exit("ERROR: asciidoctor is not installed or is not in your PATH")
+
 
 def main():
     """
     Walk through the repository directory looking for asciidoc files
-    to convert to HTML. Only files with the .adoc file extension that 
+    to convert to HTML. Only files with the .adoc file extension that
     have been modified since the last run will be converted.
     """
+    parser = argparse.ArgumentParser(description="convert asciidoc to html")
+    parser.add_argument(
+        "-f", "--force", action="store_true", help="Force regeneration of all files"
+    )
+    parser.add_argument(
+        "-q", "--quiet", action="store_true", help="Suppress output"
+    )
+    args = parser.parse_args()
+
     history = History()
     for dir_name, dirs, files in walk(repo_dir):
         for filename in files:
-            if filename.endswith('.adoc'):
+            if filename.endswith(".adoc"):
                 path = join(dir_name, filename)
-                if history.is_modified(path):
-                    asciidoc(path)
+                if args.force or history.is_modified(path):
+                    asciidoc(path, args.quiet)
 
-def asciidoc(adoc_file):
+
+def asciidoc(adoc_file, quiet=False):
     """
     Convert an asciidoc file to HTML using asciidoctor or asciidoctor-revealjs.
-    Returns True if no errors or warnings were generated and False if they 
+    Returns True if no errors or warnings were generated and False if they
     were.
     """
 
-    html_file = sub(r'\.adoc$', '.html', adoc_file)
-    if adoc_file == "slides.adoc":
-        cmd = ['asciidoctor-revealjs', adoc_file, '-o', html_file]
+    html_file = sub(r"\.adoc$", ".html", adoc_file)
+    if basename(adoc_file) == "slides.adoc":
+        cmd = ["asciidoctor-revealjs", adoc_file, "-o", html_file]
     else:
-        cmd = ['asciidoctor', adoc_file, '-o', html_file]
+        cmd = ["asciidoctor", adoc_file, "-o", html_file]
+
+    if not quiet:
+        print(adoc_file)
+
     result = subprocess.run(cmd, capture_output=True)
     if result.stderr:
-        print(f"{adoc_file} - {result.stderr.decode('utf8')}") 
+        print(f"{adoc_file} - {result.stderr.decode('utf8')}")
         return False
     else:
         return True
 
-class History:
 
+
+class History:
     def __init__(self):
-        self.file = join(repo_dir, '.history')
+        self.file = join(repo_dir, ".history")
         if isfile(self.file):
             self.mtimes = json.load(open(self.file))
         else:
@@ -70,12 +87,13 @@ class History:
         if result:
             self.mtimes[path] = mtime
             self.write()
-        
+
         return result
 
     def write(self):
-        with open(self.file, 'w') as fh:
+        with open(self.file, "w") as fh:
             json.dump(self.mtimes, fh, indent=2)
+
 
 if __name__ == "__main__":
     main()
