@@ -1,0 +1,193 @@
+# INST326: Object Oriented Programming 🐍💻😍
+
+Fall 2021 /  Section 103  
+
+## Instructors
+
+Name: Ed Summers +
+Email: edsu@umd.edu  
+
+Name: Jonathan Brier +
+Email: brierjon@umd.edu
+
+## Catalog Description
+
+This course is an introduction to programming, emphasizing understanding and
+implementation of applications using object-oriented techniques. Topics to be
+covered include program design and testing as well as implementation of
+programs. Prerequisite: (must have completed or be concurrently enrolled in
+INST201; or INST301); and (INST126; or CMSC106; or CMSC122). Or permission of
+instructor.
+
+## Extended Course Description
+
+This course covers (1) the core features of the Python programming language, (2)
+using programs to collect, process, and analyze data, and (3) object-oriented
+programming. Object-oriented programs are built as collections of “objects”,
+which are software representations of real-world entities and concepts. Objects
+combine data (attributes) with functionality (methods), and work through
+communicating with each other as the code is executed. By encapsulating code
+complexity within objects, OOP allows use and reuse of existing code. Advanced
+OOP concepts such as inheritance facilitate development of complex code without
+sacrificing robustness and possibility of code reuse. We apply computational
+thinking approaches such as abstraction, decomposition, algorithmic design,
+generalization, evaluation, and debugging.
+
+But wait, that's not all. This course also requires students to develop a
+critical understanding of how computer programs, and the practice of computer
+programming, are situated in society, and reflect (as well as encode) broader
+social and political structures such as race, class and gender. Some disciplines
+view computer as a value-neutral technical skill. But for information studies
+majors computing is a *sociotechnical* phenomena that both shapes and is shaped
+by social, cultural and political projects. Growing awareness of issues like
+algorithmic bias, ethical/unethical uses of algorithms, and disparities in the
+workplace are essential for this class.
+
+## Student Learning Outcomes
+
+After finishing this course, students will be able to:
+
+1. Design, program, debug Python programs.
+2. Collect, process, and analyze data.
+3. Describe how code expresses values & ethics.
+4. Read and write technical documentation.
+5. Gain competency with tools for managing code.
+
+## How We'll Work
+
+This course assumes a basic understanding of procedural programming, and begins
+with a comprehensive review of Python fundamentals—including data types,
+variables, loops, and conditionals—that is designed to deepen your mastery of
+these concepts. The first part of the course will be an opportunity to
+consolidate and extend what was covered in INST126. The later parts of the
+course will cover certain topics in program design and programming best
+practices (documentation, testing, etc.) that are a necessary part of producing
+complex, reliable, and maintainable applications.
+
+The course is divided into weekly modes, and will follow this pattern:
+
+* **Sunday:** weekly assignment due at midnight 
+* **Monday:** 9am new module content released
+* **Tuesday:** 9:30 - 10:45 lecture in Zoom
+* **Thursday:** 9:30 - 10:45 exercise work time in Zoom
+
+(Office hours with Ed and Jonathan are also available by appointment)
+
+Here are some suggestions for working on assignments:
+
+1. Start early – don’t wait. That will give you time to work through the problems and get help as needed.
+2. When you run into a problem, spend 5-10 minutes trying to solve it on your own.
+3. Then take a break. Sometimes this will allow you to come back and see something you missed. Letting your subconscious work on it for a while (unsupervised, so to speak) will often lead to useful ideas.
+4. If you’ve spent 20-30 minutes and still are stuck, post your question on the
+Canvas Discussion board. We are here to help each other, so don’t beat your head against a brick wall—ask for help! When you post, provide as much information as you can. Often it helps to post a screenshot with the problem.
+5. If posted to Canvas an instructor will respond as soon as possible, usually
+within a day, if not sooner.
+6. If you see a question on the discussion board that you can answer, or if you have an idea, please respond. Don’t wait for me. You will be helping your colleagues.
+
+## Textbooks & Readings
+
+This course will make extensive use of the following book and website, which was
+also used in INST126:
+
+* Charles R. Severance, *Python for Everybody: Exploring Data Using Python 3.* https://py4e.com/book.php
+* *The Python Tutorial*. Python Software Foundation. https://docs.python.org/3/tutorial/index.html
+
+Additional readings will be distributed through Canvas.
+
+## Required Technology
+
+* Laptop - We will be writing code this semester so you will need a laptop. Any current OS (Windows, Mac, Linux) can be used.
+* Python - Python3 is freely available from https://www.python.org/downloads.
+* Code - Visual Studio Code is a popular open source editor created by Microsoft with nice Python support. https://code.visualstudio.com/
+
+Please note that we will install all necessary environments together in class during the first week.
+
+## Grading
+
+Given the complexity of life during the Coronavirus pandemic the course is structured to be very predictable The grading for the class is simple, every week there is a 10 point assignment. There are 
+
+
+[cols="^,^,^,^,^,^,^,^,^,^"]
+|===
+|*A+* |97-100 |*B+* |87-89 |*C+* |77-79 |*D+* |67-69 |    |     
+|*A * |93-96  |*B*  |83-86 |*C*  |73-76 |*D*  |63-66 |*F* |0-59
+|*A-* |90-92  |*B-* |80-82 |*C-* |70-72 |*D-* |60-62 |    |
+|===
+
+### Late Work
+
+Unless previously arranged by contacting me all assignments that are turned in
+late will be marked off 10% for each day that it is late. This is for your
+benefit because your grade in the class is simply the sum total of all your
+assignments: there are no midterms, finals or final projects. In order for you
+to succeed in the class you just need to stay engaged with the work each week.
+
+## COVID considerations
+
+COVID-19 continues to impact our lives, often in unanticipated ways. If you you
+require special accommodations due to the way the pandemic has impacted your
+particular life situation, please let me know as soon as possible so that we can
+discuss how best to meet your particular needs.
+
+## University Course Policies
+
+The essential purpose of the university’s undergraduate course policies is to
+enable all of us to fully participate in an equitable, accessible and safe
+academic environment so that we each can be challenged to learn and contribute
+most effectively. They address issues such as academic integrity, codes of
+conduct, discrimination, accessibility, learning accommodations, etc. We are all
+responsible for following the policies at
+http://www.ugst.umd.edu/courserelatedpolicies.html (Links to an external site.).
+You must read them and send me any questions by the first week of classes.
+
+## Academic Integrity and Ethical Use of Other People's Work
+
+In academia and in computer programming, building on the work of others is often
+acceptable and encouraged. In this class, there will be some situations in which
+it may be appropriate to build on other people's work. For example:
+
+* you may get help from a fellow student to understand a particular concept
+* you may pair program with a student on an assignment that has been designated as a pair assignment
+* you may want to use a function or an algorithm from a website or a book
+* you may be writing a paper and may wish to share ideas you read in a published scholarly work
+
+In this class, the following principles guide the ethical use of other people's work:
+
+* You have an obligation to produce your own original work to satisfy the learning objectives of each assignment. Other people's work should complement, not replace, your own work.
+* You should always give credit to individuals whose work you use. In a written document such as a critical reflections essay, this means providing a complete, accurate entry in your bibliography as well as an in-text citation. In code, you should provide a comment including the following details:
+** the source of the code (URL if online or bibliographic citation if in print)
+** as much authorship information as is available
+** the date you accessed it
+** if applicable, the version number and title of the code
+
+You are expected to complete all course work on your own unless my written instructions on a particular task indicate otherwise. You may not discuss exams or midterms with anyone other than the instructor until the deadline for submitting the exam or midterm has passed for all participants in the discussion (remember, due to personal circumstances, some students may have a different deadline than you). You may work on exercises with one partner unless otherwise specified; both partners must be engaged in the coding process. You may discuss homework with other students; this includes explaining underlying concepts, assisting a fellow student in debugging (without supplying your own code to that student), and discussing algorithms. If you collaborated with one or more fellow students in one of the ways described above, your code must include a comment describing the collaboration and citing all collaborators. *Please note: under no circumstances are you allowed to copy/paste, retype, or work off of, or possess a partial or complete copy of someone else's solution to an assignment unless the assignment instructions include explicit written instructions to the contrary.*
+
+UMD students are required to abide by the student honor pledge: *I pledge on my honor that I have not given or received any unauthorized assistance on this assignment/examination.* You will be asked to complete the honor pledge as part of each assignment, quiz, and test in this class.
+
+Suspected cases of cheating, plagiarism, or other academic integrity violations will be referred to the Honor Council.
+
+## Course schedule
+
+The following table shows the most current version of the planned schedule. The course content can be roughly divided into three interrelated units:
+
+**Part 1:** Fundamentals
+
+* Module 0: Getting Started
+* Module 1: Fundamentals 1
+* Module 2: Fundamentals 2
+* Module 3: Testing
+
+**Part 2:** Object-Oriented Programming
+
+* Module 4: Basics of OOP
+* Module 5: Container Data Types 1 
+* Module 6: Container Data Types 2
+* Module 7: Advanced OOP
+* Module 9: Regular Expressions
+
+**Part 3:** Working with OOP
+
+* Module 10: Data Analysis with Pandas 1
+* Module 11  Data Analysis with Pandas 2
+* Module 12: Data on the Web
+* Module 13: Machine Learning
