@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import sys
-import json
 import shutil
 import argparse
 import subprocess
@@ -33,23 +32,26 @@ def main():
     )
     args = parser.parse_args()
 
-    history = History()
     for dir_name, dirs, files in walk(repo_dir):
         for filename in files:
             if filename.endswith(".adoc"):
-                path = join(dir_name, filename)
-                if args.force or history.is_modified(path):
-                    asciidoc(path, args.quiet)
+                adoc_path = join(dir_name, filename)
+                adoc_mtime = getmtime(adoc_path)
+
+                html_path = sub(r"\.adoc$", ".html", adoc_path)
+                html_mtime = getmtime(html_path)
+
+                if args.force or html_mtime < adoc_mtime:
+                    asciidoc(adoc_path, html_path, args.quiet)
 
 
-def asciidoc(adoc_file, quiet=False):
+def asciidoc(adoc_file, html_file, quiet=False):
     """
     Convert an asciidoc file to HTML using asciidoctor or asciidoctor-revealjs.
     Returns True if no errors or warnings were generated and False if they
     were.
     """
 
-    html_file = sub(r"\.adoc$", ".html", adoc_file)
     if basename(adoc_file) == "slides.adoc":
         cmd = ["asciidoctor-revealjs", adoc_file, "-o", html_file]
     else:
@@ -64,35 +66,6 @@ def asciidoc(adoc_file, quiet=False):
         return False
     else:
         return True
-
-
-
-class History:
-    def __init__(self):
-        self.file = join(repo_dir, ".history")
-        if isfile(self.file):
-            self.mtimes = json.load(open(self.file))
-        else:
-            self.mtimes = {}
-
-    def is_modified(self, path):
-        mtime = getmtime(path)
-        if path in self.mtimes and mtime > self.mtimes[path]:
-            result = True
-        elif path not in self.mtimes:
-            result = True
-        else:
-            result = False
-
-        if result:
-            self.mtimes[path] = mtime
-            self.write()
-
-        return result
-
-    def write(self):
-        with open(self.file, "w") as fh:
-            json.dump(self.mtimes, fh, indent=2)
 
 
 if __name__ == "__main__":
