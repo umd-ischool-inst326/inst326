@@ -1,0 +1,117 @@
+= Computing Fundamentals
+// Uncomment the following line if your slide contains images
+:imagesdir: images
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 800
+// Uncomment the following line to use a background image
+:title-slide-background-image: mainframe.jpg
+
+== !
+[quote, Merriam-Webster]
+____
+a programmable usually electronic device that can store, retrieve, and process data
+____
+
+[.notes]
+--
+Definition of 'computer' according to Merriam-Webster.
+--
+
+== Computer Architecture
+
+=== von Neumann Archicture
+
+At a high level, von Neumann architecture diagrams represent the most essential components of an electronic computer.
+
+.von Neumann Architecture
+[link=https://en.wikipedia.org/wiki/Von_Neumann_architecture#/media/File:Von_Neumann_Architecture.svg]
+image::von_neumann.png[]
+
+=== The Early Days
+
+Individual computers were large, analog devices that required teams of people to manage.
+
+.Image of the IBM System 360 Model 91 operator's console
+[link=https://en.wikipedia.org/wiki/File:360-91-panel.jpg]
+image::ibm.jpg[]
+
+=== !
+
+And might have required large complex peripherals to load in data.
+
+.IBM 2314 disk drives and IBM 2540 card reader/punch at the University of Michigan
+[link=https://en.wikipedia.org/wiki/IBM_System/360#/media/File:IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg]
+image::reader_ibm.jpg[]
+
+== Increasing Complexity
+
+=== Operating Systems
+
+As complexity of these electronic computers increased (and price decreased), Operating Systems (OS) were created more institutions started to get their hands on them.
+
+Some problems started to arise:
+
+- How do we keep people from accessing data they should not have access to?
+- How do we create a system in which users can execute multiple programs at once?
+- How do we let multiple people have access to this fancy new machine at once?
+
+=== Early Operating Systems
+
+Added multitasking/security as a core component of the operating system by being clever about input and output devices.
+
+.IBM 1403 line printer
+[link=https://en.wikipedia.org/wiki/IBM_System/360#/media/File:IBM_line_printer_1403.JPG]
+image::line_printer.jpeg[]
+
+Which brings up a different issue, how do we keep track of memory, IO, etc?
+
+=== Core Functionality of Operating Systems
+
+- Memory management
+- Input and Output
+- Security
+- Command Interpreter (more on this later)
+
+Later on...
+- File Management (more on this later)
+- Resource Management
+
+=== Modern Day OS
+
+- Windows (Home PCs, Servers, Workstations)
+- Mac OS (Home PCs, Portable PCs, Workstations)
+- Linux (Servers, Workstations)
+
+== Terminals
+
+Terminals were used in conjunction with time sharing systems. Typically, did not have computing power and required a mainframe computer to perform operations. Used to interact with the mainframe, run programs, etc.
+
+.The DEC VT100, a widely emulated computer terminal. Still lives in spirit on modern OS.
+[link=https://en.wikipedia.org/wiki/Computer_terminal#/media/File:DEC_VT100_terminal_transparent.png]
+image::terminal.png[]
+
+[%notitle]
+=== Terminal Cheat Sheets
+
+image::commands_cheat_sheet.png[background, size=cover]
+
+== Files
+
+- `Packaged data`
+- Typically have a format to which they adhere.
+
+=== TXT files
+
+- Raw text data, made up of ASCII characters.
+- Python scripts are essentially TXT files.
+
+== File Systems
+
+- Operating systems handle file management differently. 
+- The common denominator is that:
+ ** There is always a root directory (the topmost location).
+ ** Everything lies beneath the root in a path through the folders.
+- Folders within folders structure creates a 'directory tree'.

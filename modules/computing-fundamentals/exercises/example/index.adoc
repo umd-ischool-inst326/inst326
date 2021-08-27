@@ -1,0 +1,15 @@
+= Exercise: Example
+:includedir: ../../../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview 
+
+Exercises could be activities to illustrate concepts in the lecture/readings/slides. They can be a chance to work through content in a hands-on way.
+
+== Exercise
+
+Some additional exercise here.
