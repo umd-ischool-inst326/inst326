@@ -8,7 +8,7 @@ include::{includedir}/navigation.html[]
 
 == Topics
 
-This module is to orient students to the course.
+This module orients students to the course.
 
 == Learning Outcomes
 
