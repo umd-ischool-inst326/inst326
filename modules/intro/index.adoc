@@ -1,1 +1,26 @@
-= Introduction
+= Intro
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Topics
+
+This module is to orient students to the course.
+
+== Learning Outcomes
+
+After completing this module, students should:
+
+- Understand what days we will be meeting
+- Understand the topic of the course
+- Understand how they will be evaluated
+- Set up their computer for software development
+- Have downloaded the texts we will be using
+
+== Links
+
+- link:slides.html[Slides]
+- link:exercises/index.html[Exercises]

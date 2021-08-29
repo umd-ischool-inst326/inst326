@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
-<title>Introduction</title>
+<title>Intro</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,16 +438,104 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Introduction</h1>
+<h1>Intro</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_topics">Topics</a></li>
+<li><a href="#_learning_outcomes">Learning Outcomes</a></li>
+<li><a href="#_links">Links</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-
+<div id="preamble">
+<div class="sectionbody">
+<div align="center">
+    <nav id="main_navigation">
+        <a href="/inst326/index.html">Home</a> | 
+        <a href="/inst326/modules/index.html">Modules</a> | 
+        <a href="/inst326/style/index.html">Stylesheet</a> | 
+        <a href="/inst326/syllabi/index.html">Syllabus</a>
+    </nav>
+</div>
+<script>
+    function localurl() {
+        console.log("This happened");
+        if (window.location.protocol == "file:") {
+            var ix = window.location.pathname.indexOf("inst326-public/");
+            var prefix = window.location.pathname.slice(0, ix);
+            var nav = document.getElementById("main_navigation");
+            console.log(nav);
+            var elements = Array.from(nav.getElementsByTagName("a"));
+            console.log(elements);
+            elements.forEach(element => {
+                var anchor = element.getAttribute("href");
+                var localpath = anchor.replace("/", prefix);
+                element.setAttribute("href", localpath);
+            });
+        }
+    }
+    window.onload = localurl;
+</script>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_topics">Topics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This module is to orient students to the course.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_learning_outcomes">Learning Outcomes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After completing this module, students should:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Understand what days we will be meeting</p>
+</li>
+<li>
+<p>Understand the topic of the course</p>
+</li>
+<li>
+<p>Understand how they will be evaluated</p>
+</li>
+<li>
+<p>Set up their computer for software development</p>
+</li>
+<li>
+<p>Have downloaded the texts we will be using</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="slides.html">Slides</a></p>
+</li>
+<li>
+<p><a href="exercises/index.html">Exercises</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-13 17:36:03 -0400
+Last updated 2021-08-29 09:15:21 -0400
 </div>
 </div>
 </body>

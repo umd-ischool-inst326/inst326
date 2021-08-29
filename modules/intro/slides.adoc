@@ -19,7 +19,7 @@
 * By [emph]#collaborating# and [emph]#discussing# programming together
 * By conscientiously applying [emph]#best practices#
 * By making [emph]#mistakes# and learning from them
-* By considering the [emph]#societal context# of programming
+* By considering the [emph]#social context# of programming
 
 [.notes]
 --
@@ -132,7 +132,11 @@ Societal context: programming doesn't occur in a vacuum; it influences and is in
 * Attend [emph]#live session# Friday
 * Complete [emph]#survey#
 
+[.text-center]
 == I look forward to having you in class!
+
+[.text-center]
+image::inst326.png[INST326,600]
 
 ////
 
