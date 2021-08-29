@@ -1,4 +1,4 @@
-= Intro
+= Introduction
 :includedir: ../../includes
 :toc: left
 
