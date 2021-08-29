@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import time
 import shutil
 import argparse
 import subprocess
@@ -30,8 +31,24 @@ def main():
     parser.add_argument(
         "-q", "--quiet", action="store_true", help="Suppress output"
     )
+    parser.add_argument(
+        "-w", "--watch", action="store_true", help="Watch for changes"
+    )
     args = parser.parse_args()
 
+    if args.watch:
+        while True:
+            build(repo_dir, args)
+            time.sleep(1)
+    else:
+        build(repo_dir, args)
+
+
+def build(repo_dir, args):
+    """
+    Process the contents of the given repository directory with the 
+    given command line arguments.
+    """
     for dir_name, dirs, files in walk(repo_dir):
         for filename in files:
             if filename.endswith(".adoc"):
