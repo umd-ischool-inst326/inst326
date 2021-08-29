@@ -1,4 +1,4 @@
-= Exmaple
+= Example
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

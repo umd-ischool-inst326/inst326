@@ -1,6 +1,4 @@
-= Exmaple
-//:stylesdir: ../../css
-//:stylesheet: page.css
+= Computing Fundamentals 
 :includedir: ../../includes
 :toc: left
 
@@ -10,23 +8,17 @@ include::{includedir}/navigation.html[]
 
 == Topics
 
-Overview of the module goes here.
+This module is designed to give students a high level overview of computer
+architecture and operating systems. We will be using the computer's file system
+heavily over the semester and it is important to understand what it is and what
+it is for.
 
 == Learning Outcomes
 
 After completing this module, students should:
 
-- Learning outcome 1
-- Learning outcome 2
-- Learning outcome 3
-
-== Readings
-
-- Required readings here
-
-== Additional Readings (optional, as needed)
-
-- Additional readings and references could go here.
+- Describe the purpose of a computer operating system.
+- Locate and use their computer's file system.
 
 == Links (these are the navigational links within the module)
 
