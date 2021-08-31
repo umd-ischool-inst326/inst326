@@ -8,6 +8,9 @@
 :revealjs_height: 800
 // Uncomment the following line to use a background image
 :title-slide-background-image: mainframe.jpg
+:half-width: width='50%'
+:third-width: width='33%'
+:quarter-width: width='25%'
 
 == !
 [quote, Merriam-Webster]
@@ -28,7 +31,7 @@ At a high level, von Neumann architecture diagrams represent the most essential 
 
 .von Neumann Architecture
 [link=https://en.wikipedia.org/wiki/Von_Neumann_architecture#/media/File:Von_Neumann_Architecture.svg]
-image::von_neumann.png[]
+image::von_neumann.png[{half-width}]
 
 === The Early Days
 
@@ -36,7 +39,7 @@ Individual computers were large, analog devices that required teams of people to
 
 .Image of the IBM System 360 Model 91 operator's console
 [link=https://en.wikipedia.org/wiki/File:360-91-panel.jpg]
-image::ibm.jpg[]
+image::ibm.jpg[{half-width}]
 
 === !
 
@@ -44,7 +47,7 @@ And might have required large complex peripherals to load in data.
 
 .IBM 2314 disk drives and IBM 2540 card reader/punch at the University of Michigan
 [link=https://en.wikipedia.org/wiki/IBM_System/360#/media/File:IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg]
-image::reader_ibm.jpg[]
+image::reader_ibm.jpg[{half-width}]
 
 == Increasing Complexity
 
@@ -64,7 +67,7 @@ Added multitasking/security as a core component of the operating system by being
 
 .IBM 1403 line printer
 [link=https://en.wikipedia.org/wiki/IBM_System/360#/media/File:IBM_line_printer_1403.JPG]
-image::line_printer.jpeg[]
+image::line_printer.jpeg[{quarter-width}]
 
 Which brings up a different issue, how do we keep track of memory, IO, etc?
 
@@ -76,6 +79,7 @@ Which brings up a different issue, how do we keep track of memory, IO, etc?
 - Command Interpreter (more on this later)
 
 Later on...
+
 - File Management (more on this later)
 - Resource Management
 
@@ -87,16 +91,17 @@ Later on...
 
 == Terminals
 
-Terminals were used in conjunction with time sharing systems. Typically, did not have computing power and required a mainframe computer to perform operations. Used to interact with the mainframe, run programs, etc.
+- Terminals were used in conjunction with time sharing systems. 
+- Typically, did not have computing power and required a mainframe computer to perform operations. Used to interact with the mainframe, run programs, etc.
 
 .The DEC VT100, a widely emulated computer terminal. Still lives in spirit on modern OS.
 [link=https://en.wikipedia.org/wiki/Computer_terminal#/media/File:DEC_VT100_terminal_transparent.png]
-image::terminal.png[]
+image::terminal.png[{quarter-width}]
 
 [%notitle]
 === Terminal Cheat Sheets
 
-image::commands_cheat_sheet.png[background, size=cover]
+image::commands_cheat_sheet.png[background, {half-width}]
 
 == Files
 
