@@ -32,7 +32,7 @@ The program collects test results, sample quality and calibration times from lab
 1. The sample quality is **greater than .9**
 2. The time (hours) since last calibration is **less than 5**.
 
-If either of these things is false the program should not record the result and should exit immediately with an error.
+If either of these things is false the program **should not** record the result and should exit immediately with an error.
 
 == Instructions
 
