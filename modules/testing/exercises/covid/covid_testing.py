@@ -22,7 +22,7 @@ def main():
             continue
 
         q = float(input("Sample quality: "))
-        t = int(input("Minutes since last calibration: "))
+        t = int(input("Hours since last calibration: "))
 
         if not is_valid_sample(q):
             print("Invalid sample, stopping!")
