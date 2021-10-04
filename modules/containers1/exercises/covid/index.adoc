@@ -49,7 +49,7 @@ analyze it to identify any problems.
 == Instructions
 
 Download link:data/MD_COVID19_TotalVaccinationsCountyFirstandSecondDose.csv[this
-CSV file] for the __The cumulative number of COVID-19 vaccinations within a single Maryland__  dataset that was originally published by the Maryland Department of Health at https://coronavirus.maryland.gov/datasets/md-covid19-totalvaccinationscountyfirstandseconddose but has since been removed.
+CSV file] for the __The cumulative number of COVID-19 vaccinations within a single Maryland jurisdiction__  dataset that was originally published by the Maryland Department of Health at https://coronavirus.maryland.gov/datasets/md-covid19-totalvaccinationscountyfirstandseconddose but has since been removed.
 
 When answering the following questions remember this weeks work using Python sets.
 
