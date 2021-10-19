@@ -56,7 +56,7 @@ def build(repo_dir, args):
                 adoc_mtime = getmtime(adoc_path)
 
                 html_path = sub(r"\.adoc$", ".html", adoc_path)
-                html_mtime = getmtime(html_path)
+                html_mtime = getmtime(html_path) if isfile(html_path) else 0
 
                 if args.force or html_mtime < adoc_mtime:
                     asciidoc(adoc_path, html_path, args.quiet)
@@ -69,7 +69,7 @@ def asciidoc(adoc_file, html_file, quiet=False):
     were.
     """
 
-    if basename(adoc_file) == "slides.adoc":
+    if 'slides' in basename(adoc_file):
         cmd = ["asciidoctor-revealjs", adoc_file, "-o", html_file]
     else:
         cmd = ["asciidoctor", adoc_file, "-o", html_file]

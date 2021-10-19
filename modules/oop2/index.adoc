@@ -15,6 +15,7 @@ This module introduces the topic of "design patterns" in object-oriented program
 === Links
 
 * link:slides.html[Slides]
+* link:alt-slides.html[Alternate Slides]
 * link:exercises/index.html[Exercises]
 
 == Learning Outcomes
