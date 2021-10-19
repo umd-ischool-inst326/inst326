@@ -1,6 +1,6 @@
 # inst326
 
-This repository contains public course materials for **INST326: Object-Oriented Programming for Information Studies** at the University of Maryland.
+This repository contains public course materials for **INST326: Object-Oriented Programming for Information Studies** at the University of Maryland. INST326 introduces students to the design, testing and use of object oriented software with the Python programming language.
 
 You can find the public site at:
 
