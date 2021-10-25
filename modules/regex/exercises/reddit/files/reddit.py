@@ -6,6 +6,7 @@ Collect the last year of UMD Reddit data from PushShift API.
 
 import csv
 import time
+import datetime
 import requests
 
 cols = [
@@ -58,9 +59,11 @@ cols = [
 out = csv.writer(open('reddit.csv', 'w'))
 out.writerow(cols)
 
+total_days = (datetime.date.today() - datetime.date(2020, 1, 1)).days
+
 days = 0
 count = 0
-while days < 365:
+while days < total_days:
     days += 1
     time.sleep(1)
     url = "https://api.pushshift.io/reddit/search/submission"
