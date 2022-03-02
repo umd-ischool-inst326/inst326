@@ -315,7 +315,7 @@ for name, age in people:
 [%step]
 [source, python]
 ----
-greeting = {"Amharic": "ጤና ይስጥልኝ",
+greetings = {"Amharic": "ጤና ይስጥልኝ",
             "English": "hello",
             "French": "bonjour",
             "Korean": "안녕하세요"
@@ -336,8 +336,8 @@ greeting = {"Amharic": "ጤና ይስጥልኝ",
 [%step]
 [source, python]
 ----
-print(greeting["Spanish"])
-print(greeting.get("Manx", "hello"))
+print(greetings["Spanish"])
+print(greetings.get("Manx", "hello"))
 ----
 
 [.nobullet.nosubbullet]
@@ -348,8 +348,8 @@ print(greeting.get("Manx", "hello"))
 [%step]
 [source, python]
 ----
-greeting["Samoan"] = "talofa"
-greeting["English"] = "hi"
+greetings["Samoan"] = "talofa"
+greetings["English"] = "hi"
 ----
 --
 
@@ -528,8 +528,8 @@ counts = dict()
 for word in words:
     counts[word] = counts.get(word, 0) + 1
 
-for word in counts():
-    print(f"{word} occurred {word[count]} times")
+for word in counts:
+    print(f"{word} occurred {counts[word]} times")
 ----
 
 === Summary
@@ -902,7 +902,7 @@ num_unique = len(waitlisted)
 [source, python]
 ----
 clients = ["Gears, Inc.", "Sprocketworld", "Bevel Warehouse",
-           "ACME Cogs", "Pinion Palace", "Helixity", "Torque LLC"]
+           "ACME Cogs", "Pinion Palace", "Helixity", "Torque, LLC"]
 
 appts = {"Sprocketworld": "Oct. 7",
          "Torque, LLC": "Oct .8",
