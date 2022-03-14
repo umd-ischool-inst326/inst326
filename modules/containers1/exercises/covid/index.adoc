@@ -1,4 +1,4 @@
-= Exercise: Vaccination Amomalies
+= Exercise: Vaccination Anomalies
 :includedir: ../../../../includes
 :source-highlighter: rouge
 :stem:
